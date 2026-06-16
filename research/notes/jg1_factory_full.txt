@@ -1,0 +1,153 @@
+package com.daaw;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Supplier;
+
+/* JADX INFO: loaded from: classes.dex */
+public abstract class jg1 {
+    public static final Map a;
+
+    static {
+        LinkedHashMap linkedHashMap = new LinkedHashMap();
+        a = linkedHashMap;
+        linkedHashMap.put("None", null);
+        linkedHashMap.put("Root", new Supplier() { // from class: com.daaw.vf1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new t75();
+            }
+        });
+        linkedHashMap.put("Composition", new Supplier() { // from class: com.daaw.eg1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new zi0();
+            }
+        });
+        linkedHashMap.put("Text", new Supplier() { // from class: com.daaw.fg1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new p76();
+            }
+        });
+        linkedHashMap.put("Bars", new Supplier() { // from class: com.daaw.gg1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new nh5();
+            }
+        });
+        linkedHashMap.put("Particles", new Supplier() { // from class: com.daaw.hg1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new u94();
+            }
+        });
+        linkedHashMap.put("Image", new Supplier() { // from class: com.daaw.ig1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new zh2();
+            }
+        });
+        linkedHashMap.put("AudioProvider", new Supplier() { // from class: com.daaw.wf1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new jr();
+            }
+        });
+        linkedHashMap.put("BlurEffect", new Supplier() { // from class: com.daaw.xf1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new zz();
+            }
+        });
+        linkedHashMap.put("RgbSplitEffect", new Supplier() { // from class: com.daaw.yf1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new v65();
+            }
+        });
+        linkedHashMap.put("MotionBlurEffect", new Supplier() { // from class: com.daaw.zf1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new rs3();
+            }
+        });
+        linkedHashMap.put("MirrorEffect", new Supplier() { // from class: com.daaw.ag1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new zq3();
+            }
+        });
+        linkedHashMap.put("AppLogo", new Supplier() { // from class: com.daaw.bg1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new be3();
+            }
+        });
+        linkedHashMap.put("StatText", new Supplier() { // from class: com.daaw.cg1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new uz1();
+            }
+        });
+        linkedHashMap.put("CustomShader", new Supplier() { // from class: com.daaw.dg1
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new au0();
+            }
+        });
+    }
+
+    public static rf1 a(String str, String str2, rf1 rf1Var) {
+        StringBuilder sb;
+        String str3;
+        if ("None".equals(str)) {
+            return null;
+        }
+        Supplier supplier = (Supplier) a.get(str);
+        if (supplier == null || str.equals(c(rf1Var))) {
+            if (supplier == null) {
+                sb = new StringBuilder();
+                str3 = "Unknown typeName: ";
+            }
+            return rf1Var;
+        }
+        try {
+            return (rf1) supplier.get();
+        } catch (Exception unused) {
+            sb = new StringBuilder();
+            str3 = "Failed to create element for typeName: ";
+        }
+        sb.append(str3);
+        sb.append(str);
+        ub7.a(sb.toString());
+        return rf1Var;
+    }
+
+    public static String[] b() {
+        String[] strArr = {"Root", "AppLogo", "StatText"};
+        ArrayList arrayList = new ArrayList();
+        for (String str : a.keySet()) {
+            if (!str.equals("None") && !Arrays.asList(strArr).contains(str)) {
+                arrayList.add(str);
+            }
+        }
+        return (String[]) arrayList.toArray(new String[0]);
+    }
+
+    public static String c(rf1 rf1Var) {
+        if (rf1Var == null) {
+            return "None";
+        }
+        for (Map.Entry entry : a.entrySet()) {
+            Supplier supplier = (Supplier) entry.getValue();
+            if (supplier != null && ((rf1) supplier.get()).getClass().isInstance(rf1Var)) {
+                return (String) entry.getKey();
+            }
+        }
+        ub7.c("Unknown instance type");
+        return "unk";
+    }
+}

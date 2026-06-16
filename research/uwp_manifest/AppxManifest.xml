@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Package IgnorableNamespaces="uap mp uap3 build" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:build="http://schemas.microsoft.com/developer/appx/2015/build">
+  <Identity Name="11314DaawAww.AveePlayer" Publisher="CN=7B798F09-D8B5-4E8A-8469-18F118C24516" Version="0.8.25.0" ProcessorArchitecture="x64" />
+  <mp:PhoneIdentity PhoneProductId="4e03feae-0760-46f8-9317-9a71cd050dad" PhonePublisherId="2f34afe9-64c2-4972-a001-c3d56911e84f" />
+  <Properties>
+    <DisplayName>Avee Player</DisplayName>
+    <PublisherDisplayName>Daaw Aww</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.14393.0" MaxVersionTested="10.0.16299.0" />
+    <PackageDependency Name="Microsoft.NET.Native.Framework.1.7" MinVersion="1.7.25531.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+    <PackageDependency Name="Microsoft.NET.Native.Runtime.1.7" MinVersion="1.7.25531.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+    <PackageDependency Name="Microsoft.Advertising.Xaml" MinVersion="10.1805.2.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+    <PackageDependency Name="Microsoft.VCLibs.140.00" MinVersion="14.0.25426.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="EN-US" />
+    <Resource uap:Scale="200" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="BleuPlayer.UWP.exe" EntryPoint="BleuPlayer.UWP.App">
+      <uap:VisualElements DisplayName="Avee Player" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Avee Music Player" BackgroundColor="#00acec">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png" ShortName="Avee Player">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#00acec" />
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="audio">
+            <uap:EditFlags OpenIsSafe="true" />
+            <uap:SupportedFileTypes>
+              <uap:FileType>.mp3</uap:FileType>
+              <uap:FileType>.wav</uap:FileType>
+              <uap:FileType>.m4a</uap:FileType>
+              <uap:FileType>.3gp</uap:FileType>
+              <uap:FileType>.aac</uap:FileType>
+              <uap:FileType>.flac</uap:FileType>
+              <uap:FileType>.asf</uap:FileType>
+              <uap:FileType>.wma</uap:FileType>
+              <uap:FileType>.adt</uap:FileType>
+              <uap:FileType>.adts</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="visualizer">
+            <uap:EditFlags OpenIsSafe="true" />
+            <uap:SupportedFileTypes>
+              <uap:FileType>.viz</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <uap3:Capability Name="backgroundMediaPlayback" />
+    <uap:Capability Name="musicLibrary" />
+    <uap:Capability Name="picturesLibrary" />
+    <uap:Capability Name="removableStorage" />
+    <uap:Capability Name="videosLibrary" />
+  </Capabilities>
+  <Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+      <InProcessServer>
+        <Path>BleuPlayer.UWP.dll</Path>
+        <ActivatableClass ActivatableClassId="CustomEffect.AudioFrameDataFx" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="CustomEffect.NewSourceArgs" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="CustomEffect.AudioEchoEffect" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="CustomEffect.VisualizerDataCapturer" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="CustomEffect.VisualizerDataProvider" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="CustomEffect.ExoPcmDataFx" ThreadingModel="both" />
+      </InProcessServer>
+    </Extension>
+  </Extensions>
+  <build:Metadata>
+    <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
+    <build:Item Name="VisualStudio" Version="15.0" />
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2017" />
+    <build:Item Name="OperatingSystem" Version="10.0.17134.1 (WinBuild.160101.0800)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.27703.2026" />
+    <build:Item Name="ProjectGUID" Value="{23FDF6EF-9A26-4F01-8994-F059A278B566}" />
+    <build:Item Name="ilc.exe" Version="1.7.25927.00 built by: PROJECTNGDR2" />
+    <build:Item Name="OptimizingToolset" Value="ilc.exe" />
+    <build:Item Name="UseDotNetNativeSharedAssemblyFrameworkPackage" Value="True" />
+    <build:Item Name="UniversalGenericsOptOut" Value="false" />
+    <build:Item Name="ShortcutGenericAnalysis" Value="false" />
+    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="15.0.27703.2026" />
+    <build:Item Name="MakePri.exe" Version="10.0.16299.15 (WinBuild.160101.0800)" />
+  </build:Metadata>
+</Package>
