@@ -1,0 +1,15 @@
+        linkedHashMap.put("None", null);
+        linkedHashMap.put("Root", new Supplier() { // from class: com.daaw.vf1
+        linkedHashMap.put("Composition", new Supplier() { // from class: com.daaw.eg1
+        linkedHashMap.put("Text", new Supplier() { // from class: com.daaw.fg1
+        linkedHashMap.put("Bars", new Supplier() { // from class: com.daaw.gg1
+        linkedHashMap.put("Particles", new Supplier() { // from class: com.daaw.hg1
+        linkedHashMap.put("Image", new Supplier() { // from class: com.daaw.ig1
+        linkedHashMap.put("AudioProvider", new Supplier() { // from class: com.daaw.wf1
+        linkedHashMap.put("BlurEffect", new Supplier() { // from class: com.daaw.xf1
+        linkedHashMap.put("RgbSplitEffect", new Supplier() { // from class: com.daaw.yf1
+        linkedHashMap.put("MotionBlurEffect", new Supplier() { // from class: com.daaw.zf1
+        linkedHashMap.put("MirrorEffect", new Supplier() { // from class: com.daaw.ag1
+        linkedHashMap.put("AppLogo", new Supplier() { // from class: com.daaw.bg1
+        linkedHashMap.put("StatText", new Supplier() { // from class: com.daaw.cg1
+        linkedHashMap.put("CustomShader", new Supplier() { // from class: com.daaw.dg1

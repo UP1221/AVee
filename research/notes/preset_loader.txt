@@ -1,0 +1,236 @@
+package com.daaw;
+
+import android.app.FragmentManager;
+import android.content.Context;
+import com.daaw.avee.comp.Visualizer.VisualizerViewCore;
+import com.daaw.q37;
+import com.daaw.r37;
+import com.daaw.s37;
+import com.daaw.su0;
+import com.daaw.t37;
+import com.daaw.w37;
+import com.daaw.y37;
+import java.lang.ref.WeakReference;
+
+/* JADX INFO: loaded from: classes.dex */
+public class z17 extends j71 {
+    public WeakReference b = new WeakReference(null);
+
+    public class a implements w37.a {
+        public a() {
+        }
+
+        @Override // com.daaw.w37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public Boolean invoke(su0 su0Var) {
+            if (su0Var == null || (!su0Var.i() && !su0Var.m(0))) {
+                return Boolean.FALSE;
+            }
+            return Boolean.TRUE;
+        }
+    }
+
+    public class b implements h6 {
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ int b;
+
+        public b(boolean z, int i) {
+            this.a = z;
+            this.b = i;
+        }
+
+        @Override // com.daaw.h6
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public void a(VisualizerViewCore visualizerViewCore) {
+            h27.f0(visualizerViewCore, this.a, this.b);
+        }
+    }
+
+    public class c implements w37.a {
+        public c() {
+        }
+
+        @Override // com.daaw.w37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public Boolean invoke(String str) {
+            return Boolean.valueOf(!"Composition".equals(str));
+        }
+    }
+
+    public class d implements q37.a {
+        public d() {
+        }
+
+        @Override // com.daaw.q37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public void invoke(VisualizerViewCore visualizerViewCore) {
+            z17.this.b = new WeakReference(visualizerViewCore);
+        }
+    }
+
+    public class e implements t37.a {
+        public e() {
+        }
+
+        @Override // com.daaw.t37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public void b(Integer num, Integer num2, xt0 xt0Var, String str) {
+            z17.this.c(xt0Var, str);
+            z17.this.d(xt0Var, true, -1);
+        }
+    }
+
+    public class f implements r37.a {
+        public f() {
+        }
+
+        @Override // com.daaw.r37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public void invoke(Integer num, xt0 xt0Var) {
+            wt0 wt0VarB;
+            wt0 wt0VarM;
+            su0 su0VarK = su0.k();
+            if (su0VarK == null) {
+                return;
+            }
+            su0.i iVarL = su0VarK.l(num.intValue());
+            if (iVarL.a() == null && (wt0VarB = iVarL.b()) != null && (wt0VarM = wt0VarB.m()) != null && (wt0VarM instanceof tt0)) {
+                tt0 tt0Var = (tt0) wt0VarM;
+                tt0Var.A0(wt0VarB);
+                z17.this.d(xt0Var, false, tt0Var.x0());
+            }
+        }
+    }
+
+    public class g implements r37.a {
+        public g() {
+        }
+
+        @Override // com.daaw.r37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public void invoke(Integer num, xt0 xt0Var) {
+            su0 su0VarK = su0.k();
+            if (su0VarK != null) {
+                su0VarK.z(num.intValue());
+            }
+        }
+    }
+
+    public class h implements s37.a {
+        public h() {
+        }
+
+        @Override // com.daaw.s37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public void invoke(su0 su0Var, String str, String str2) {
+            FragmentManager fragmentManager;
+            int i;
+            if ("AppLogo".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.p;
+            } else if ("AudioProvider".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.q;
+            } else if ("BlurEffect".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.r;
+            } else if ("Composition".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.s;
+            } else if ("Image".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.t;
+            } else if ("MirrorEffect".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.u;
+            } else if ("MotionBlurEffect".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.v;
+            } else if ("Particles".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.w;
+            } else if ("RgbSplitEffect".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.x;
+            } else if ("Bars".equals(str)) {
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.y;
+            } else {
+                if (!"Text".equals(str)) {
+                    return;
+                }
+                fragmentManager = su0Var.getFragmentManager();
+                i = cv4.z;
+            }
+            e93.e(fragmentManager, true, i, 0, "");
+        }
+    }
+
+    public class i implements t37.a {
+        public i() {
+        }
+
+        @Override // com.daaw.t37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public void b(su0 su0Var, xt0 xt0Var, wt0 wt0Var, String str) {
+            if (xt0Var == null || wt0Var == null) {
+                return;
+            }
+            wt0Var.g(wt0Var.C(), wt0Var.E());
+            Context contextI = com.daaw.avee.a.i();
+            if (contextI != null) {
+                el1.a.a(contextI.getString(fv4.i7));
+            }
+            z17.this.d(xt0Var, false, -1);
+        }
+    }
+
+    public class j implements w37.a {
+        public j() {
+        }
+
+        @Override // com.daaw.w37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public Integer invoke(String str) {
+            return Integer.valueOf("customization_general".equals(str) ? cv4.n : "customization_segment_renderers".equals(str) ? cv4.o : 0);
+        }
+    }
+
+    public class k implements y37.a {
+        public k() {
+        }
+
+        @Override // com.daaw.y37.a
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public mg6 invoke(su0 su0Var, String str, String str2) {
+            return new mg6(new String[]{"10"}, "10");
+        }
+    }
+
+    public z17() {
+        su0.f0.b(new c(), this.a);
+        c02.I.b(new d(), this.a);
+        su0.R.b(new e(), this.a);
+        su0.d0.b(new f(), this.a);
+        su0.c0.b(new g(), this.a);
+        su0.Z.b(new h(), this.a);
+        su0.e0.b(new i(), this.a);
+        e93.G.b(new j(), this.a);
+        su0.a0.b(new k(), this.a);
+        su0.b0.b(new a(), this.a);
+    }
+
+    public void c(xt0 xt0Var, String str) {
+        wt0 wt0VarB = "Composition".equals(str) ? xt0Var.b() : xt0Var.c() > 0 ? xt0Var.a(xt0Var.c() - 1).b() : null;
+        if (wt0VarB != null) {
+            wt0VarB.F(str);
+        }
+    }
+
+    public final void d(xt0 xt0Var, boolean z, int i2) {
+        VisualizerViewCore visualizerViewCore = (VisualizerViewCore) this.b.get();
+        if (visualizerViewCore != null) {
+            visualizerViewCore.o(xt0Var, new b(z, i2));
+        }
+    }
+}
