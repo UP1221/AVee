@@ -1,0 +1,67 @@
+package com.daaw;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Supplier;
+
+/* JADX INFO: loaded from: classes.dex */
+public abstract class xl5 {
+    public static final Map a;
+
+    static {
+        LinkedHashMap linkedHashMap = new LinkedHashMap();
+        a = linkedHashMap;
+        linkedHashMap.put("None", null);
+        linkedHashMap.put(yl5.c, new Supplier() { // from class: com.daaw.ul5
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new yl5();
+            }
+        });
+        linkedHashMap.put(tl5.c, new Supplier() { // from class: com.daaw.vl5
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new tl5();
+            }
+        });
+        linkedHashMap.put(bm5.f, new Supplier() { // from class: com.daaw.wl5
+            @Override // java.util.function.Supplier
+            public final Object get() {
+                return new bm5();
+            }
+        });
+    }
+
+    public static ag2 a(String str, ag2 ag2Var) {
+        Supplier supplier = (Supplier) a.get(str);
+        if (supplier == null) {
+            ub7.a("Unknown typeName: " + str);
+            return null;
+        }
+        try {
+            ag2 ag2Var2 = (ag2) supplier.get();
+            if (ag2Var2 != null) {
+                if (!ag2Var2.getClass().isInstance(ag2Var)) {
+                    return ag2Var2;
+                }
+            }
+        } catch (Exception unused) {
+            ub7.a("Failed to create input for typeName: " + str);
+        }
+        return ag2Var;
+    }
+
+    public static String b(ag2 ag2Var) {
+        for (Map.Entry entry : a.entrySet()) {
+            Supplier supplier = (Supplier) entry.getValue();
+            if (supplier != null && ((ag2) supplier.get()).getClass().isInstance(ag2Var)) {
+                return (String) entry.getKey();
+            }
+        }
+        return "Unknown";
+    }
+
+    public static String[] c() {
+        return (String[]) a.keySet().toArray(new String[0]);
+    }
+}

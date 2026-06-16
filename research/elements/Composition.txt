@@ -1,0 +1,319 @@
+package com.daaw;
+
+import android.opengl.GLES20;
+import java.util.ArrayList;
+import java.util.List;
+
+/* JADX INFO: loaded from: classes.dex */
+public class zi0 extends sf1 implements ke2 {
+    public static w37 U = new w37();
+    public boolean H;
+    public rs6 I;
+    public final boolean J;
+    public boolean K;
+    public List L;
+    public float M;
+    public float N;
+    public float O;
+    public float P;
+    public int Q;
+    public int R;
+    public Boolean S;
+    public uz1 T;
+
+    public zi0() {
+        this.H = false;
+        this.L = new ArrayList();
+        this.M = 0.0f;
+        this.N = 0.0f;
+        this.O = 0.0f;
+        this.P = 0.0f;
+        this.Q = -553648128;
+        this.R = 0;
+        this.S = Boolean.FALSE;
+        this.J = false;
+    }
+
+    public static int i0(String str) {
+        String[] strArr = new String[2];
+        rr6.B(str, 58, strArr);
+        if ("composition".equals(strArr[0])) {
+            return rr6.x(strArr[1], -1);
+        }
+        return -1;
+    }
+
+    public static String o0(int i) {
+        return "composition:" + i;
+    }
+
+    @Override // com.daaw.rf1
+    public void B(q35 q35Var, j12 j12Var) {
+        uz1 uz1Var;
+        v0(q35Var.u.a.e());
+        C(q35Var);
+        this.K = true;
+        gd6 gd6VarI = q35Var.u.b().i();
+        if (this.J) {
+            super.B(q35Var, j12Var);
+            d0(q35Var, j12Var);
+            if (j12Var == null && (uz1Var = this.T) != null) {
+                uz1Var.B(q35Var, j12Var);
+            }
+            q0(q35Var, gd6VarI);
+            return;
+        }
+        rs6 rs6Var = this.I;
+        if (rs6Var == null) {
+            return;
+        }
+        q35Var.i(rs6Var);
+        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+        GLES20.glClear(16384);
+        w0(q35Var);
+        d0(q35Var, this.I);
+        q0(q35Var, gd6VarI);
+    }
+
+    @Override // com.daaw.rf1
+    public void F(q35 q35Var) {
+        boolean z = this.J;
+        super.F(q35Var);
+        e0(q35Var);
+    }
+
+    @Override // com.daaw.rf1
+    public boolean K(wt0 wt0Var, int i) {
+        rf1 be3Var;
+        super.K(wt0Var, i);
+        if (wt0Var instanceof tt0) {
+            f0((tt0) wt0Var);
+        }
+        if (this.J && !((Boolean) U.a(this, Boolean.FALSE)).booleanValue()) {
+            boolean z = false;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= this.G.size()) {
+                    be3Var = null;
+                    break;
+                }
+                be3Var = (rf1) this.G.get(i2);
+                if (!(be3Var instanceof be3)) {
+                    i2++;
+                } else if (i2 != this.G.size() - 1) {
+                    c0(i2);
+                } else {
+                    z = true;
+                }
+            }
+            if (!z) {
+                if (be3Var == null) {
+                    be3Var = new be3();
+                }
+                Z(be3Var);
+            }
+        }
+        return true;
+    }
+
+    @Override // com.daaw.rf1
+    public boolean W() {
+        if (super.W()) {
+            return !this.K;
+        }
+        return false;
+    }
+
+    @Override // com.daaw.sf1
+    public rf1 Y(int i, String str, String str2) {
+        return jg1.a(str, str2, null);
+    }
+
+    @Override // com.daaw.ke2
+    public void a(int i) {
+        this.L.add(Integer.valueOf(i));
+    }
+
+    @Override // com.daaw.rf1
+    public boolean g(wt0 wt0Var, int i, df2 df2Var) {
+        super.g(wt0Var, i, df2Var);
+        if (!(wt0Var instanceof tt0)) {
+            return true;
+        }
+        b0((tt0) wt0Var, df2Var);
+        return true;
+    }
+
+    public List g0() {
+        return this.L;
+    }
+
+    @Override // com.daaw.rf1
+    public String h() {
+        return "Composition";
+    }
+
+    public rs6 h0() {
+        return this.I;
+    }
+
+    public final int j0() {
+        return this.Q;
+    }
+
+    public final float k0() {
+        return this.O;
+    }
+
+    public final float l0() {
+        return this.P;
+    }
+
+    public boolean m0() {
+        return this.S.booleanValue();
+    }
+
+    public boolean n0() {
+        return this.J;
+    }
+
+    public void p0() {
+        this.K = true;
+    }
+
+    public final void q0(q35 q35Var, gd6 gd6Var) {
+        float f;
+        if (gd6Var == null) {
+            return;
+        }
+        int i = this.Q;
+        if (gd6Var.b > 14000.0f) {
+            float f2 = this.O;
+            float fMin = f2 > 0.01f ? Math.min(1.0f, (gd6Var.a / 1000.0f) / f2) : 1.0f;
+            float f3 = this.P;
+            float fMax = f3 > 0.01f ? Math.max(0.0f, Math.min(1.0f, ((gd6Var.b - gd6Var.a) / 1000.0f) / f3)) : 1.0f;
+            if (fMin < 1.0f) {
+                i = this.Q;
+                f = 1.0f - fMin;
+            } else if (fMax < 1.0f) {
+                i = this.Q;
+                f = 1.0f - fMax;
+            } else {
+                this.N = 0.0f;
+            }
+            this.N = f;
+        }
+        float f4 = (this.M * 0.9f) + (this.N * 0.100000024f);
+        this.M = f4;
+        if (f4 > 0.01f) {
+            q35Var.x(p82.t(i, (int) (p82.h(i) * this.M)), new o35(this.R, q35Var.u.c(), (us6) null, (j6) null));
+        }
+    }
+
+    public final void r0(int i) {
+        this.Q = i;
+    }
+
+    public final void s0(float f) {
+        this.O = f;
+    }
+
+    @Override // com.daaw.sf1, com.daaw.rf1
+    public void t(wt0 wt0Var) {
+        super.t(wt0Var);
+        this.R = kz.a(wt0Var.x("introBlendMode", kz.b(0)), 0);
+        s0(wt0Var.p("introFadeDuration", 0.0f));
+        t0(wt0Var.p("outroFadeDuration", 0.0f));
+        r0(wt0Var.s("introFadeColor", -553648128));
+        u0(wt0Var.o("allowRecursion", false));
+    }
+
+    public final void t0(float f) {
+        this.P = f;
+    }
+
+    public final void u0(boolean z) {
+        this.S = Boolean.valueOf(z);
+    }
+
+    @Override // com.daaw.rf1
+    public boolean v(q35 q35Var) {
+        if (!this.J) {
+            this.H = q35Var.u.a.e();
+            try {
+                cu6 cu6VarI = q35Var.I();
+                rs6 rs6Var = this.I;
+                if (rs6Var != null) {
+                    rs6Var.a();
+                }
+                rs6 rs6VarG = rs6.g(cu6VarI.a, cu6VarI.b, 9729, 10497, this.H);
+                this.I = rs6VarG;
+                if (rs6VarG != null) {
+                    this.I = rs6VarG.f();
+                }
+            } catch (Exception e) {
+                ub7.c(e.getMessage());
+            }
+        }
+        return super.v(q35Var);
+    }
+
+    public void v0(boolean z) {
+        if (this.H == z) {
+            return;
+        }
+        this.H = z;
+        l();
+    }
+
+    public final void w0(q35 q35Var) {
+        GLES20.glTexParameteri(3553, 10241, 9729);
+        GLES20.glTexParameteri(3553, 10240, 9729);
+        q35Var.T(1);
+    }
+
+    @Override // com.daaw.rf1
+    public void x(q35 q35Var) {
+        super.x(q35Var);
+        rs6 rs6Var = this.I;
+        if (rs6Var != null) {
+            rs6Var.a();
+        }
+        this.I = null;
+    }
+
+    @Override // com.daaw.sf1, com.daaw.rf1
+    public void y(uf2 uf2Var, j12 j12Var, ke2 ke2Var) {
+        this.L.clear();
+        super.y(uf2Var, j12Var, this);
+        this.K = false;
+    }
+
+    @Override // com.daaw.sf1, com.daaw.rf1
+    public void z(wt0 wt0Var, df2 df2Var) {
+        super.z(wt0Var, df2Var);
+        wt0Var.s0(j(fv4.A6));
+        wt0Var.p0("introBlendMode", kz.b(this.R), "2_introOutro", kz.c(kz.b));
+        wt0Var.Q("introFadeDuration", k0(), "2_introOutro", 0.0f, 10.0f);
+        wt0Var.Q("outroFadeDuration", l0(), "2_introOutro", 0.0f, 10.0f);
+        wt0Var.V("introFadeColor", j0(), "2_introOutro");
+        wt0Var.N("allowRecursion", this.S.booleanValue(), "misc");
+    }
+
+    public zi0(boolean z) {
+        this.H = false;
+        this.L = new ArrayList();
+        this.M = 0.0f;
+        this.N = 0.0f;
+        this.O = 0.0f;
+        this.P = 0.0f;
+        this.Q = -553648128;
+        this.R = 0;
+        this.S = Boolean.FALSE;
+        this.J = z;
+        if (z) {
+            this.O = 0.0f;
+            this.P = 0.0f;
+        }
+    }
+}

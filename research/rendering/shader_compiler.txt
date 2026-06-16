@@ -1,0 +1,101 @@
+        public Bitmap H;
+        public Bitmap I;
+        public Bitmap J;
+        public Bitmap K;
+        public Bitmap L;
+        public Bitmap M;
+        public wq[] N = new wq[5];
+        public final po2 a;
+        public final nq3 b;
+        public ws6 c;
+        public ws6 d;
+        public ws6 e;
+        public ws6 f;
+        public ws6 g;
+        public ws6 h;
+        public ws6 i;
+        public ws6 j;
+        public ws6 k;
+        public u10 l;
+        public bv5 m;
+        public w12 n;
+        public us6 o;
+        public us6 p;
+        public us6 q;
+        public us6 r;
+        public us6 s;
+        public us6 t;
+        public us6 u;
+        public us6 v;
+        public us6 w;
+        public wq x;
+        public wq y;
+        public wq z;
+
+        public c(q35 q35Var, po2 po2Var) {
+            this.a = po2Var;
+            this.b = new nq3(q35Var);
+        }
+
+        public ws6 A(Resources resources, int i, int i2) {
+            try {
+                ws6 ws6Var = new ws6(wr6.q(resources, i), wr6.q(resources, i2));
+                if (ws6Var.k().length() != 0) {
+                    ub7.c(ws6Var.k());
+                }
+                return ws6Var;
+            } catch (Exception e) {
+                ub7.c("(" + i + "; " + i2 + ") Resources loading error: " + e.getMessage());
+                return null;
+            }
+        }
+
+        public ws6 B(String str, String str2) {
+            try {
+                ws6 ws6Var = new ws6(str, str2);
+                if (ws6Var.k().length() != 0) {
+                    ub7.c(ws6Var.k());
+                }
+                return ws6Var;
+            } catch (Exception unused) {
+                ub7.c("error parsing the shader");
+                return null;
+            }
+        }
+
+        public void C(Resources resources) {
+            this.G = BitmapFactory.decodeResource(resources, wt4.p0);
+            this.H = BitmapFactory.decodeResource(resources, wt4.f);
+            this.I = BitmapFactory.decodeResource(resources, wt4.z0);
+            this.J = BitmapFactory.decodeResource(resources, wt4.A0);
+            this.K = BitmapFactory.decodeResource(resources, wt4.u0);
+            this.L = BitmapFactory.decodeResource(resources, wt4.F);
+            this.M = BitmapFactory.decodeResource(resources, wt4.h0);
+        }
+
+        public void D() {
+            Context contextK = com.daaw.avee.a.k();
+            if (contextK == null) {
+                return;
+            }
+            Resources resources = contextK.getResources();
+            w12 w12Var = this.n;
+            if (w12Var != null) {
+                w12Var.b();
+            }
+            this.n = new w12();
+            zs6 zs6Var = new zs6(-1, 2, 2, 9729, 9729, 10497, false);
+            zs6 zs6Var2 = new zs6(-16777216, 2, 2, 9729, 9729, 10497, false);
+            wq wqVar = this.x;
+            if (wqVar != null) {
+                wqVar.a();
+            }
+            this.x = new wq(zs6Var, true);
+            wq wqVar2 = this.y;
+            if (wqVar2 != null) {
+                wqVar2.a();
+            }
+            this.y = new wq(zs6Var2, true);
+            wq wqVar3 = this.z;
+            if (wqVar3 != null) {
+                wqVar3.a();

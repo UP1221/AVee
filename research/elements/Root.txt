@@ -1,0 +1,276 @@
+package com.daaw;
+
+import android.opengl.GLES20;
+import java.util.List;
+
+/* JADX INFO: loaded from: classes.dex */
+public class t75 extends sf1 {
+    public int H;
+    public int I;
+    public String J;
+    public boolean K;
+    public rs6[] L;
+    public rs6 M;
+    public boolean N;
+    public boolean O;
+    public int[] P;
+    public int Q;
+    public int R;
+    public int S;
+
+    public t75() {
+        this.J = "10";
+        this.K = false;
+        this.L = new rs6[1];
+        this.M = null;
+        this.N = false;
+        this.Q = 0;
+        this.R = 0;
+        this.S = 0;
+    }
+
+    @Override // com.daaw.rf1
+    public void B(q35 q35Var, j12 j12Var) {
+        C(q35Var);
+        rs6[] rs6VarArr = this.L;
+        int i = this.S;
+        if (rs6VarArr[i % rs6VarArr.length] == null) {
+            super.B(q35Var, j12Var);
+            d0(q35Var, j12Var);
+        } else {
+            r0(q35Var, rs6VarArr[i % rs6VarArr.length], j12Var);
+            this.S++;
+        }
+    }
+
+    @Override // com.daaw.rf1
+    public void F(q35 q35Var) {
+        super.F(q35Var);
+    }
+
+    @Override // com.daaw.sf1
+    public void d0(q35 q35Var, j12 j12Var) {
+        q0(q35Var, j12Var, 0);
+    }
+
+    public boolean equals(Object obj) {
+        return (obj instanceof t75) && this.H == ((t75) obj).H;
+    }
+
+    @Override // com.daaw.sf1
+    /* JADX INFO: renamed from: g0, reason: merged with bridge method [inline-methods] */
+    public zi0 Y(int i, String str, String str2) {
+        aq.d("Composition", str);
+        aq.i(rf1.C.equals(str2) || str2.length() == 0);
+        return new zi0(i == 0);
+    }
+
+    @Override // com.daaw.rf1
+    public String h() {
+        return "Root";
+    }
+
+    @Override // com.daaw.sf1
+    /* JADX INFO: renamed from: h0, reason: merged with bridge method [inline-methods] */
+    public void Z(zi0 zi0Var) {
+        if (this.G.size() == 0) {
+            aq.i(zi0Var.n0());
+        }
+        super.Z(zi0Var);
+    }
+
+    public int hashCode() {
+        return (this.H * 45) + 47;
+    }
+
+    public rs6 i0(q35 q35Var, rs6 rs6Var) {
+        try {
+            cu6 cu6VarI = q35Var.I();
+            rs6 rs6VarG = rs6.g(cu6VarI.a, cu6VarI.b, 9729, 10497, false);
+            return rs6VarG != null ? rs6VarG.f() : rs6VarG;
+        } catch (Exception e) {
+            ub7.c(e.getMessage());
+            return rs6Var;
+        }
+    }
+
+    public rs6 j0(rs6 rs6Var) {
+        if (rs6Var == null) {
+            return null;
+        }
+        rs6Var.a();
+        return null;
+    }
+
+    public int k0() {
+        return this.I;
+    }
+
+    public int[] l0() {
+        return this.P;
+    }
+
+    public int m0() {
+        return this.R;
+    }
+
+    public int n0() {
+        return this.Q;
+    }
+
+    public String o0() {
+        return this.J;
+    }
+
+    public void p0(xt0 xt0Var, df2 df2Var) {
+        if (b0(xt0Var, df2Var)) {
+            xt0Var.t(o0());
+            xt0Var.q(k0());
+            xt0Var.s("Root");
+        }
+    }
+
+    public final void q0(q35 q35Var, j12 j12Var, int i) {
+        if (i >= this.G.size()) {
+            return;
+        }
+        zi0 zi0Var = (zi0) this.G.get(i);
+        Boolean bool = Boolean.FALSE;
+        if (zi0Var.W()) {
+            zi0Var.p0();
+            List listG0 = zi0Var.g0();
+            for (int i2 = 0; i2 < listG0.size(); i2++) {
+                q0(q35Var, j12Var, ((Integer) listG0.get(i2)).intValue());
+            }
+            zi0Var.F(q35Var);
+            zi0Var.B(q35Var, j12Var);
+            bool = Boolean.TRUE;
+        }
+        if (bool.booleanValue() || zi0Var.m0()) {
+            q35Var.S(i, zi0Var.h0());
+        }
+    }
+
+    public void r0(q35 q35Var, rs6 rs6Var, j12 j12Var) {
+        super.B(q35Var, rs6Var);
+        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        GLES20.glClear(16640);
+        u0(q35Var);
+        d0(q35Var, rs6Var);
+        if (this.O) {
+            int[][] iArr = {this.P};
+            q35Var.i(rs6Var);
+            this.P = p82.i(0, 0, rs6Var.getWidth(), rs6Var.getHeight(), iArr);
+            this.Q = rs6Var.getWidth();
+            this.R = rs6Var.getHeight();
+        }
+        rs6 rs6Var2 = this.M;
+        if (rs6Var2 != null) {
+            q35Var.i(rs6Var2);
+            q35Var.e(0);
+            q35Var.p(q35Var.u.y());
+            q35Var.u.y().s("resolutionW", rs6Var.b().getWidth() * 1.0f);
+            q35Var.u.y().s("resolutionH", rs6Var.b().getHeight() * 1.0f);
+            rs6Var.b().c();
+            q35Var.u.x().e(q35Var.u.y(), "Position");
+            super.B(q35Var, this.M);
+            if (this.N) {
+                q35Var.w(-1, new wq(rs6Var.b(), false), f());
+            }
+            GLES20.glFinish();
+            rs6Var = this.M;
+        } else {
+            super.B(q35Var, j12Var);
+            if (this.N) {
+                q35Var.w(-1, new wq(rs6Var.b(), false), f());
+            }
+            GLES20.glFinish();
+        }
+        q35Var.O(rs6Var.b());
+    }
+
+    public void s0(boolean z, boolean z2, int[] iArr) {
+        this.O = z2;
+        if (z2) {
+            this.P = iArr;
+        } else {
+            this.P = null;
+        }
+        if (this.K == z) {
+            return;
+        }
+        this.K = z;
+        l();
+    }
+
+    public void t0(xt0 xt0Var) {
+        if (xt0Var == null) {
+            return;
+        }
+        this.I = xt0Var.h();
+        f0(xt0Var);
+    }
+
+    public final void u0(q35 q35Var) {
+        GLES20.glTexParameteri(3553, 10241, 9729);
+        GLES20.glTexParameteri(3553, 10240, 9729);
+        q35Var.T(1);
+    }
+
+    @Override // com.daaw.rf1
+    public boolean v(q35 q35Var) {
+        int i = 0;
+        if (!this.K) {
+            while (true) {
+                rs6[] rs6VarArr = this.L;
+                if (i >= rs6VarArr.length) {
+                    break;
+                }
+                rs6VarArr[i] = j0(rs6VarArr[i]);
+                i++;
+            }
+        } else {
+            while (true) {
+                rs6[] rs6VarArr2 = this.L;
+                if (i >= rs6VarArr2.length) {
+                    break;
+                }
+                rs6VarArr2[i] = j0(rs6VarArr2[i]);
+                rs6[] rs6VarArr3 = this.L;
+                rs6VarArr3[i] = i0(q35Var, rs6VarArr3[i]);
+                i++;
+            }
+        }
+        this.M = j0(this.M);
+        return super.v(q35Var);
+    }
+
+    @Override // com.daaw.rf1
+    public void x(q35 q35Var) {
+        super.x(q35Var);
+        int i = 0;
+        while (true) {
+            rs6[] rs6VarArr = this.L;
+            if (i >= rs6VarArr.length) {
+                this.M = j0(this.M);
+                return;
+            } else {
+                rs6VarArr[i] = j0(rs6VarArr[i]);
+                i++;
+            }
+        }
+    }
+
+    public t75(String str, int i) {
+        this.K = false;
+        this.L = new rs6[1];
+        this.M = null;
+        this.N = false;
+        this.Q = 0;
+        this.R = 0;
+        this.S = 0;
+        this.J = str;
+        this.H = i;
+        this.I = i;
+    }
+}
