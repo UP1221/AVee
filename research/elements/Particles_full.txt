@@ -1,0 +1,609 @@
+package com.daaw;
+
+import android.graphics.RectF;
+import com.daaw.tf1;
+
+/* JADX INFO: loaded from: classes.dex */
+public class u94 extends rf1 {
+    public static final String[] r0 = {"internalres:particle_blur01", "internalres:particle_circle_blur4", "internalres:particle_circle_w_a_64", "internalres:particle_sharp", "composition:0"};
+    public static final String[] s0 = {"internalres:particle_blur01", "internalres:particle_circle_blur4", "internalres:particle_circle_w_a_64", "internalres:particle_sharp", "internalres:snowflake", "internalres:year2018", "composition:0"};
+    public int G;
+    public qf2[] H;
+    public float I;
+    public be2 J;
+    public float K;
+    public rf2 L;
+    public int M;
+    public float N;
+    public float O;
+    public jl3 P;
+    public jl3 Q;
+    public boolean R;
+    public boolean S;
+    public ff2 T;
+    public float U;
+    public float V;
+    public wq W;
+    public du6 X;
+    public du6 Y;
+    public bu6 Z;
+    public bu6 a0;
+    public bu6 b0;
+    public bu6 c0;
+    public bu6 d0;
+    public float[] e0;
+    public final float[] f0;
+    public float g0;
+    public float h0;
+    public final float i0;
+    public tf1 j0;
+    public final ss6 k0;
+    public float l0;
+    public j6 m0;
+    public c22 n0;
+    public c22 o0;
+    public c22 p0;
+    public c22 q0;
+
+    public class a implements tf1.b {
+        public a() {
+        }
+
+        @Override // com.daaw.tf1.b
+        public void a() {
+            u94.this.m();
+        }
+    }
+
+    public class b implements j6 {
+        public b() {
+        }
+
+        @Override // com.daaw.j6
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public void a(q35 q35Var, ws6 ws6Var, o35 o35Var) {
+            ws6Var.E("u_projView", false, u94.this.k0.a());
+        }
+    }
+
+    public class c implements c22 {
+        public final /* synthetic */ RectF a;
+        public final /* synthetic */ q35 b;
+        public final /* synthetic */ float c;
+        public final /* synthetic */ float d;
+        public final /* synthetic */ float e;
+        public final /* synthetic */ float f;
+        public final /* synthetic */ bu6 g;
+        public final /* synthetic */ float h;
+
+        public c(RectF rectF, q35 q35Var, float f, float f2, float f3, float f4, bu6 bu6Var, float f5) {
+            this.a = rectF;
+            this.b = q35Var;
+            this.c = f;
+            this.d = f2;
+            this.e = f3;
+            this.f = f4;
+            this.g = bu6Var;
+            this.h = f5;
+        }
+
+        @Override // com.daaw.c22
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public Boolean j(Integer num, float[] fArr, int[] iArr) {
+            float fR;
+            if (!u94.this.H[num.intValue()].e()) {
+                return Boolean.FALSE;
+            }
+            if (u94.this.T != null) {
+                du6 position = u94.this.H[num.intValue()].getPosition();
+                fR = u94.this.T.r(position.a - this.a.centerX(), position.b - this.a.centerY(), u94.this.b0);
+            } else {
+                fR = 0.0f;
+            }
+            if (!u94.this.H[num.intValue()].d(this.b.E(), this.c, u94.this.Z, u94.this.a0, this.d, this.e, u94.this.b0, fR, this.f, this.g, u94.this.k0, this.h)) {
+                return Boolean.FALSE;
+            }
+            if (!this.b.L(u94.this.Z, Math.max(u94.this.a0.a, u94.this.a0.b))) {
+                u94.this.H[num.intValue()].setVisible(false);
+                return Boolean.FALSE;
+            }
+            u94.this.H[num.intValue()].setVisible(true);
+            u94.this.H[num.intValue()].f(this.b.E());
+            p82.d(u94.this.e0, u94.this.H[num.intValue()].a(), u94.this.f0);
+            iArr[0] = p82.g(u94.this.e0, 0);
+            du6 position2 = u94.this.H[num.intValue()].getPosition();
+            u94 u94Var = u94.this;
+            u94Var.k0(u94Var.H[num.intValue()], position2.a, position2.b, position2.c, u94.this.H[num.intValue()].g(), fArr);
+            return Boolean.TRUE;
+        }
+    }
+
+    public class d implements c22 {
+        public d() {
+        }
+
+        @Override // com.daaw.c22
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public Boolean j(Integer num, float[] fArr, float[] fArr2) {
+            return Boolean.FALSE;
+        }
+    }
+
+    public class e implements c22 {
+        public e() {
+        }
+
+        @Override // com.daaw.c22
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public Boolean j(Integer num, float[] fArr, int[] iArr) {
+            du6 position = u94.this.H[num.intValue()].getPosition();
+            u94 u94Var = u94.this;
+            qf2 qf2Var = u94Var.H[num.intValue()];
+            u94 u94Var2 = u94.this;
+            float f = u94Var2.g0;
+            u94Var.k0(qf2Var, f + (f - position.a), position.b, position.c, -u94Var2.H[num.intValue()].g(), fArr);
+            return Boolean.TRUE;
+        }
+    }
+
+    public class f implements c22 {
+        public f() {
+        }
+
+        @Override // com.daaw.c22
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public Boolean j(Integer num, float[] fArr, int[] iArr) {
+            du6 position = u94.this.H[num.intValue()].getPosition();
+            u94 u94Var = u94.this;
+            qf2 qf2Var = u94Var.H[num.intValue()];
+            float f = position.a;
+            u94 u94Var2 = u94.this;
+            float f2 = u94Var2.h0;
+            u94Var.k0(qf2Var, f, f2 + (f2 - position.b), position.c, -u94Var2.H[num.intValue()].g(), fArr);
+            return Boolean.TRUE;
+        }
+    }
+
+    public class g implements c22 {
+        public g() {
+        }
+
+        @Override // com.daaw.c22
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public Boolean j(Integer num, float[] fArr, int[] iArr) {
+            du6 position = u94.this.H[num.intValue()].getPosition();
+            u94 u94Var = u94.this;
+            qf2 qf2Var = u94Var.H[num.intValue()];
+            u94 u94Var2 = u94.this;
+            float f = u94Var2.g0;
+            float f2 = f + (f - position.a);
+            float f3 = u94Var2.h0;
+            u94Var.k0(qf2Var, f2, f3 + (f3 - position.b), position.c, -u94Var2.H[num.intValue()].g(), fArr);
+            return Boolean.TRUE;
+        }
+    }
+
+    public u94() {
+        super(2, 0.5f, 0.5f);
+        this.G = 0;
+        this.H = new qf2[0];
+        this.I = 0.0f;
+        this.J = null;
+        this.K = 0.03f;
+        this.L = null;
+        this.M = -1;
+        this.N = 1.0f;
+        this.O = 1.0f;
+        this.P = jl3.a();
+        this.Q = jl3.a();
+        this.R = false;
+        this.S = false;
+        this.T = null;
+        this.U = 0.0f;
+        this.V = 90.0f;
+        this.W = null;
+        this.X = new du6(0.0f, 0.0f, 0.0f);
+        this.Y = new du6(0.0f, 0.0f, 0.0f);
+        this.Z = new bu6(0.0f, 0.0f);
+        this.a0 = new bu6(0.0f, 0.0f);
+        this.b0 = new bu6(0.0f, 0.0f);
+        this.c0 = new bu6(0.0f, 0.0f);
+        this.d0 = new bu6(0.0f, 0.0f);
+        this.e0 = new float[4];
+        this.f0 = new float[4];
+        this.i0 = 6.2831855f;
+        this.k0 = new ss6();
+        this.l0 = 40.0f;
+        this.m0 = new b();
+        this.n0 = new d();
+        this.o0 = new e();
+        this.p0 = new f();
+        this.q0 = new g();
+        this.j0 = new tf1(new a(), null, null, null);
+        String[] strArr = r0;
+        m0(strArr[0]);
+        e0(new ix());
+        J(2);
+        R(0.5f, 0.5f);
+        r0(1500);
+        t0(0.02f);
+        l0(new so().t(1.0f));
+        J(2);
+        n0(new jl3("Beat", 1.5f));
+        s0(2.0f);
+        m0(strArr[1]);
+        u0(900.0f);
+        v0(150.0f);
+        ix ixVarJ0 = j0();
+        ixVarJ0.A(0.5f);
+        ixVarJ0.B(0.25f);
+        ixVarJ0.t(-1);
+        ixVarJ0.u(-2139062144);
+        ixVarJ0.z(8.0f);
+        ixVarJ0.x(0.1f);
+        ixVarJ0.C(0.0f);
+        ixVarJ0.y(4.0f);
+        ixVarJ0.v(4.0f);
+        ixVarJ0.w(10.0f);
+        ixVarJ0.c(100.0f);
+        ixVarJ0.j(60.0f);
+        ixVarJ0.s(0.0f);
+    }
+
+    @Override // com.daaw.rf1
+    public void B(q35 q35Var, j12 j12Var) {
+        j6 j6Var;
+        float f2;
+        float f3;
+        float fHeight;
+        float fB;
+        bu6 bu6Var;
+        bu6 bu6Var2;
+        bu6 bu6Var3;
+        RectF rectF;
+        j6 j6Var2;
+        super.B(q35Var, j12Var);
+        this.j0.u(q35Var, j12Var);
+        if (this.H.length != this.G) {
+            return;
+        }
+        RectF rectFN = n(q35Var.u.b);
+        bu6 bu6Var4 = new bu6(0.0f, 0.0f);
+        bu6 bu6Var5 = new bu6(0.0f, 0.0f);
+        float f4 = this.U;
+        if (f4 > 1.0f) {
+            j6 j6Var3 = this.m0;
+            q35Var.s(this.k0, bu6Var4, j12Var, this.V, 0.01f, f4 - (-20.0f), -0.5f, -0.5f, -10.0f);
+            float fWidth = rectFN.width() / bu6Var4.a;
+            fHeight = rectFN.height() / bu6Var4.b;
+            j6Var = j6Var3;
+            f3 = fWidth;
+            f2 = -f4;
+        } else {
+            j6Var = null;
+            f2 = 0.0f;
+            f3 = 1.0f;
+            fHeight = 1.0f;
+        }
+        this.I += q35Var.E();
+        if (this.L == null || this.J == null) {
+            return;
+        }
+        float fMax = Math.max(0.01f, this.K);
+        this.K = fMax;
+        float f5 = this.I;
+        this.I = Math.min(fMax * f5 * 100.0f, f5);
+        while (true) {
+            float f6 = this.I;
+            float f7 = this.K;
+            if (f6 <= f7) {
+                break;
+            }
+            this.I = f6 - f7;
+            int iG0 = g0();
+            if (iG0 < 0 || iG0 >= this.H.length) {
+                bu6Var2 = bu6Var5;
+                bu6Var3 = bu6Var4;
+                rectF = rectFN;
+                j6Var2 = j6Var;
+            } else {
+                this.J.l(rectFN, this.X, this.Y, this.U > 1.0f);
+                if (this.U > 1.0f) {
+                    bu6Var2 = bu6Var5;
+                    j6Var2 = j6Var;
+                    bu6Var3 = bu6Var4;
+                    rectF = rectFN;
+                    q35Var.t(bu6Var5, f2, j12Var, bu6Var4.a / bu6Var4.b, this.V);
+                    float fWidth2 = (bu6Var2.a * 2.0f) / rectF.width();
+                    float fHeight2 = (bu6Var2.b * 2.0f) / rectF.height();
+                    du6 du6Var = this.X;
+                    du6Var.a = ((du6Var.a - rectF.centerX()) * fWidth2 * f3) + rectF.centerX();
+                    du6 du6Var2 = this.X;
+                    du6Var2.b = ((du6Var2.b - rectF.centerY()) * fHeight2 * fHeight) + rectF.centerY();
+                } else {
+                    bu6Var2 = bu6Var5;
+                    bu6Var3 = bu6Var4;
+                    rectF = rectFN;
+                    j6Var2 = j6Var;
+                    this.Y.c = 0.0f;
+                }
+                rf2 rf2Var = this.L;
+                qf2 qf2Var = this.H[iG0];
+                du6 du6Var3 = this.X;
+                rf2Var.g(q35Var, qf2Var, new du6(du6Var3.a, du6Var3.b, f2), this.Y);
+            }
+            bu6Var5 = bu6Var2;
+            j6Var = j6Var2;
+            rectFN = rectF;
+            bu6Var4 = bu6Var3;
+        }
+        bu6 bu6Var6 = bu6Var4;
+        RectF rectF2 = rectFN;
+        j6 j6Var4 = j6Var;
+        ce2 ce2VarM = this.j0.m(q35Var);
+        if (ce2VarM == null) {
+            ce2VarM = q35Var.u.c();
+        }
+        o35 o35Var = new o35(f(), ce2VarM, q35Var.u.u(), j6Var4);
+        if (this.U > 1.0f) {
+            fB = this.L.b();
+            bu6Var = new bu6(bu6Var6.a * 0.5f, bu6Var6.b * 0.5f);
+        } else {
+            fB = this.L.b();
+            bu6Var = null;
+        }
+        w0(q35Var, j12Var, rectF2, fB, o35Var, bu6Var);
+    }
+
+    public void e0(rf2 rf2Var) {
+        this.L = rf2Var;
+        l();
+    }
+
+    public int g0() {
+        int i = 0;
+        while (true) {
+            qf2[] qf2VarArr = this.H;
+            if (i >= qf2VarArr.length || !qf2VarArr[i].e()) {
+                break;
+            }
+            i++;
+        }
+        if (i < this.H.length) {
+            return i;
+        }
+        return -1;
+    }
+
+    @Override // com.daaw.rf1
+    public String h() {
+        return "Particles";
+    }
+
+    public float h0() {
+        return this.l0;
+    }
+
+    public int i0() {
+        return this.G;
+    }
+
+    public ix j0() {
+        return (ix) this.L;
+    }
+
+    public void k0(qf2 qf2Var, float f2, float f3, float f4, float f5, float[] fArr) {
+        this.c0.a = -qf2Var.b();
+        this.c0.b = -qf2Var.c();
+        this.c0.r(f5);
+        this.d0.a = qf2Var.b();
+        this.d0.b = -qf2Var.c();
+        this.d0.r(f5);
+        bu6 bu6Var = this.c0;
+        float f6 = bu6Var.a;
+        fArr[0] = f2 + f6;
+        float f7 = bu6Var.b;
+        fArr[1] = f3 + f7;
+        bu6 bu6Var2 = this.d0;
+        float f8 = bu6Var2.a;
+        fArr[2] = f2 + f8;
+        float f9 = bu6Var2.b;
+        fArr[3] = f3 + f9;
+        fArr[4] = f2 - f8;
+        fArr[5] = f3 - f9;
+        fArr[6] = f2 - f6;
+        fArr[7] = f3 - f7;
+        fArr[8] = f4;
+    }
+
+    @Override // com.daaw.rf1
+    public void l() {
+        super.l();
+        tf1 tf1Var = this.j0;
+        if (tf1Var != null) {
+            tf1Var.p();
+        }
+    }
+
+    public void l0(be2 be2Var) {
+        this.J = be2Var;
+    }
+
+    public void m0(String str) {
+        this.j0.C(str);
+    }
+
+    public void n0(jl3 jl3Var) {
+        this.Q = jl3Var;
+    }
+
+    public void o0(boolean z) {
+        this.S = z;
+    }
+
+    public void p0(boolean z) {
+        this.R = z;
+    }
+
+    public void q0(float f2) {
+        this.l0 = f2;
+    }
+
+    public void r0(int i) {
+        if (this.G == i) {
+            return;
+        }
+        this.G = i;
+        l();
+    }
+
+    public void s0(float f2) {
+        this.N = f2;
+    }
+
+    @Override // com.daaw.rf1
+    public void t(wt0 wt0Var) {
+        super.t(wt0Var);
+        m0(wt0Var.x("customImage", r0[0]));
+        this.M = wt0Var.s("color", -1);
+        r0(wt0Var.s("CountLimit", 1500));
+        this.N = wt0Var.p("particleScale", 2.0f);
+        this.K = wt0Var.p("spawnTime", 0.02f);
+        o0(wt0Var.o("mirrorX", false));
+        p0(wt0Var.o("mirrorY", false));
+        u0(wt0Var.p("perspectiveDepth", 900.0f));
+        v0(wt0Var.p("perspectiveFov", 150.0f));
+        wt0 wt0VarH = wt0Var.h("SpawnArea");
+        l0(oo.a(wt0VarH.D("Rectangle"), this.J));
+        be2 be2Var = this.J;
+        if (be2Var != null) {
+            be2Var.a(wt0VarH);
+        }
+        this.Q.m(wt0Var.h("MeasureOverallSpeed"), "Beat", 1.5f);
+        rf2 rf2Var = this.L;
+        if (rf2Var != null) {
+            rf2Var.a(wt0Var);
+        }
+        wt0 wt0VarH2 = wt0Var.h("ForceField");
+        ff2 ff2VarA = sy1.a(wt0VarH2.D("None"), this.T);
+        this.T = ff2VarA;
+        if (ff2VarA != null) {
+            ff2VarA.a(wt0VarH2);
+        }
+        q0(wt0Var.p("nearCameraFadeOutDistance", h0()));
+    }
+
+    public void t0(float f2) {
+        this.K = f2;
+    }
+
+    public void u0(float f2) {
+        this.U = f2;
+    }
+
+    @Override // com.daaw.rf1
+    public boolean v(q35 q35Var) {
+        super.v(q35Var);
+        int length = this.H.length;
+        int i = this.G;
+        if (length != i) {
+            if (this.L != null) {
+                this.H = new qf2[i];
+                int i2 = 0;
+                while (true) {
+                    qf2[] qf2VarArr = this.H;
+                    if (i2 >= qf2VarArr.length) {
+                        break;
+                    }
+                    qf2VarArr[i2] = this.L.h();
+                    i2++;
+                }
+            } else {
+                this.H = new qf2[0];
+            }
+        }
+        this.j0.q(q35Var, new RectF(0.0f, 0.0f, 256.0f, 256.0f), 0);
+        return true;
+    }
+
+    public void v0(float f2) {
+        this.V = f2;
+    }
+
+    @Override // com.daaw.rf1
+    public void w(q35 q35Var, int i) {
+        super.w(q35Var, i);
+        this.j0.r(q35Var, i);
+    }
+
+    public final void w0(q35 q35Var, j12 j12Var, RectF rectF, float f2, o35 o35Var, bu6 bu6Var) {
+        float fI = this.N + this.P.i(q35Var.u.b);
+        float fI2 = this.O + (this.Q.i(q35Var.u.b) * 5.0f);
+        float fE = q35Var.b().a().e(fI) * 0.001f;
+        float fE2 = q35Var.b().a().e(f2) * 0.0013888889f;
+        float fE3 = q35Var.b().a().e(0.0013888889f);
+        rectF.centerX();
+        rectF.centerY();
+        this.g0 = rectF.centerX();
+        this.h0 = rectF.centerY();
+        p82.n(this.f0, this.M);
+        float fMax = Math.max(1.0E-6f, this.l0);
+        u10 u10VarP = q35Var.u.p();
+        c cVar = new c(rectF, q35Var, fE3, fE, fI2, fE2, bu6Var, fMax);
+        boolean z = this.S;
+        c22 c22Var = z ? this.o0 : null;
+        boolean z2 = this.R;
+        u10VarP.j(q35Var, cVar, c22Var, z2 ? this.p0 : null, (z && z2) ? this.q0 : null, this.G, 0.0f, new bu6(0.0f, 1.0f), new bu6(1.0f, 0.0f), o35Var);
+    }
+
+    @Override // com.daaw.rf1
+    public void x(q35 q35Var) {
+        super.x(q35Var);
+        tf1 tf1Var = this.j0;
+        if (tf1Var != null) {
+            tf1Var.s(q35Var);
+        }
+    }
+
+    @Override // com.daaw.rf1
+    public void y(uf2 uf2Var, j12 j12Var, ke2 ke2Var) {
+        super.y(uf2Var, j12Var, ke2Var);
+        this.j0.t(uf2Var, j12Var, ke2Var);
+    }
+
+    @Override // com.daaw.rf1
+    public void z(wt0 wt0Var, df2 df2Var) {
+        super.z(wt0Var, df2Var);
+        wt0Var.s0(j(fv4.E6));
+        df2Var.a(this.j0.j());
+        wt0Var.i0("customImage", this.j0.j(), "appearance", y42.o ? s0 : r0);
+        wt0Var.V("color", this.M, "1_overall");
+        wt0Var.Y("CountLimit", i0(), "1_overall", 1, 5000);
+        wt0Var.Q("particleScale", this.N, "appearance", 0.25f, 8.0f);
+        wt0Var.Q("spawnTime", this.K, "behaviour", 0.005f, 0.05f);
+        wt0Var.N("mirrorX", this.S, "1_overall");
+        wt0Var.N("mirrorY", this.R, "1_overall");
+        wt0Var.Q("perspectiveDepth", this.U, "1_overall", 0.0f, 1000.0f);
+        wt0Var.Q("perspectiveFov", this.V, "1_overall", 30.0f, 180.0f);
+        wt0 wt0VarG = wt0Var.G("SpawnArea", oo.b(this.J), "1_overall", oo.a);
+        be2 be2Var = this.J;
+        if (be2Var != null) {
+            be2Var.q(wt0VarG);
+        }
+        wt0 wt0VarG2 = wt0Var.G("MeasureOverallSpeed", "", "behaviour", new String[0]);
+        jl3 jl3Var = this.Q;
+        if (jl3Var != null) {
+            jl3Var.r(wt0VarG2);
+        }
+        rf2 rf2Var = this.L;
+        if (rf2Var != null) {
+            rf2Var.q(wt0Var);
+        }
+        wt0 wt0VarG3 = wt0Var.G("ForceField", sy1.b(this.T), "1_overall", sy1.a);
+        ff2 ff2Var = this.T;
+        if (ff2Var != null) {
+            ff2Var.q(wt0VarG3);
+        }
+        wt0Var.Q("nearCameraFadeOutDistance", h0(), "appearance", 0.0f, 500.0f);
+    }
+}

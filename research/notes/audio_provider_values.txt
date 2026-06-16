@@ -1,0 +1,3 @@
+            return "Waveform";
+            return "Spectrum";
+            return "Spectrum2";

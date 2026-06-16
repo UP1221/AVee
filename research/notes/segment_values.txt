@@ -1,0 +1,6 @@
+            return "None";
+            return "Bars";
+            return "Line";
+            return "SharpBars";
+            return "RoundBars";
+        return "unk";

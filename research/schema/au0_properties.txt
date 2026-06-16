@@ -1,0 +1,7 @@
+        h0(wt0Var.x("TargetImage", "composition:1"));
+        this.J = wt0Var.x("shaderVertex", this.J);
+        this.I = wt0Var.x("shaderFragment", this.I);
+        wt0Var.s0(h());
+        wt0Var.h0("TargetImage", c0(), "1_appearance", Q);
+        wt0Var.j0("shaderFragment", this.I, "shader");
+        wt0Var.j0("shaderVertex", this.J, "shader");

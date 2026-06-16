@@ -1,0 +1,56 @@
+package com.daaw;
+
+/* JADX INFO: loaded from: classes.dex */
+public abstract class qh5 {
+    public static final String[] a = {"HorizontalLine", "Circle", "SidedPolygon", "Letter"};
+    public static final String[] b = {"HorizontalLine", "Circle", "SidedPolygon", "Letter", "Year"};
+    public static final String[] c = {"None", "Circle", "SidedPolygon"};
+
+    public static yf2 a(String str, yf2 yf2Var) {
+        if (b(yf2Var).equals(str)) {
+            return yf2Var;
+        }
+        str.hashCode();
+        switch (str) {
+            case "Letter":
+                break;
+            case "None":
+                break;
+            case "Year":
+                break;
+            case "SidedPolygon":
+                break;
+            case "HorizontalLine":
+                break;
+            case "Circle":
+                break;
+            default:
+                ub7.c("unknown typeName: " + str);
+                break;
+        }
+        return yf2Var;
+    }
+
+    public static String b(yf2 yf2Var) {
+        if (yf2Var == null) {
+            return "None";
+        }
+        if (yf2Var instanceof sh5) {
+            return "HorizontalLine";
+        }
+        if (yf2Var instanceof ph5) {
+            return "Circle";
+        }
+        if (yf2Var instanceof uh5) {
+            return "SidedPolygon";
+        }
+        if (yf2Var instanceof th5) {
+            return "Letter";
+        }
+        if (yf2Var instanceof wh5) {
+            return "Year";
+        }
+        ub7.c("unknown instance type");
+        return "unk";
+    }
+}

@@ -1,0 +1,4 @@
+407:    public rs6 B(int i) {
+409:            return (rs6) this.v.get(i);
+562:    public void S(int i, rs6 rs6Var) {
+566:        this.v.set(i, rs6Var);

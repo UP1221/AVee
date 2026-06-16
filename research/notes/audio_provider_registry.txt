@@ -1,0 +1,43 @@
+package com.daaw;
+
+/* JADX INFO: loaded from: classes.dex */
+public abstract class mh5 {
+    public static final String[] a = {"Waveform", "Spectrum", "Spectrum2"};
+
+    public static xf2 a(String str, xf2 xf2Var) {
+        if (b(xf2Var, "None").equals(str)) {
+            return xf2Var;
+        }
+        str.hashCode();
+        switch (str) {
+            case "Spectrum":
+                return new gh5();
+            case "None":
+                return null;
+            case "Spectrum2":
+                return new hh5();
+            case "Waveform":
+                return new jh5();
+            default:
+                ub7.c("unknown typeName: " + str);
+                return xf2Var == null ? new hh5() : xf2Var;
+        }
+    }
+
+    public static String b(xf2 xf2Var, String str) {
+        if (xf2Var == null) {
+            return str;
+        }
+        if (xf2Var instanceof jh5) {
+            return "Waveform";
+        }
+        if (xf2Var instanceof gh5) {
+            return "Spectrum";
+        }
+        if (xf2Var instanceof hh5) {
+            return "Spectrum2";
+        }
+        ub7.c("unknown instance type");
+        return str;
+    }
+}

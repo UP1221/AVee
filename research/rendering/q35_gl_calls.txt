@@ -1,0 +1,14 @@
+7:import android.opengl.GLES20;
+442:        GLES20.glGetIntegerv(34024, iArr, 0);
+558:        GLES20.glEnable(3042);
+578:        GLES20.glTexParameteri(3553, 10242, i2);
+579:        GLES20.glTexParameteri(3553, 10243, i2);
+624:                GLES20.glBlendFunc(770, 771);
+627:                GLES20.glBlendFunc(1, i2);
+630:                GLES20.glBlendFunc(1, 1);
+634:                GLES20.glBlendFunc(1, i2);
+637:                GLES20.glBlendFunc(1, 771);
+640:                GLES20.glBlendFunc(770, 1);
+643:                GLES20.glBlendFunc(775, 769);
+696:                GLES20.glViewport(0, 0, f(), a());
+697:                GLES20.glBindFramebuffer(36160, 0);

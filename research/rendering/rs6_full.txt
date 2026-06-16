@@ -1,0 +1,62 @@
+package com.daaw;
+
+import android.opengl.GLES20;
+
+/* JADX INFO: loaded from: classes.dex */
+public class rs6 extends j12 {
+    public ow0 d;
+
+    public rs6(zs6 zs6Var, boolean z) {
+        super(zs6Var, z);
+        this.d = new ow0();
+    }
+
+    public static rs6 g(int i, int i2, int i3, int i4, boolean z) {
+        zs6 zs6VarM = new zs6(i, i2, i3, i4, z).m();
+        if (zs6VarM == null) {
+            return null;
+        }
+        try {
+            return new rs6(zs6VarM, true);
+        } catch (Exception e) {
+            ub7.c("exception " + e.getMessage());
+            return null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ Boolean i() {
+        return Boolean.valueOf(!h());
+    }
+
+    @Override // com.daaw.j12
+    public void c() {
+        if (h()) {
+            GLES20.glViewport(0, 0, getWidth(), getHeight());
+            GLES20.glBindFramebuffer(36160, this.a);
+        }
+    }
+
+    public rs6 f() {
+        if (h()) {
+            return this;
+        }
+        a();
+        ub7.c("FrameBuffer is not valid");
+        return null;
+    }
+
+    public void finalize() throws Throwable {
+        super.finalize();
+        this.d.a(new f22() { // from class: com.daaw.qs6
+            @Override // com.daaw.f22
+            public final Object a() {
+                return this.a.i();
+            }
+        });
+    }
+
+    public boolean h() {
+        return this.a != 0;
+    }
+}

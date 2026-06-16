@@ -1,0 +1,202 @@
+]633;E;for f in research/property_schemas/*.txt;5907dc78-a379-43cc-997e-11a3d79b5d71]633;C========== au0.txt ==========
+        h0(wt0Var.x("TargetImage", "composition:1"));
+        this.J = wt0Var.x("shaderVertex", this.J);
+        this.I = wt0Var.x("shaderFragment", this.I);
+        wt0Var.s0(h());
+        wt0Var.h0("TargetImage", c0(), "1_appearance", Q);
+        wt0Var.j0("shaderFragment", this.I, "shader");
+        wt0Var.j0("shaderVertex", this.J, "shader");
+
+========== be3.txt ==========
+        V(wt0Var.o("visible", true));
+        f0(wt0Var.s("color", -1869574000));
+        wt0Var.s0(j(fv4.x6));
+        wt0Var.N("visible", this.k, "0_general");
+        wt0Var.v0("visible", "pb", "AppLogo");
+        wt0Var.V("color", p82.f(this.U), "0_general");
+        wt0Var.q0("position");
+
+========== jr.txt ==========
+        xf2 xf2VarA = mh5.a(wt0Var.h("sampleProvider").D("Spectrum"), this.G);
+        wt0Var.s0(j(fv4.y6));
+        wt0Var.G("sampleProvider", mh5.b(this.G, "Spectrum"), "0_general", mh5.a);
+
+========== nh5.txt ==========
+        this.J = wt0Var.o("flipInput", false);
+        b0(wt0Var.p("heightScale", 3.0f));
+        e0(wt0Var.p("minHeightScale", 0.009f));
+        d0(wt0Var.p("maxHeightScale", 1.0f));
+        wt0 wt0VarH = wt0Var.h("ShapePath");
+        c0(wt0Var.t("colorBlendOffset", lh3.a(0.0f)));
+        j0(wt0Var.s("softness", 2));
+        g0(wt0Var.s("reactionDelay", 0));
+        f0(wt0Var.s("reactionAccumulatedDelay", 0));
+        a0(wt0Var.s("audioProviderIndex", 1));
+        wt0 wt0VarH2 = wt0Var.h("Segment1");
+        wt0 wt0VarH3 = wt0Var.h("Segment2");
+        wt0Var.s0(j(fv4.G6));
+        wt0Var.N("flipInput", this.J, "1_bars");
+        wt0Var.Q("heightScale", this.K, "1_bars", -10.0f, 10.0f);
+        wt0Var.Q("minHeightScale", this.L, "1_bars", -0.03f, 0.03f);
+        wt0Var.Q("maxHeightScale", this.M, "1_bars", 0.1f, 1.0f);
+        wt0 wt0VarG = wt0Var.G("ShapePath", qh5.b(this.I), "1_bars", y42.o ? qh5.b : qh5.a);
+        wt0Var.b0("colorBlendOffset", this.X, "1_bars", 0.0f, 1.0f);
+        wt0Var.Y("softness", this.T, "2_Behavior", 0, 20);
+        wt0Var.Y("reactionDelay", this.U, "2_Behavior", 0, 9);
+        wt0Var.Y("reactionAccumulatedDelay", this.V, "2_Behavior", 0, 9);
+        wt0Var.Y("audioProviderIndex", this.W, "2_Behavior", 1, 4);
+        wt0 wt0VarG2 = wt0Var.G("Segment1", strB, "1_bars", strArr);
+        wt0 wt0VarG3 = wt0Var.G("Segment2", ai5.b(this.H), "1_bars", strArr);
+
+========== p76.txt ==========
+        g0(wt0Var.x("typeFace", Y()));
+        wt0Var.g0("typeFace", Y(), "appearance", O);
+        i0(wt0Var.x("text", "{ArtistOrTitle}"));
+        f0(wt0Var.s("color", -1));
+        h0(wt0Var.s("fontSize", 30));
+        g0(wt0Var.x("typeFace", ""));
+        wt0Var.s0(j(fv4.H6));
+        wt0Var.k0("text", this.H, "appearance");
+        wt0Var.V("color", this.J, "appearance");
+        wt0Var.Y("fontSize", this.I, "appearance", 8, 100);
+
+========== rs3.txt ==========
+        j0(kz.a(wt0Var.h("blendModeContent").C(), 2));
+        k0(wt0Var.s("color", -1));
+        r0(wt0Var.x("TargetImage", "composition:1"));
+        m0(wt0Var.o("showUnblurredContent", false));
+        n0(wt0Var.o("showUnblurredContentUnder", false));
+        q0(wt0Var.t("blurAmountMultiplier", lh3.a(1.0f)));
+        wt0 wt0VarH = wt0Var.h("motionSource");
+        l0(wt0Var.o("relativeMotionMode", true));
+        wt0Var.s0(j(fv4.D6));
+        wt0Var.G("blendModeContent", kz.b(this.I), "1_appearance", kz.c);
+        wt0Var.U("color", this.H, "1_appearance");
+        wt0Var.h0("TargetImage", i0(), "1_appearance", d0);
+        wt0Var.N("showUnblurredContent", g0(), "1_appearance");
+        wt0Var.N("showUnblurredContentUnder", h0(), "1_appearance");
+        wt0Var.b0("blurAmountMultiplier", this.N, "2_motionBlur", 0.0f, 2.0f);
+        wt0 wt0VarG = wt0Var.G("motionSource", str, "2_motionBlur", strArr);
+        wt0Var.N("relativeMotionMode", f0(), "2_motionBlur");
+
+========== u94.txt ==========
+        m0(wt0Var.x("customImage", r0[0]));
+        this.M = wt0Var.s("color", -1);
+        r0(wt0Var.s("CountLimit", 1500));
+        this.N = wt0Var.p("particleScale", 2.0f);
+        this.K = wt0Var.p("spawnTime", 0.02f);
+        o0(wt0Var.o("mirrorX", false));
+        p0(wt0Var.o("mirrorY", false));
+        u0(wt0Var.p("perspectiveDepth", 900.0f));
+        v0(wt0Var.p("perspectiveFov", 150.0f));
+        wt0 wt0VarH = wt0Var.h("SpawnArea");
+        this.Q.m(wt0Var.h("MeasureOverallSpeed"), "Beat", 1.5f);
+        wt0 wt0VarH2 = wt0Var.h("ForceField");
+        q0(wt0Var.p("nearCameraFadeOutDistance", h0()));
+        wt0Var.s0(j(fv4.E6));
+        wt0Var.i0("customImage", this.j0.j(), "appearance", y42.o ? s0 : r0);
+        wt0Var.V("color", this.M, "1_overall");
+        wt0Var.Y("CountLimit", i0(), "1_overall", 1, 5000);
+        wt0Var.Q("particleScale", this.N, "appearance", 0.25f, 8.0f);
+        wt0Var.Q("spawnTime", this.K, "behaviour", 0.005f, 0.05f);
+        wt0Var.N("mirrorX", this.S, "1_overall");
+        wt0Var.N("mirrorY", this.R, "1_overall");
+        wt0Var.Q("perspectiveDepth", this.U, "1_overall", 0.0f, 1000.0f);
+        wt0Var.Q("perspectiveFov", this.V, "1_overall", 30.0f, 180.0f);
+        wt0 wt0VarG = wt0Var.G("SpawnArea", oo.b(this.J), "1_overall", oo.a);
+        wt0 wt0VarG2 = wt0Var.G("MeasureOverallSpeed", "", "behaviour", new String[0]);
+        wt0 wt0VarG3 = wt0Var.G("ForceField", sy1.b(this.T), "1_overall", sy1.a);
+        wt0Var.Q("nearCameraFadeOutDistance", h0(), "appearance", 0.0f, 500.0f);
+
+========== uz1.txt ==========
+
+========== v65.txt ==========
+        l0(kz.a(wt0Var.h("blendModeContent").C(), this.H));
+        m0(wt0Var.s("color", -1));
+        u0(wt0Var.x("targetImage", "composition:1"));
+        n0(wt0Var.o("showUnblurredContent", false));
+        o0(wt0Var.o("showUnblurredContentUnder", false));
+        t0(wt0Var.t("splitMultiplier", lh3.a(6.0f)));
+        p0(wt0Var.t("splitAmount", new lh3(new jl3("BeatRandomShake", 0.5f, 0.5f))));
+        q0(wt0Var.s("splitColor0", -65536));
+        r0(wt0Var.s("splitColor1", -16711936));
+        s0(wt0Var.s("splitColor2", -16776961));
+        wt0Var.s0(j(fv4.F6));
+        wt0Var.G("blendModeContent", kz.b(this.H), "1_appearance", kz.c);
+        wt0Var.U("color", this.G, "1_appearance");
+        wt0Var.h0("targetImage", k0(), "1_appearance", Y);
+        wt0Var.N("showUnblurredContent", f0(), "1_appearance");
+        wt0Var.N("showUnblurredContentUnder", g0(), "1_appearance");
+        wt0Var.b0("splitMultiplier", this.L, "2_splitEffect", 0.0f, 6.0f);
+        wt0Var.d0("splitAmount", this.M, "2_splitEffect", -0.5f, 0.5f);
+        wt0Var.U("splitColor0", h0(), "2_splitEffect");
+        wt0Var.U("splitColor1", i0(), "2_splitEffect");
+        wt0Var.U("splitColor2", j0(), "2_splitEffect");
+
+========== zh2.txt ==========
+        u0(wt0Var.o("keepAspectRatio", true));
+        t0(wt0Var.o("blurredBorder", false));
+        this.M = wt0Var.n("Color", new float[]{1.0f, 1.0f, 1.0f, 1.0f});
+        this.N = wt0Var.n("ColorTo", new float[]{1.0f, 1.0f, 1.0f, 1.0f});
+        this.O.n(wt0Var.h("MeasureColorBlend"), "Nothing", 0.5f, 0.5f);
+        this.P = wt0Var.t("saturation", lh3.a(1.0f));
+        s0(wt0Var.o("blurEnabled", false), wt0Var.s("blurDivider", 5), wt0Var.s("blurRadius", 7));
+        wt0 wt0VarH = wt0Var.h("Shape");
+        this.Z.C(wt0Var.x("MaskImage", null));
+        v0(wt0Var.w("maskMode", di2.a, 0));
+        wt0Var.N("keepAspectRatio", this.U, "1_image");
+        wt0Var.N("blurredBorder", this.T, "1_image");
+        wt0Var.s0(j(fv4.B6));
+        wt0Var.K("Color", this.M, "2_color");
+        wt0Var.K("ColorTo", this.N, "2_color");
+        this.O.o(wt0Var.G("MeasureColorBlend", "", "2_color", new String[0]));
+        wt0Var.b0("saturation", this.P, "2_color", 0.0f, 1.0f);
+        wt0Var.N("blurEnabled", this.Q, "blur");
+        wt0Var.Y("blurDivider", this.R, "blur", 0, 10);
+        wt0Var.Y("blurRadius", this.S, "blur", 1, 25);
+        wt0 wt0VarG = wt0Var.G("Shape", qh5.b(this.V), "1_image", qh5.c);
+        wt0Var.h0("MaskImage", this.Z.j(), "1_image", tf1.t);
+        wt0Var.p0("maskMode", rr6.a(strArr, p0(), strArr[0]), "1_image", strArr);
+
+========== zq3.txt ==========
+        f0(wt0Var.x("TargetImage", "composition:1"));
+        e0(rr6.e(strArr, wt0Var.v("mirrorMode", strArr[0])));
+        d0(wt0Var.o("flipMirror", false));
+        c0(wt0Var.s("color", -1));
+        wt0Var.s0(j(fv4.C6));
+        wt0Var.h0("TargetImage", b0(), "1_appearance", M);
+        wt0Var.p0("mirrorMode", rr6.a(strArr, a0(), strArr[0]), "1_appearance", strArr);
+        wt0Var.N("flipMirror", Z(), "1_appearance");
+        wt0Var.V("color", this.G, "1_appearance");
+
+========== zz.txt ==========
+        f0(kz.a(wt0Var.h("blendModeContent").C(), 2));
+        i0(wt0Var.s("color", -16777216));
+        k0(wt0Var.s("sourceCompositionIndex", 1));
+        this.U.C(wt0Var.x("MaskImage", tf1.t[0]));
+        h0(wt0Var.p("blurRadius", 2.0f));
+        g0(wt0Var.p("blurMultiplier", 4.1f));
+        l0(wt0Var.o("showUnblurredContent", false));
+        m0(wt0Var.o("showUnblurredContentUnder", false));
+        this.L[0] = wt0Var.A("1layerScale", new bu6(1.0f, 1.0f));
+        this.L[1] = wt0Var.A("2layerScale", new bu6(0.0f, 0.0f));
+        this.L[2] = wt0Var.A("3layerScale", new bu6(0.0f, 0.0f));
+        this.M[0] = wt0Var.s("1layerColor", -1);
+        this.M[1] = wt0Var.s("2layerColor", -1);
+        this.M[2] = wt0Var.s("3layerColor", -1);
+        wt0Var.s0(j(fv4.z6));
+        wt0Var.G("blendModeContent", kz.b(this.P), "1_appearance", kz.c);
+        wt0Var.V("color", this.K, "1_appearance");
+        wt0Var.Y("sourceCompositionIndex", this.Q, "1_appearance", 1, 5);
+        wt0Var.h0("MaskImage", this.U.j(), "1_appearance", tf1.t);
+        wt0Var.Q("blurRadius", this.H, "2_blur", 0.0f, 3.0f);
+        wt0Var.Q("blurMultiplier", this.I, "2_blur", 1.0f, 6.0f);
+        wt0Var.N("showUnblurredContent", d0(), "1_appearance");
+        wt0Var.N("showUnblurredContentUnder", e0(), "1_appearance");
+        wt0Var.n0("1layerScale", this.L[0], "2_blur", 0.0f, 10.0f);
+        wt0Var.n0("2layerScale", this.L[1], "2_blur", 0.0f, 10.0f);
+        wt0Var.n0("3layerScale", this.L[2], "2_blur", 0.0f, 10.0f);
+        wt0Var.V("1layerColor", this.M[0], "2_blur");
+        wt0Var.V("2layerColor", this.M[1], "2_blur");
+        wt0Var.V("3layerColor", this.M[2], "2_blur");
+

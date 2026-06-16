@@ -1,0 +1,11 @@
+        this.R = kz.a(wt0Var.x("introBlendMode", kz.b(0)), 0);
+        s0(wt0Var.p("introFadeDuration", 0.0f));
+        t0(wt0Var.p("outroFadeDuration", 0.0f));
+        r0(wt0Var.s("introFadeColor", -553648128));
+        u0(wt0Var.o("allowRecursion", false));
+        wt0Var.s0(j(fv4.A6));
+        wt0Var.p0("introBlendMode", kz.b(this.R), "2_introOutro", kz.c(kz.b));
+        wt0Var.Q("introFadeDuration", k0(), "2_introOutro", 0.0f, 10.0f);
+        wt0Var.Q("outroFadeDuration", l0(), "2_introOutro", 0.0f, 10.0f);
+        wt0Var.V("introFadeColor", j0(), "2_introOutro");
+        wt0Var.N("allowRecursion", this.S.booleanValue(), "misc");
