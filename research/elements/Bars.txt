@@ -1,0 +1,325 @@
+package com.daaw;
+
+import android.graphics.PointF;
+import android.graphics.RectF;
+import com.daaw.zf2;
+
+/* JADX INFO: loaded from: classes.dex */
+public class nh5 extends rf1 {
+    public zf2 G;
+    public zf2 H;
+    public yf2 I;
+    public boolean J;
+    public float K;
+    public float L;
+    public float M;
+    public PointF N;
+    public PointF O;
+    public PointF P;
+    public PointF Q;
+    public cg2 R;
+    public zf2.a[] S;
+    public int T;
+    public int U;
+    public int V;
+    public int W;
+    public lh3 X;
+
+    public nh5() {
+        super(2, 0.5f, 0.5f);
+        this.G = null;
+        this.H = null;
+        this.I = null;
+        this.J = false;
+        this.K = 3.0f;
+        this.L = 0.009f;
+        this.M = 1.0f;
+        this.N = new PointF();
+        this.O = new PointF();
+        this.P = new PointF();
+        this.Q = new PointF();
+        this.R = null;
+        this.S = new zf2.a[0];
+        this.T = 0;
+        this.U = 0;
+        this.V = 0;
+        this.W = 1;
+        this.X = lh3.a(0.0f);
+        h0(new ph5());
+        i0(new yh5());
+        j0(2);
+    }
+
+    public static void Z(uf2 uf2Var, int i, RectF rectF, int i2, float f, zf2 zf2Var, yf2 yf2Var) {
+        zf2.a[] aVarArr = new zf2.a[0];
+        PointF pointF = new PointF();
+        PointF pointF2 = new PointF();
+        PointF pointF3 = new PointF();
+        PointF pointF4 = new PointF();
+        boolean z = false;
+        yf2Var.d(uf2Var);
+        if (i2 != 0) {
+            aVarArr = new zf2.a[i2];
+            for (int i3 = 0; i3 < i2; i3++) {
+                zf2.a aVar = new zf2.a();
+                aVarArr[i3] = aVar;
+                aVar.c = -1;
+            }
+        }
+        zf2.a[] aVarArr2 = aVarArr;
+        if (i2 < 1) {
+            return;
+        }
+        float fK = yf2Var.k(rectF, i2);
+        int i4 = 0;
+        while (i4 < i2) {
+            int i5 = i4;
+            int iE = yf2Var.e(z, i4, i2, rectF, 0.0f, pointF3, pointF4);
+            if (Float.isNaN(pointF4.x)) {
+                pointF4.x = 1.0f;
+                pointF4.y = 0.0f;
+            }
+            float f2 = (float) (((double) 0.0f) * 3.141592653589793d * 2.0d);
+            rf1.H(pointF, rectF.centerX(), rectF.centerY(), pointF3, f2);
+            rf1.I(pointF2, pointF4, f2);
+            if (iE >= 0) {
+                aVarArr2[iE].c = i5;
+            }
+            zf2.a aVar2 = aVarArr2[i5];
+            aVar2.a = iE;
+            aVar2.d = f;
+            aVar2.e = pointF.x;
+            aVar2.f = pointF.y;
+            aVar2.g = pointF2.x;
+            aVar2.h = pointF2.y;
+            i4 = i5 + 1;
+            z = false;
+        }
+        for (int i6 = 0; i6 < i2; i6++) {
+            zf2.a aVar3 = aVarArr2[i6];
+            aVar3.b = aVar3.c;
+            aVar3.c = -1;
+        }
+        if (zf2Var != null) {
+            zf2Var.m(uf2Var, aVarArr2, fK, 0.5f, i, 0.0f);
+        }
+    }
+
+    @Override // com.daaw.rf1
+    public void B(q35 q35Var, j12 j12Var) {
+        super.B(q35Var, j12Var);
+        Y(q35Var);
+    }
+
+    @Override // com.daaw.rf1
+    public void G(uf2 uf2Var, j12 j12Var) {
+        super.G(uf2Var, j12Var);
+        Y(uf2Var);
+    }
+
+    public final void Y(uf2 uf2Var) {
+        int i;
+        xf2 xf2VarB = uf2Var.b().a().b(this.W - 1);
+        if (xf2VarB != null) {
+            if ((this.G == null && this.H == null) || this.I == null) {
+                return;
+            }
+            RectF rectFN = n(uf2Var.b().a());
+            float fS = s(uf2Var.b().a());
+            RectF rectFP = p(uf2Var.b().a());
+            float fCenterX = rectFP.centerX();
+            float fCenterY = rectFP.centerY();
+            float fMax = Math.max(0.0f, Math.min(1.0f, this.X.i(uf2Var.b().a())));
+            this.I.d(uf2Var);
+            cg2 cg2VarF = xf2VarB.f(this.U, this.V, this.T, this.R);
+            this.R = cg2VarF;
+            int size = cg2VarF.size();
+            if (size != this.S.length) {
+                this.S = new zf2.a[size];
+                for (int i2 = 0; i2 < size; i2++) {
+                    this.S[i2] = new zf2.a();
+                    this.S[i2].c = -1;
+                }
+            }
+            if (size < 1) {
+                return;
+            }
+            float fE = uf2Var.b().a().e(this.L);
+            float fE2 = uf2Var.b().a().e(this.M);
+            float fE3 = uf2Var.b().a().e(this.K) * 0.002f;
+            float fK = this.I.k(rectFN, size);
+            float fSignum = Math.signum(fE3);
+            float fAbs = Math.abs(fE3);
+            if (this.G == null && this.H == null) {
+                return;
+            }
+            int i3 = 0;
+            while (i3 < size) {
+                int i4 = i3;
+                float f = fE2;
+                RectF rectF = rectFN;
+                int iE = this.I.e(this.J, i3, size, rectFN, 0.0f, this.P, this.Q);
+                if (Float.isNaN(this.Q.x)) {
+                    PointF pointF = this.Q;
+                    pointF.x = 1.0f;
+                    pointF.y = 0.0f;
+                }
+                float f2 = (float) (((double) fS) * 3.141592653589793d * 2.0d);
+                rf1.H(this.N, fCenterX, fCenterY, this.P, f2);
+                rf1.I(this.O, this.Q, f2);
+                if (iE >= 0) {
+                    i = i4;
+                    this.S[iE].c = i;
+                } else {
+                    i = i4;
+                }
+                zf2.a aVar = this.S[i];
+                aVar.a = iE;
+                aVar.d = (Math.min(this.R.get(i) * fAbs, f) * fSignum) + fE;
+                PointF pointF2 = this.N;
+                aVar.e = pointF2.x;
+                aVar.f = pointF2.y;
+                PointF pointF3 = this.O;
+                aVar.g = pointF3.x;
+                aVar.h = pointF3.y;
+                i3 = i + 1;
+                fE2 = f;
+                rectFN = rectF;
+            }
+            for (int i5 = 0; i5 < size; i5++) {
+                zf2.a aVar2 = this.S[i5];
+                aVar2.b = aVar2.c;
+                aVar2.c = -1;
+            }
+            zf2 zf2Var = this.G;
+            if (zf2Var != null) {
+                zf2Var.m(uf2Var, this.S, fK, 0.5f, f(), fMax);
+            }
+            zf2 zf2Var2 = this.H;
+            if (zf2Var2 != null) {
+                zf2Var2.m(uf2Var, this.S, fK, 0.5f, f(), fMax);
+            }
+        }
+    }
+
+    public void a0(int i) {
+        this.W = i;
+    }
+
+    public void b0(float f) {
+        this.K = f;
+    }
+
+    public void c0(lh3 lh3Var) {
+        this.X = lh3Var;
+    }
+
+    public void d0(float f) {
+        this.M = f;
+    }
+
+    public void e0(float f) {
+        this.L = f;
+    }
+
+    public void f0(int i) {
+        this.V = i;
+    }
+
+    public void g0(int i) {
+        this.U = i;
+    }
+
+    @Override // com.daaw.rf1
+    public String h() {
+        return "Bars";
+    }
+
+    public void h0(yf2 yf2Var) {
+        this.I = yf2Var;
+    }
+
+    public void i0(zf2 zf2Var) {
+        this.G = zf2Var;
+    }
+
+    public void j0(int i) {
+        this.T = i;
+    }
+
+    @Override // com.daaw.rf1
+    public void t(wt0 wt0Var) {
+        super.t(wt0Var);
+        super.u(wt0Var);
+        this.J = wt0Var.o("flipInput", false);
+        b0(wt0Var.p("heightScale", 3.0f));
+        e0(wt0Var.p("minHeightScale", 0.009f));
+        d0(wt0Var.p("maxHeightScale", 1.0f));
+        wt0 wt0VarH = wt0Var.h("ShapePath");
+        yf2 yf2VarA = qh5.a(wt0VarH.D("Circle"), this.I);
+        this.I = yf2VarA;
+        if (yf2VarA != null) {
+            yf2VarA.a(wt0VarH);
+        }
+        c0(wt0Var.t("colorBlendOffset", lh3.a(0.0f)));
+        j0(wt0Var.s("softness", 2));
+        g0(wt0Var.s("reactionDelay", 0));
+        f0(wt0Var.s("reactionAccumulatedDelay", 0));
+        a0(wt0Var.s("audioProviderIndex", 1));
+        wt0 wt0VarH2 = wt0Var.h("Segment1");
+        zf2 zf2VarA = ai5.a(wt0VarH2.D("Bars"), this.G);
+        this.G = zf2VarA;
+        if (zf2VarA != null) {
+            zf2VarA.a(wt0VarH2);
+        }
+        wt0 wt0VarH3 = wt0Var.h("Segment2");
+        zf2 zf2VarA2 = ai5.a(wt0VarH3.D("None"), this.H);
+        this.H = zf2VarA2;
+        if (zf2VarA2 != null) {
+            zf2VarA2.a(wt0VarH3);
+        }
+    }
+
+    @Override // com.daaw.rf1
+    public boolean v(q35 q35Var) {
+        return super.v(q35Var);
+    }
+
+    @Override // com.daaw.rf1
+    public void x(q35 q35Var) {
+        super.x(q35Var);
+    }
+
+    @Override // com.daaw.rf1
+    public void z(wt0 wt0Var, df2 df2Var) {
+        super.z(wt0Var, df2Var);
+        super.A(wt0Var);
+        wt0Var.s0(j(fv4.G6));
+        wt0Var.N("flipInput", this.J, "1_bars");
+        wt0Var.Q("heightScale", this.K, "1_bars", -10.0f, 10.0f);
+        wt0Var.Q("minHeightScale", this.L, "1_bars", -0.03f, 0.03f);
+        wt0Var.Q("maxHeightScale", this.M, "1_bars", 0.1f, 1.0f);
+        wt0 wt0VarG = wt0Var.G("ShapePath", qh5.b(this.I), "1_bars", y42.o ? qh5.b : qh5.a);
+        yf2 yf2Var = this.I;
+        if (yf2Var != null) {
+            yf2Var.q(wt0VarG);
+        }
+        wt0Var.b0("colorBlendOffset", this.X, "1_bars", 0.0f, 1.0f);
+        wt0Var.Y("softness", this.T, "2_Behavior", 0, 20);
+        wt0Var.Y("reactionDelay", this.U, "2_Behavior", 0, 9);
+        wt0Var.Y("reactionAccumulatedDelay", this.V, "2_Behavior", 0, 9);
+        wt0Var.Y("audioProviderIndex", this.W, "2_Behavior", 1, 4);
+        String strB = ai5.b(this.G);
+        String[] strArr = ai5.a;
+        wt0 wt0VarG2 = wt0Var.G("Segment1", strB, "1_bars", strArr);
+        zf2 zf2Var = this.G;
+        if (zf2Var != null) {
+            zf2Var.q(wt0VarG2);
+        }
+        wt0 wt0VarG3 = wt0Var.G("Segment2", ai5.b(this.H), "1_bars", strArr);
+        zf2 zf2Var2 = this.H;
+        if (zf2Var2 != null) {
+            zf2Var2.q(wt0VarG3);
+        }
+    }
+}

@@ -1,0 +1,187 @@
+package com.daaw;
+
+import android.content.Context;
+import android.graphics.RectF;
+import android.graphics.Typeface;
+import java.util.HashMap;
+import java.util.Map;
+
+/* JADX INFO: loaded from: classes.dex */
+public class p76 extends rf1 {
+    public static final String[] O = {"internal_0:" + wt4.i, "internal_1:" + wt4.j, "internal_2:" + wt4.k, "internal_3:" + wt4.l, "internal_4:" + wt4.m, "internal_5:" + wt4.n, "internal_6:" + wt4.o, "internal_7:" + wt4.p, "internal_8:" + wt4.q};
+    public static Map P = new a();
+    public av5 G;
+    public String H;
+    public int I;
+    public int J;
+    public String K;
+    public int L;
+    public final ss6 M;
+    public j6 N;
+
+    public class a extends HashMap {
+        public a() {
+            put("internal_0", "fonts/greatvibes-regular.otf");
+            put("internal_1", "fonts/notomono-regular.ttf");
+            put("internal_2", "fonts/orbitron-medium.otf");
+            put("internal_3", "fonts/orkney-light.otf");
+            put("internal_4", "fonts/Akshar-Medium.ttf");
+            put("internal_5", "fonts/Hibana-SubMedium.otf");
+            put("internal_6", "fonts/Russo_One.ttf");
+            put("internal_7", "fonts/Space-Fray.ttf");
+            put("internal_8", "fonts/Valden.otf");
+        }
+    }
+
+    public class b implements j6 {
+        public b() {
+        }
+
+        @Override // com.daaw.j6
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public void a(q35 q35Var, ws6 ws6Var, o35 o35Var) {
+            ws6Var.E("u_projView", false, p76.this.M.a());
+        }
+    }
+
+    public p76() {
+        super(0, 0.5f, 0.5f);
+        this.H = "{ArtistOrTitle}";
+        this.I = 30;
+        this.J = -1;
+        this.K = "";
+        this.L = 500;
+        this.M = new ss6();
+        this.N = new b();
+    }
+
+    @Override // com.daaw.rf1
+    public void B(q35 q35Var, j12 j12Var) {
+        super.B(q35Var, j12Var);
+        av5 av5Var = this.G;
+        if (av5Var == null || !av5Var.f()) {
+            return;
+        }
+        String strM = q35Var.u.b.m(this.H);
+        new cu6(0, 0);
+        RectF rectFO = o(q35Var.u.b, q35Var.u.w().b(this.G, strM));
+        float fS = s(q35Var.b().a());
+        float f = rectFO.left + (r0.a * 0.5f);
+        float f2 = rectFO.top - (r0.b * 0.5f);
+        bu6 bu6VarZ = Z(rectFO);
+        b(q35Var, this.M, f, f2, fS);
+        q35Var.u.w().a(q35Var, this.G, new du6(rectFO.left + bu6VarZ.a, rectFO.top + bu6VarZ.b, 0.0f), strM, this.J, 0, false, 0, 0, 0, 0, new o35(f(), this.G.c(), q35Var.u.u(), this.N));
+        e0(q35Var, rectFO);
+    }
+
+    public String Y() {
+        return this.K;
+    }
+
+    public bu6 Z(RectF rectF) {
+        return new bu6(0.0f, 0.0f);
+    }
+
+    public void a0(float f, float f2) {
+        float[] fArr = {1.0f, 1.0f, 1.0f, 1.0f};
+        p82.q(fArr, this.J);
+        fArr[2] = Math.max(f2, fArr[2]);
+        fArr[3] = Math.max(f, fArr[3]);
+        f0(p82.m(fArr));
+    }
+
+    public void b0(int i) {
+        this.I = Math.max(i, this.I);
+    }
+
+    public void c0(wt0 wt0Var) {
+        g0(wt0Var.x("typeFace", Y()));
+    }
+
+    public void d0(wt0 wt0Var) {
+        wt0Var.g0("typeFace", Y(), "appearance", O);
+    }
+
+    public void e0(q35 q35Var, RectF rectF) {
+    }
+
+    public void f0(int i) {
+        this.J = i;
+    }
+
+    public void g0(String str) {
+        if (rr6.h(this.K, str)) {
+            return;
+        }
+        this.K = str;
+        l();
+    }
+
+    @Override // com.daaw.rf1
+    public String h() {
+        return "Text";
+    }
+
+    public void h0(int i) {
+        if (this.I == i) {
+            return;
+        }
+        this.I = Math.min(500, i);
+        l();
+    }
+
+    public void i0(String str) {
+        this.H = str;
+    }
+
+    @Override // com.daaw.rf1
+    public void t(wt0 wt0Var) {
+        super.t(wt0Var);
+        super.u(wt0Var);
+        i0(wt0Var.x("text", "{ArtistOrTitle}"));
+        f0(wt0Var.s("color", -1));
+        h0(wt0Var.s("fontSize", 30));
+        g0(wt0Var.x("typeFace", ""));
+    }
+
+    @Override // com.daaw.rf1
+    public boolean v(q35 q35Var) {
+        Context contextI;
+        int iMin = Math.min((int) q35Var.b().a().h(this.I * 0.14f * 0.01f), this.L);
+        Typeface typefaceCreateFromAsset = Typeface.DEFAULT;
+        if (!"".equals(this.K) && P.containsKey(this.K) && (contextI = com.daaw.avee.a.i()) != null) {
+            try {
+                typefaceCreateFromAsset = Typeface.createFromAsset(contextI.getAssets(), (String) P.get(this.K));
+            } catch (Exception unused) {
+                typefaceCreateFromAsset = Typeface.DEFAULT;
+            }
+        }
+        av5 av5Var = this.G;
+        if (av5Var != null) {
+            av5Var.a();
+        }
+        this.G = new av5(typefaceCreateFromAsset, iMin, o80.c(), o80.l(), o80.f(), o80.g(), o80.e(), o80.k(), o80.h(), o80.b(), o80.i(), o80.j());
+        return super.v(q35Var);
+    }
+
+    @Override // com.daaw.rf1
+    public void x(q35 q35Var) {
+        super.x(q35Var);
+        av5 av5Var = this.G;
+        if (av5Var != null) {
+            av5Var.a();
+        }
+        this.G = null;
+    }
+
+    @Override // com.daaw.rf1
+    public void z(wt0 wt0Var, df2 df2Var) {
+        super.z(wt0Var, df2Var);
+        super.A(wt0Var);
+        wt0Var.s0(j(fv4.H6));
+        wt0Var.k0("text", this.H, "appearance");
+        wt0Var.V("color", this.J, "appearance");
+        wt0Var.Y("fontSize", this.I, "appearance", 8, 100);
+        d0(wt0Var);
+    }
+}

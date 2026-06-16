@@ -1,0 +1,67 @@
+package com.daaw;
+
+/* JADX INFO: loaded from: classes.dex */
+public class jr extends rf1 {
+    public xf2 G;
+
+    public jr() {
+        super(0, 0.5f, 0.5f);
+        this.G = null;
+        Y(null);
+    }
+
+    @Override // com.daaw.rf1
+    public void B(q35 q35Var, j12 j12Var) {
+        super.B(q35Var, j12Var);
+    }
+
+    public void Y(xf2 xf2Var) {
+        this.G = xf2Var;
+    }
+
+    @Override // com.daaw.rf1
+    public String h() {
+        return "AudioProvider";
+    }
+
+    @Override // com.daaw.rf1
+    public void t(wt0 wt0Var) {
+        xf2 xf2VarA = mh5.a(wt0Var.h("sampleProvider").D("Spectrum"), this.G);
+        this.G = xf2VarA;
+        if (xf2VarA != null) {
+            xf2VarA.a(wt0Var);
+        }
+    }
+
+    @Override // com.daaw.rf1
+    public boolean v(q35 q35Var) {
+        return super.v(q35Var);
+    }
+
+    @Override // com.daaw.rf1
+    public void x(q35 q35Var) {
+        super.x(q35Var);
+    }
+
+    @Override // com.daaw.rf1
+    public void y(uf2 uf2Var, j12 j12Var, ke2 ke2Var) {
+        super.y(uf2Var, j12Var, ke2Var);
+        xf2 xf2Var = this.G;
+        if (xf2Var != null) {
+            xf2Var.p(uf2Var, uf2Var.b().b());
+            uf2Var.b().a().p(this.G.c());
+            uf2Var.b().a().q(this.G.j());
+        }
+        uf2Var.b().a().a(this.G);
+    }
+
+    @Override // com.daaw.rf1
+    public void z(wt0 wt0Var, df2 df2Var) {
+        wt0Var.s0(j(fv4.y6));
+        wt0Var.G("sampleProvider", mh5.b(this.G, "Spectrum"), "0_general", mh5.a);
+        xf2 xf2Var = this.G;
+        if (xf2Var != null) {
+            xf2Var.q(wt0Var);
+        }
+    }
+}

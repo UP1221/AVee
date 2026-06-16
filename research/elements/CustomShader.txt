@@ -1,0 +1,245 @@
+package com.daaw;
+
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.RectF;
+import android.opengl.GLES20;
+import com.daaw.q35;
+import com.daaw.tf1;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/* JADX INFO: loaded from: classes.dex */
+public class au0 extends rf1 {
+    public static final String[] Q = {"composition:0"};
+    public ws6 G;
+    public boolean H;
+    public String I;
+    public String J;
+    public zl5 K;
+    public tf1 L;
+    public LinkedHashMap M;
+    public final ss6 N;
+    public h9 O;
+    public j6 P;
+
+    public class a implements j6 {
+        public a() {
+        }
+
+        @Override // com.daaw.j6
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public void a(q35 q35Var, ws6 ws6Var, o35 o35Var) {
+            ws6Var.E("u_projView", false, au0.this.N.a());
+            nq3 nq3VarA = q35Var.b().a();
+            Map mapC = au0.this.K.c();
+            au0.this.M.clear();
+            int i = 1;
+            for (Map.Entry entry : mapC.entrySet()) {
+                String str = (String) entry.getKey();
+                Object value = entry.getValue();
+                if (value instanceof lh3) {
+                    ws6Var.s(str, ((lh3) value).i(nq3VarA));
+                }
+                if (value instanceof Boolean) {
+                    ws6Var.s(str, ((Boolean) value).booleanValue() ? 1.0f : 0.0f);
+                } else if ((value instanceof tf1) && !str.equals("u_texture")) {
+                    au0.this.M.put(str, (tf1) value);
+                    ws6Var.x(str, i);
+                    i++;
+                }
+            }
+        }
+    }
+
+    public au0() {
+        super(4, 1.0f, 1.0f);
+        this.K = new zl5();
+        this.M = new LinkedHashMap();
+        this.N = new ss6();
+        this.O = null;
+        this.P = new a();
+        d0();
+        J(4);
+        R(1.0f, 1.0f);
+        this.L = b0();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ h9 f0(uf2 uf2Var) {
+        if (uf2Var != null) {
+            this.O = uf2Var.b().b().k();
+        }
+        return this.O;
+    }
+
+    @Override // com.daaw.rf1
+    public void B(q35 q35Var, j12 j12Var) {
+        ce2[] ce2VarArrG0 = g0(q35Var, j12Var);
+        if (ce2VarArrG0 == null) {
+            super.B(q35Var, j12Var);
+            return;
+        }
+        C(q35Var);
+        RectF rectFN = n(q35Var.b().a());
+        b(q35Var, this.N, rectFN.centerX(), rectFN.centerY(), s(q35Var.b().a()));
+        i0(q35Var);
+        super.B(q35Var, j12Var);
+        q35.c cVar = q35Var.u;
+        ws6 ws6Var = this.G;
+        if (ws6Var == null || this.H) {
+            this.H = false;
+            this.G = cVar.E(ws6Var);
+            this.G = cVar.B(this.J, this.I);
+        }
+        q35Var.v(rectFN.left, rectFN.top, -1, bu6.s(), bu6.q(), new o35(f(), ce2VarArrG0, cVar.i(this.G), this.P));
+    }
+
+    public final tf1 b0() {
+        return new tf1(new tf1.b() { // from class: com.daaw.yt0
+            @Override // com.daaw.tf1.b
+            public final void a() {
+                this.a.m();
+            }
+        }, new a22() { // from class: com.daaw.zt0
+            @Override // com.daaw.a22
+            public final Object a(Object obj) {
+                return this.a.f0((uf2) obj);
+            }
+        }, null, null);
+    }
+
+    public String c0() {
+        return this.L.j();
+    }
+
+    public void d0() {
+        Context contextI = com.daaw.avee.a.i();
+        if (contextI == null) {
+            return;
+        }
+        Resources resources = contextI.getResources();
+        this.J = wr6.q(resources, cv4.l);
+        this.I = wr6.q(resources, cv4.k);
+    }
+
+    public ce2[] g0(q35 q35Var, j12 j12Var) {
+        this.L.u(q35Var, j12Var);
+        ArrayList arrayList = new ArrayList();
+        ce2 ce2VarM = this.L.m(q35Var);
+        if (ce2VarM == null) {
+            return null;
+        }
+        arrayList.add(ce2VarM);
+        Iterator it = this.M.values().iterator();
+        while (it.hasNext()) {
+            ce2 ce2VarM2 = ((tf1) it.next()).m(q35Var);
+            if (ce2VarM2 == null) {
+                return null;
+            }
+            arrayList.add(ce2VarM2);
+        }
+        while (arrayList.size() < 2) {
+            arrayList.add(null);
+        }
+        return (ce2[]) arrayList.toArray(new ce2[0]);
+    }
+
+    @Override // com.daaw.rf1
+    public String h() {
+        return "CustomShader";
+    }
+
+    public void h0(String str) {
+        this.L.C(str);
+    }
+
+    public final void i0(q35 q35Var) {
+        GLES20.glTexParameteri(3553, 10241, 9729);
+        GLES20.glTexParameteri(3553, 10240, 9729);
+        q35Var.T(1);
+    }
+
+    @Override // com.daaw.rf1
+    public void l() {
+        super.l();
+        tf1 tf1Var = this.L;
+        if (tf1Var != null) {
+            tf1Var.p();
+        }
+        Iterator it = this.M.values().iterator();
+        while (it.hasNext()) {
+            ((tf1) it.next()).p();
+        }
+    }
+
+    @Override // com.daaw.rf1
+    public void t(wt0 wt0Var) {
+        super.t(wt0Var);
+        super.u(wt0Var);
+        h0(wt0Var.x("TargetImage", "composition:1"));
+        this.J = wt0Var.x("shaderVertex", this.J);
+        this.I = wt0Var.x("shaderFragment", this.I);
+        this.K.a(wt0Var);
+        this.H = true;
+    }
+
+    @Override // com.daaw.rf1
+    public boolean v(q35 q35Var) {
+        super.v(q35Var);
+        RectF rectFQ = q(q35Var.u.b);
+        this.L.q(q35Var, rectFQ, 0);
+        Iterator it = this.M.values().iterator();
+        while (it.hasNext()) {
+            ((tf1) it.next()).q(q35Var, rectFQ, 0);
+        }
+        return false;
+    }
+
+    @Override // com.daaw.rf1
+    public void w(q35 q35Var, int i) {
+        super.w(q35Var, i);
+        this.L.r(q35Var, i);
+        Iterator it = this.M.values().iterator();
+        while (it.hasNext()) {
+            ((tf1) it.next()).r(q35Var, i);
+        }
+    }
+
+    @Override // com.daaw.rf1
+    public void x(q35 q35Var) {
+        super.x(q35Var);
+        tf1 tf1Var = this.L;
+        if (tf1Var != null) {
+            tf1Var.s(q35Var);
+        }
+        Iterator it = this.M.values().iterator();
+        while (it.hasNext()) {
+            ((tf1) it.next()).s(q35Var);
+        }
+    }
+
+    @Override // com.daaw.rf1
+    public void y(uf2 uf2Var, j12 j12Var, ke2 ke2Var) {
+        super.y(uf2Var, j12Var, ke2Var);
+        this.L.t(uf2Var, j12Var, ke2Var);
+        Iterator it = this.M.values().iterator();
+        while (it.hasNext()) {
+            ((tf1) it.next()).t(uf2Var, j12Var, ke2Var);
+        }
+    }
+
+    @Override // com.daaw.rf1
+    public void z(wt0 wt0Var, df2 df2Var) {
+        super.z(wt0Var, df2Var);
+        super.A(wt0Var);
+        wt0Var.s0(h());
+        df2Var.a(c0());
+        wt0Var.h0("TargetImage", c0(), "1_appearance", Q);
+        wt0Var.j0("shaderFragment", this.I, "shader");
+        wt0Var.j0("shaderVertex", this.J, "shader");
+        this.K.q(wt0Var);
+    }
+}

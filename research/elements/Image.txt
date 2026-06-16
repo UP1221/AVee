@@ -1,0 +1,354 @@
+package com.daaw;
+
+import android.graphics.Bitmap;
+import android.graphics.RectF;
+import com.daaw.tf1;
+import com.google.android.gms.ads.AdRequest;
+
+/* JADX INFO: loaded from: classes.dex */
+public class zh2 extends uh2 {
+    public tf1 Z;
+    public float[] M = {1.0f, 1.0f, 1.0f, 1.0f};
+    public float[] N = {1.0f, 1.0f, 1.0f, 1.0f};
+    public jl3 O = jl3.a();
+    public lh3 P = lh3.a(1.0f);
+    public boolean Q = false;
+    public int R = 5;
+    public int S = 7;
+    public boolean T = false;
+    public boolean U = true;
+    public yf2 V = null;
+    public float[] W = new float[4];
+    public float[] X = new float[4];
+    public final ss6 Y = new ss6();
+    public int a0 = 0;
+    public j6 b0 = new d();
+    public j6 c0 = new e();
+
+    public class a implements b22 {
+        public a() {
+        }
+
+        @Override // com.daaw.b22
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public Bitmap a(q35 q35Var, Bitmap bitmap) {
+            String str;
+            bitmap.getConfig();
+            if (!zh2.this.Q) {
+                return bitmap;
+            }
+            int iMin = Math.min(1 << zh2.this.R, AdRequest.MAX_CONTENT_URL_LENGTH);
+            int width = (int) (iMin * (bitmap.getWidth() / bitmap.getHeight()));
+            try {
+                return lo1.a((width <= 0 || iMin <= 0) ? bitmap : Bitmap.createScaledBitmap(bitmap, width, iMin, true), zh2.this.S);
+            } catch (Exception e) {
+                str = "Art blurring failed: " + e.getMessage();
+                ub7.c(str);
+                return bitmap;
+            } catch (OutOfMemoryError unused) {
+                str = "Art blurring failed: OutOfMemoryError";
+                ub7.c(str);
+                return bitmap;
+            }
+        }
+    }
+
+    public class b implements b22 {
+        public b() {
+        }
+
+        @Override // com.daaw.b22
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public Bitmap a(q35 q35Var, Bitmap bitmap) {
+            String str;
+            if (!zh2.this.T || !zh2.this.U) {
+                return null;
+            }
+            Bitmap bitmapCreateScaledBitmap = Bitmap.createScaledBitmap(bitmap, 32, 32, true);
+            try {
+                return lo1.a(bitmapCreateScaledBitmap, 7);
+            } catch (Exception e) {
+                str = "Art blurring failed: " + e.getMessage();
+                ub7.c(str);
+                return bitmapCreateScaledBitmap;
+            } catch (OutOfMemoryError unused) {
+                str = "Art blurring failed: OutOfMemoryError";
+                ub7.c(str);
+                return bitmapCreateScaledBitmap;
+            }
+        }
+    }
+
+    public class c implements tf1.b {
+        public c() {
+        }
+
+        @Override // com.daaw.tf1.b
+        public void a() {
+            zh2.this.m();
+        }
+    }
+
+    public class d implements j6 {
+        public d() {
+        }
+
+        @Override // com.daaw.j6
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public void a(q35 q35Var, ws6 ws6Var, o35 o35Var) {
+            ws6Var.E("u_projView", false, zh2.this.Y.a());
+        }
+    }
+
+    public class e implements j6 {
+        public e() {
+        }
+
+        @Override // com.daaw.j6
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public void a(q35 q35Var, ws6 ws6Var, o35 o35Var) {
+            ws6Var.E("u_projView", false, zh2.this.Y.a());
+            ws6Var.v("Color2", 0.0f, 0.0f, 0.0f, 1.0f);
+            ws6Var.s("saturation", zh2.this.P.i(q35Var.b().a()));
+            if (zh2.this.a0 == 1) {
+                ws6Var.s("maskadd", 0.0f);
+                ws6Var.s("maskmul", 1.0f);
+                ws6Var.s("mask_l_add", 0.0f);
+                ws6Var.s("mask_l_mul", 1.0f);
+            } else if (zh2.this.a0 == 2) {
+                ws6Var.s("maskadd", 0.0f);
+                ws6Var.s("maskmul", 1.0f);
+                ws6Var.s("mask_l_add", 1.0f);
+                ws6Var.s("mask_l_mul", -1.0f);
+            } else {
+                if (zh2.this.a0 == 3) {
+                    ws6Var.s("maskadd", 1.0f);
+                    ws6Var.s("maskmul", -1.0f);
+                } else {
+                    ws6Var.s("maskadd", 0.0f);
+                    ws6Var.s("maskmul", 1.0f);
+                }
+                ws6Var.s("mask_l_add", 1.0f);
+                ws6Var.s("mask_l_mul", 0.0f);
+            }
+            if (o35Var.e(0) == o35Var.e(1)) {
+                ws6Var.s("tex2_y_add", 0.0f);
+                ws6Var.s("tex2_y_mul", 1.0f);
+            } else {
+                ws6Var.s("tex2_y_add", 1.0f);
+                ws6Var.s("tex2_y_mul", -1.0f);
+            }
+        }
+    }
+
+    public zh2() {
+        Z(new a(), new b());
+        this.Z = new tf1(new c(), null, null, null);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:12:0x00a8 A[PHI: r2 r9
+      0x00a8: PHI (r2v20 float) = (r2v13 float), (r2v6 float) binds: [B:28:0x00e9, B:10:0x00a5] A[DONT_GENERATE, DONT_INLINE]
+      0x00a8: PHI (r9v16 float) = (r9v8 float), (r9v1 float) binds: [B:28:0x00e9, B:10:0x00a5] A[DONT_GENERATE, DONT_INLINE]] */
+    @Override // com.daaw.uh2, com.daaw.rf1
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+        To view partially-correct add '--show-bad-code' argument
+    */
+    public void B(com.daaw.q35 r24, com.daaw.j12 r25) {
+        /*
+            Method dump skipped, instruction units count: 427
+            To view this dump add '--comments-level debug' option
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.daaw.zh2.B(com.daaw.q35, com.daaw.j12):void");
+    }
+
+    @Override // com.daaw.uh2
+    public void a0(q35 q35Var) {
+    }
+
+    @Override // com.daaw.rf1
+    public String h() {
+        return "Image";
+    }
+
+    @Override // com.daaw.uh2, com.daaw.rf1
+    public void l() {
+        super.l();
+        tf1 tf1Var = this.Z;
+        if (tf1Var != null) {
+            tf1Var.p();
+        }
+    }
+
+    public final int o0(nq3 nq3Var) {
+        rr6.r(this.M, this.N, this.W, Math.max(Math.min(this.O.j(nq3Var, 0.0f), 1.0f), 0.0f));
+        return p82.k(this.W);
+    }
+
+    public int p0() {
+        return this.a0;
+    }
+
+    public final void q0(q35 q35Var, RectF rectF, int i, o35 o35Var) {
+        float fWidth;
+        float fHeight;
+        float f;
+        float fWidth2 = rectF.width() / rectF.height();
+        float width = o35Var.f().getWidth() / o35Var.f().getHeight();
+        if (width > fWidth2) {
+            fWidth = rectF.width();
+            fHeight = fWidth / width;
+        } else if (width < fWidth2) {
+            fHeight = rectF.height();
+            fWidth = width * fHeight;
+        } else {
+            fWidth = rectF.width();
+            fHeight = rectF.height();
+        }
+        float f2 = 1.0f;
+        if (fWidth > fHeight) {
+            f2 = 1.0f / width;
+            f = 1.0f;
+        } else {
+            f = width * 1.0f;
+        }
+        float f3 = f2 * 0.5f;
+        float f4 = f * 0.5f;
+        q35Var.u.p().u(q35Var, rectF, i, new bu6(0.5f - f3, f4 + 0.5f), new bu6(f3 + 0.5f, 0.5f - f4), o35Var, this.V);
+    }
+
+    public void r0(q35 q35Var, int i, RectF rectF, RectF rectF2, o35 o35Var) {
+        float f;
+        RectF rectF3;
+        float f2;
+        float fWidth = rectF.width();
+        float fHeight = rectF.height();
+        RectF rectF4 = new RectF();
+        rectF4.set(rectF.left, rectF.top, rectF.right, rectF2.top);
+        if (rectF4.height() > 0.0f) {
+            f = fWidth;
+            rectF3 = rectF4;
+            q35Var.u.p().o(q35Var, rectF4.left, rectF4.top, 0.0f, rectF4.width(), rectF4.height(), i, new bu6(0.0f, rectF2.bottom / fHeight), bu6.q(), o35Var, false);
+        } else {
+            f = fWidth;
+            rectF3 = rectF4;
+        }
+        rectF3.set(rectF.left, rectF2.bottom, rectF.right, rectF.bottom);
+        if (rectF3.height() > 0.0f) {
+            q35Var.u.p().o(q35Var, rectF3.left, rectF3.top, 0.0f, rectF3.width(), rectF3.height(), i, bu6.s(), new bu6(1.0f, rectF2.top / fHeight), o35Var, false);
+        }
+        rectF3.set(rectF.left, rectF2.top, rectF2.left, rectF2.bottom);
+        if (rectF3.width() > 0.0f) {
+            f2 = 0.0f;
+            q35Var.u.p().o(q35Var, rectF3.left, rectF3.top, 0.0f, rectF3.width(), rectF3.height(), i, bu6.s(), new bu6(rectF2.left / f, 1.0f), o35Var, false);
+        } else {
+            f2 = 0.0f;
+        }
+        rectF3.set(rectF2.right, rectF2.top, rectF.right, rectF2.bottom);
+        if (rectF3.width() > f2) {
+            q35Var.u.p().o(q35Var, rectF3.left, rectF3.top, 0.0f, rectF3.width(), rectF3.height(), i, new bu6(rectF2.right / f, 0.0f), bu6.q(), o35Var, false);
+        }
+    }
+
+    public void s0(boolean z, int i, int i2) {
+        if (this.Q == z && this.R == i && this.S == i2) {
+            return;
+        }
+        this.Q = z;
+        this.R = i;
+        this.S = i2;
+        l();
+    }
+
+    @Override // com.daaw.uh2, com.daaw.rf1
+    public void t(wt0 wt0Var) {
+        super.t(wt0Var);
+        u0(wt0Var.o("keepAspectRatio", true));
+        t0(wt0Var.o("blurredBorder", false));
+        this.M = wt0Var.n("Color", new float[]{1.0f, 1.0f, 1.0f, 1.0f});
+        this.N = wt0Var.n("ColorTo", new float[]{1.0f, 1.0f, 1.0f, 1.0f});
+        this.O.n(wt0Var.h("MeasureColorBlend"), "Nothing", 0.5f, 0.5f);
+        this.P = wt0Var.t("saturation", lh3.a(1.0f));
+        s0(wt0Var.o("blurEnabled", false), wt0Var.s("blurDivider", 5), wt0Var.s("blurRadius", 7));
+        wt0 wt0VarH = wt0Var.h("Shape");
+        yf2 yf2VarA = qh5.a(wt0VarH.D("None"), this.V);
+        this.V = yf2VarA;
+        if (yf2VarA != null) {
+            yf2VarA.a(wt0VarH);
+        }
+        this.Z.C(wt0Var.x("MaskImage", null));
+        v0(wt0Var.w("maskMode", di2.a, 0));
+    }
+
+    public void t0(boolean z) {
+        if (this.T == z) {
+            return;
+        }
+        this.T = z;
+        l();
+    }
+
+    public void u0(boolean z) {
+        if (this.U == z) {
+            return;
+        }
+        this.U = z;
+        l();
+    }
+
+    @Override // com.daaw.uh2, com.daaw.rf1
+    public boolean v(q35 q35Var) {
+        super.v(q35Var);
+        this.Z.q(q35Var, q(q35Var.u.b), 0);
+        return false;
+    }
+
+    public void v0(int i) {
+        this.a0 = i;
+    }
+
+    @Override // com.daaw.uh2, com.daaw.rf1
+    public void w(q35 q35Var, int i) {
+        super.w(q35Var, i);
+        this.Z.r(q35Var, i);
+    }
+
+    @Override // com.daaw.uh2, com.daaw.rf1
+    public void x(q35 q35Var) {
+        super.x(q35Var);
+        tf1 tf1Var = this.Z;
+        if (tf1Var != null) {
+            tf1Var.s(q35Var);
+        }
+    }
+
+    @Override // com.daaw.uh2, com.daaw.rf1
+    public void y(uf2 uf2Var, j12 j12Var, ke2 ke2Var) {
+        super.y(uf2Var, j12Var, ke2Var);
+        this.Z.t(uf2Var, j12Var, ke2Var);
+    }
+
+    @Override // com.daaw.uh2, com.daaw.rf1
+    public void z(wt0 wt0Var, df2 df2Var) {
+        super.z(wt0Var, df2Var);
+        wt0Var.N("keepAspectRatio", this.U, "1_image");
+        wt0Var.N("blurredBorder", this.T, "1_image");
+        wt0Var.s0(j(fv4.B6));
+        wt0Var.K("Color", this.M, "2_color");
+        wt0Var.K("ColorTo", this.N, "2_color");
+        this.O.o(wt0Var.G("MeasureColorBlend", "", "2_color", new String[0]));
+        wt0Var.b0("saturation", this.P, "2_color", 0.0f, 1.0f);
+        wt0Var.N("blurEnabled", this.Q, "blur");
+        wt0Var.Y("blurDivider", this.R, "blur", 0, 10);
+        wt0Var.Y("blurRadius", this.S, "blur", 1, 25);
+        wt0 wt0VarG = wt0Var.G("Shape", qh5.b(this.V), "1_image", qh5.c);
+        yf2 yf2Var = this.V;
+        if (yf2Var != null) {
+            yf2Var.q(wt0VarG);
+        }
+        df2Var.a(this.Z.j());
+        wt0Var.h0("MaskImage", this.Z.j(), "1_image", tf1.t);
+        String[] strArr = di2.a;
+        wt0Var.p0("maskMode", rr6.a(strArr, p0(), strArr[0]), "1_image", strArr);
+    }
+}

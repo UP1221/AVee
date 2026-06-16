@@ -1,0 +1,9 @@
+]633;E;grep --color=auto -ni "shader" research/elements/CustomShader.txt;680d6c83-1a98-4c1b-baeb-15ff7f4f1606]633;C152:        return "CustomShader";
+183:        this.J = wt0Var.x("shaderVertex", this.J);
+184:        this.I = wt0Var.x("shaderFragment", this.I);
+241:        wt0Var.j0("shaderFragment", this.I, "shader");
+242:        wt0Var.j0("shaderVertex", this.J, "shader");
+184:        this.I = wt0Var.x("shaderFragment", this.I);
+241:        wt0Var.j0("shaderFragment", this.I, "shader");
+183:        this.J = wt0Var.x("shaderVertex", this.J);
+242:        wt0Var.j0("shaderVertex", this.J, "shader");
