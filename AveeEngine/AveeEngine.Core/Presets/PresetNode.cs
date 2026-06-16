@@ -3,5 +3,10 @@ namespace AveeEngine.Core.Presets;
 public class PresetNode
 {
     public string ObjType { get; set; } = "";
-    public List<PresetNode> Children { get; set; } = new();
+
+    public Dictionary<string,string> Properties
+        { get; } = new();
+
+    public List<PresetNode> Children
+        { get; } = new();
 }
