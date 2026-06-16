@@ -1,0 +1,17 @@
+decompiled/resources/res/raw/blur_kernel_frag.frag
+decompiled/resources/res/raw/blur_stack_frag.frag
+decompiled/resources/res/raw/blur_vert.vert
+decompiled/resources/res/raw/blurh_frag.frag
+decompiled/resources/res/raw/blurv_frag.frag
+decompiled/resources/res/raw/buffer_frag.frag
+decompiled/resources/res/raw/buffer_fx_ligh_vert.vert
+decompiled/resources/res/raw/buffer_fx_light_frag.frag
+decompiled/resources/res/raw/buffer_motion_blur_frag.frag
+decompiled/resources/res/raw/buffer_motion_blur_vert.vert
+decompiled/resources/res/raw/buffer_rgb_split_frag.frag
+decompiled/resources/res/raw/buffer_rgb_split_vert.vert
+decompiled/resources/res/raw/buffer_vert.vert
+decompiled/resources/res/raw/fxaa0_frag.frag
+decompiled/resources/res/raw/fxaa0_vert.vert
+decompiled/resources/res/raw/fxaa_frag.frag
+decompiled/resources/res/raw/fxaa_vert.vert

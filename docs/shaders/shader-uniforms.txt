@@ -1,0 +1,97 @@
+]633;E;for f in decompiled/resources/res/raw/*.{frag,vert};8fab6400-7fd1-425b-b6ac-b57ca2ca4c13]633;C=================================
+decompiled/resources/res/raw/blur_kernel_frag.frag
+uniform sampler2D u_texture;
+uniform float resolutionW;
+uniform float resolutionH;
+uniform float radius;//the amount to blur, in pixels
+uniform vec4 Color2;
+
+=================================
+decompiled/resources/res/raw/blur_stack_frag.frag
+uniform sampler2D u_texture;
+uniform float blurWH;
+uniform vec2 resolution; //used as pixelW/H
+
+=================================
+decompiled/resources/res/raw/blurh_frag.frag
+uniform sampler2D u_texture;
+uniform float blurW;
+uniform float resolutionH;
+uniform vec2 resolution;
+
+=================================
+decompiled/resources/res/raw/blurv_frag.frag
+uniform sampler2D u_texture;
+uniform float blurH;
+uniform vec4 Color2;
+uniform vec2 resolution;
+
+=================================
+decompiled/resources/res/raw/buffer_frag.frag
+uniform sampler2D u_texture;
+
+=================================
+decompiled/resources/res/raw/buffer_fx_light_frag.frag
+uniform sampler2D u_texture;
+uniform sampler2D u_texture2;
+uniform float maskadd;
+uniform float maskmul;
+uniform float mask_l_add;
+uniform float mask_l_mul;
+uniform float tex2_y_add;
+uniform float tex2_y_mul;
+uniform vec4 Color2;//Colorize
+uniform float saturation;
+
+=================================
+decompiled/resources/res/raw/buffer_motion_blur_frag.frag
+uniform sampler2D u_texture;
+uniform vec2 posAmount;
+uniform vec2 scaleAmount;
+
+=================================
+decompiled/resources/res/raw/buffer_rgb_split_frag.frag
+uniform sampler2D u_texture;
+uniform sampler2D u_texture2;
+uniform vec2 dirAmount;
+uniform vec3 splitColor0;
+uniform vec3 splitColor1;
+uniform vec3 splitColor2;
+
+=================================
+decompiled/resources/res/raw/fxaa0_frag.frag
+uniform sampler2D u_texture;
+uniform float resolutionW;
+uniform float resolutionH;
+
+=================================
+decompiled/resources/res/raw/fxaa_frag.frag
+uniform sampler2D u_texture;
+uniform float resolutionW;
+uniform float resolutionH;
+
+=================================
+decompiled/resources/res/raw/blur_vert.vert
+
+=================================
+decompiled/resources/res/raw/buffer_fx_ligh_vert.vert
+uniform mat4 u_projView;
+
+=================================
+decompiled/resources/res/raw/buffer_motion_blur_vert.vert
+uniform mat4 u_projView;
+
+=================================
+decompiled/resources/res/raw/buffer_rgb_split_vert.vert
+uniform mat4 u_projView;
+
+=================================
+decompiled/resources/res/raw/buffer_vert.vert
+uniform mat4 u_projView;
+
+=================================
+decompiled/resources/res/raw/fxaa0_vert.vert
+
+=================================
+decompiled/resources/res/raw/fxaa_vert.vert
+
