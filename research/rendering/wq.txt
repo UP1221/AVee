@@ -1,0 +1,146 @@
+package com.daaw;
+
+/* JADX INFO: loaded from: classes.dex */
+public class wq implements ce2 {
+    public static final e22 h = new a();
+    public static final ce2 i = new b();
+    public eg2 a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public boolean g;
+
+    public class a implements e22 {
+    }
+
+    public static class b implements ce2 {
+        @Override // com.daaw.ce2
+        public void a() {
+        }
+
+        @Override // com.daaw.ce2
+        public float b(float f) {
+            return 1.0f;
+        }
+
+        @Override // com.daaw.ce2
+        public ce2 c(float f) {
+            return this;
+        }
+
+        @Override // com.daaw.ce2
+        public eg2 d() {
+            return null;
+        }
+
+        @Override // com.daaw.ce2
+        public float e(float f) {
+            return 1.0f;
+        }
+
+        @Override // com.daaw.ce2
+        public float f() {
+            return 0.0f;
+        }
+
+        @Override // com.daaw.ce2
+        public boolean g() {
+            return false;
+        }
+
+        @Override // com.daaw.ce2
+        public int getHeight() {
+            return 1;
+        }
+
+        @Override // com.daaw.ce2
+        public int getWidth() {
+            return 1;
+        }
+    }
+
+    public wq(eg2 eg2Var, int i2, int i3, int i4, int i5, boolean z) {
+        this.f = 1;
+        this.a = eg2Var;
+        this.g = z;
+        if (eg2Var.getHeight() < 1 || eg2Var.getWidth() < 1) {
+            ub7.c("texture invalid dimensions");
+        }
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
+        this.e = i5;
+    }
+
+    @Override // com.daaw.ce2
+    public void a() {
+        eg2 eg2Var;
+        if (!this.g || (eg2Var = this.a) == null) {
+            return;
+        }
+        eg2Var.a();
+    }
+
+    @Override // com.daaw.ce2
+    public float b(float f) {
+        return (this.c / this.a.getHeight()) + ((this.e / this.a.getHeight()) * f);
+    }
+
+    @Override // com.daaw.ce2
+    public ce2 c(float f) {
+        return h(this.a, this.b, this.c, this.d, this.e, false);
+    }
+
+    @Override // com.daaw.ce2
+    public eg2 d() {
+        return this.a;
+    }
+
+    @Override // com.daaw.ce2
+    public float e(float f) {
+        return (this.b / this.a.getWidth()) + ((this.d / this.a.getWidth()) * f);
+    }
+
+    @Override // com.daaw.ce2
+    public float f() {
+        return 0.0f;
+    }
+
+    @Override // com.daaw.ce2
+    public boolean g() {
+        return false;
+    }
+
+    @Override // com.daaw.ce2
+    public int getHeight() {
+        return this.e;
+    }
+
+    @Override // com.daaw.ce2
+    public int getWidth() {
+        return this.d;
+    }
+
+    public ce2 h(eg2 eg2Var, int i2, int i3, int i4, int i5, boolean z) {
+        return new wq(eg2Var, i2, i3, i4, i5, z);
+    }
+
+    public int i() {
+        return this.f;
+    }
+
+    public wq(eg2 eg2Var, boolean z) {
+        this.f = 1;
+        this.a = eg2Var;
+        this.g = z;
+        this.b = 0;
+        this.c = 0;
+        this.d = eg2Var.getWidth();
+        this.e = eg2Var.getHeight();
+        if (this.a.getHeight() < 1 || this.a.getWidth() < 1) {
+            ub7.c("texture invalid dimensions");
+        }
+    }
+}

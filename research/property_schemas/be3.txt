@@ -1,0 +1,7 @@
+        V(wt0Var.o("visible", true));
+        f0(wt0Var.s("color", -1869574000));
+        wt0Var.s0(j(fv4.x6));
+        wt0Var.N("visible", this.k, "0_general");
+        wt0Var.v0("visible", "pb", "AppLogo");
+        wt0Var.V("color", p82.f(this.U), "0_general");
+        wt0Var.q0("position");

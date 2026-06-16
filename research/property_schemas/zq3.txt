@@ -1,0 +1,9 @@
+        f0(wt0Var.x("TargetImage", "composition:1"));
+        e0(rr6.e(strArr, wt0Var.v("mirrorMode", strArr[0])));
+        d0(wt0Var.o("flipMirror", false));
+        c0(wt0Var.s("color", -1));
+        wt0Var.s0(j(fv4.C6));
+        wt0Var.h0("TargetImage", b0(), "1_appearance", M);
+        wt0Var.p0("mirrorMode", rr6.a(strArr, a0(), strArr[0]), "1_appearance", strArr);
+        wt0Var.N("flipMirror", Z(), "1_appearance");
+        wt0Var.V("color", this.G, "1_appearance");

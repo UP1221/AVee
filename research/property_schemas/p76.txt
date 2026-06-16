@@ -1,0 +1,10 @@
+        g0(wt0Var.x("typeFace", Y()));
+        wt0Var.g0("typeFace", Y(), "appearance", O);
+        i0(wt0Var.x("text", "{ArtistOrTitle}"));
+        f0(wt0Var.s("color", -1));
+        h0(wt0Var.s("fontSize", 30));
+        g0(wt0Var.x("typeFace", ""));
+        wt0Var.s0(j(fv4.H6));
+        wt0Var.k0("text", this.H, "appearance");
+        wt0Var.V("color", this.J, "appearance");
+        wt0Var.Y("fontSize", this.I, "appearance", 8, 100);

@@ -1,0 +1,2114 @@
+========== decompiled/resources/res/raw/element_app_logo_lv.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>App Logo</h2>
+
+<!---->
+    <p>
+<pre>Displays Logo at lower left corner.
+
+The logo appears at the beginning and at the end of the track. It can be hidden in Pro version having Premium purchase.</pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt id="visible">Visible</dt>
+<dd>
+<p>If not set, the logo will be hidden.</p>
+</dd>
+<dt id="color">Color</dt>
+<dd>
+<p>Color tint of the logo.</p>
+</dd>
+
+<hr>
+
+<dt id="typeFace">TypeFace</dt>
+<dd>
+<p>Specify font to use.</p>
+</dd>
+</dl>
+<!---->
+</div>
+
+
+<style media="screen" type="text/css">
+
+.container {
+width:100%;
+}
+.container div {
+========== decompiled/resources/res/raw/visualizer_7.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 128,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/visualizer_0.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Waveform",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "inputSize": {
+            "v": 11,
+            "t": "i 5 13",
+            "o": 1,
+            "tag": "Performance"
+          },
+          "sampleOutCountPower": {
+            "v": 8,
+            "t": "i 3 9",
+            "o": 2,
+            "tag": "Waveform"
+          }
+        },
+        {
+          "v": "Image",
+          "objType": "Image",
+          "ver": "10",
+          "_id": {
+            "v": 353,
+            "t": "ih",
+            "o": 0,
+            "tag": ""
+          },
+          "visible": {
+            "v": 1,
+========== decompiled/resources/res/raw/buffer_frag.frag ==========
+
+precision mediump float;
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+//uniform sampler2D u_texture;
+
+//uniform sampler2D u_texture2;
+//uniform float maskadd;
+//uniform float maskmul;
+
+//void main() {
+//
+//	vec4 color1 = texture2D(u_texture,vTexCoord);
+//	vec4 color2 = texture2D(u_texture2,vTexCoord);
+//
+//	color1 = vColor * color1;
+//	color1.a = color1.a * (maskadd + (color2.a * maskmul));
+//	//color1 = color1 * (maskadd + (color2.a * maskmul));
+//	//color1 + color2 * color1.a;
+//	gl_FragColor = color1;
+//}
+
+//declare uniforms
+uniform sampler2D u_texture;
+
+void main() {
+	vec4 color1 = texture2D(u_texture,vTexCoord);
+
+		//if(color1.a == 0.0) discard;
+
+	gl_FragColor = vColor * color1;
+}========== decompiled/resources/res/raw/blurh_frag.frag ==========
+
+precision mediump float;
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+uniform sampler2D u_texture;
+uniform float blurW;
+uniform float resolutionH;
+uniform vec2 resolution;
+
+void main() {
+	vec4 sum = vec4(0.0);
+
+    //sigma 1.7515
+
+    //apply blurring, using a 9-tap filter with predefined gaussian weights
+	////sum += texture2D(u_texture, vec2(vTexCoord.x - 4.0*blurW, vTexCoord.y)) * 0.0162162162;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x - 3.0*blurW, vTexCoord.y)) * 0.0540540541;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x - 2.0*blurW, vTexCoord.y)) * 0.1216216216;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x - 1.0*blurW, vTexCoord.y)) * 0.1945945946;
+	
+	//sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y)) * 0.2270270270;
+	
+	//sum += texture2D(u_texture, vec2(vTexCoord.x + 1.0*blurW, vTexCoord.y)) * 0.1945945946;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x + 2.0*blurW, vTexCoord.y)) * 0.1216216216;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x + 3.0*blurW, vTexCoord.y)) * 0.0540540541;
+	////sum += texture2D(u_texture, vec2(vTexCoord.x + 4.0*blurW, vTexCoord.y)) * 0.0162162162;
+
+
+	//sum += texture2D(u_texture, vec2(vTexCoord.x - 3.0*blurW, vTexCoord.y)) * 0.0540540541;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x - 2.0*blurW, vTexCoord.y)) * 0.1216216216;
+	//    sum += texture2D(u_texture, vec2(vTexCoord.x - 1.5*blurW, vTexCoord.y)) * 0.1216216216;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x - 1.0*blurW, vTexCoord.y)) * 0.1945945946;
+	//    sum += texture2D(u_texture, vec2(vTexCoord.x - 0.5*blurW, vTexCoord.y)) * 0.1945945946;
+========== decompiled/resources/res/raw/com_android_billingclient_registration_info.binarypb ==========
+
+com.android.billingclient@XÄ========== decompiled/resources/res/raw/com_android_billingclient_heterodyne_info ==========
+
+com.android.billingclient
+
+ÚíéÂ≤í∑ã ========== decompiled/resources/res/raw/element_mirror_effect.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Mirror Effect</h2>
+
+<!---->
+    <p>
+<pre>Mirrors region of input composition/image. 
+
+Mirrors half horizontaly, half verticaly or quarter of image.</pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt>General element properties</dt>
+<dd>
+<p>See <a href="local://customization_general">General Properties</a>.</p>
+</dd>
+
+<hr>
+
+<dt id="TargetImage">Target Image</dt>
+<dd>
+<p>Specify Image or Composition used as input.</p>
+</dd>
+<dt id="mirrorMode">Mirror Mode</dt>
+<dd>
+<p>Specify which sides to mirror. (e.g. horizontal or vertical)</p>
+</dd>
+<dt id="flipMirror">FlipMirror</dt>
+<dd>
+<p>Flips sides, left or right side to mirror.</p>
+</dd>
+<dt id="color">Color</dt>
+<dd>
+<p>Tint of the effect.</p>
+</dd>
+</dl>
+<!---->
+</div>
+========== decompiled/resources/res/raw/visualizer_15.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 174,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/visualizer_1.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 63,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/blur_stack_frag.frag ==========
+
+precision mediump float;
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+uniform sampler2D u_texture;
+uniform float blurWH;
+//uniform float resolutionH;
+uniform vec2 resolution; //used as pixelW/H
+
+void main() {
+	vec4 sum = vec4(0.0);
+
+
+//vIII
+//vec2 direction = vec2(blurW, 0.0);
+////vec2 resolution = vec2(resolutionH,1.0);
+//vec2 uv = vTexCoord;
+
+//  vec4 color = vec4(0.0);
+//  vec2 off1 = vec2(1.411764705882353) * direction;
+//  vec2 off2 = vec2(3.2941176470588234) * direction;
+//  vec2 off3 = vec2(5.176470588235294) * direction;
+//  color += texture2D(u_texture, uv) * 0.1964825501511404;
+//  color += texture2D(u_texture, uv + (off1 / resolution)) * 0.2969069646728344;
+//  color += texture2D(u_texture, uv - (off1 / resolution)) * 0.2969069646728344;
+//  color += texture2D(u_texture, uv + (off2 / resolution)) * 0.09447039785044732;
+//  color += texture2D(u_texture, uv - (off2 / resolution)) * 0.09447039785044732;
+//  color += texture2D(u_texture, uv + (off3 / resolution)) * 0.010381362401148057;
+//  color += texture2D(u_texture, uv - (off3 / resolution)) * 0.010381362401148057;
+//    gl_FragColor = color;
+
+
+ //   vec2 pixelDim = vec2(1.0/resolution.x, 1.0/resolution.y);
+========== decompiled/resources/res/raw/visualizer_6.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 72,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/element_particles_element.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Particles</h2>
+
+<!---->
+    <p>
+<pre>Displays field of particles.
+
+Particles will behave 2D or 3D, depending on "perspectiveDepth" property.
+</pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt>General element properties</dt>
+<dd>
+<p>See <a href="local://customization_general">General Properties</a>.</p>
+</dd>
+
+<hr>
+
+<dt id="color">Color</dt>
+<dd>
+<p>Base color of the particles, color is also affected by <value>ColorFrom</value> and <value>ColorTo</value></p>
+</dd>
+<dt id="CountLimit">Count Limit</dt>
+<dd>
+<p>Maximum limit of particles can exist at any given time.</p>
+</dd>
+<dt id="mirrorX">Mirror X</dt>
+<dd>
+<p>Mirrors all particles horizontally.</p>
+</dd>
+<dt id="mirrorY">Mirror Y</dt>
+<dd>
+<p>Mirrors all particles vertically.</p>
+</dd>
+<dt id="perspectiveDepth">Perspective Depth</dt>
+<dd>
+========== decompiled/resources/res/raw/customization_segment_renderers.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Segment renderers</h2>
+
+<!---->
+    <p>
+<pre><value>Bars</value> - Rectangular bars.
+<value>Line</value> - Connected line.
+<value>SharpBars</value> - Sloped rectangular bars.
+<value>RoundBars</value> - Rounded rectangular bars.
+</pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<!--2-->
+<div class="pborder">
+<h6>Bars</h6>
+<dl>
+<dt id="colorFrom">Color From</dt>
+<dd>
+<p>Color of the first bar.</p>
+</dd>
+<dt id="colorTo">Color To</dt>
+<dd>
+<p>Color of the last bar.</p>
+</dd>
+<dt id="fixedHeight">Fixed Height</dt>
+<dd>
+<p>If set to other value than <value>0</value>, bar height will not change.</p>
+</dd>
+<dt id="barHeightMultiplier">Bar Height Multiplier</dt>
+<dd>
+<p>Adjusts height of the bars.</p>
+</dd>
+<dt id="barWidth">Bar Width</dt>
+<dd>
+<p>Width of the bars.</p>
+</dd>
+<dt id="barWidthAffectedByShape">Bar Width Affected By Shape</dt>
+========== decompiled/resources/res/raw/buffer_motion_blur_frag.frag ==========
+//http://dev.theomader.com/gaussian-kernel-calculator/
+
+precision highp float;//on medium it gets poor texture cord sampling..
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+uniform sampler2D u_texture;
+
+//uniform sampler2D u_texture2;
+
+uniform vec2 posAmount;
+uniform vec2 scaleAmount;
+
+//uniform float maskadd;
+//uniform float maskmul;
+
+//uniform float tex2_y_add;
+//uniform float tex2_y_mul;
+
+
+void main() {
+
+	///////////
+
+	    //vec2 vTexCoordOffset = vec2(0.003, 0.003);
+
+    	//vec4 color0 = texture2D(u_texture,vTexCoord+dirAmount);
+    	//vec4 color1 = texture2D(u_texture,vTexCoord);
+    	//vec4 color2 = texture2D(u_texture,vTexCoord-dirAmount);
+    	//vec4 color2 = texture2D(u_texture2,vTexCoord);
+
+    //color1.r = color0.r;
+    //color1.g = 0.0;
+    //color1.b = color2.b;
+========== decompiled/resources/res/raw/visualizer_10.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 300,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/visualizer_14.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 90,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 199,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 7.5,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/visualizer_13.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 100,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/fxaa0_vert.vert ==========
+//"in" attributes
+ attribute vec3 Position;
+ attribute vec2 TexCoord;
+
+ //"out" varyings to our fragment shader
+ //varying vec4 vColor;
+ varying vec2 vTexCoord;
+
+ const vec2 madd = vec2(0.5,0.5);
+
+ void main() {
+     //vColor = vec4(1.0, 1.0,1.0, 1.0);
+     vTexCoord = Position.xy*madd+madd;
+     gl_Position = vec4(Position,1.0);
+ }========== decompiled/resources/res/raw/blurv_frag.frag ==========
+
+precision mediump float;
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+uniform sampler2D u_texture;
+uniform float blurH;
+uniform vec4 Color2;
+uniform vec2 resolution;
+
+void main() {
+	vec4 sum = vec4(0.0);
+
+//vI
+    ////apply blurring, using a 9-tap filter with predefined gaussian weights
+	////sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y - 4.0*blurH)) * 0.0162162162;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y - 3.0*blurH)) * 0.0540540541;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y - 2.0*blurH)) * 0.1216216216;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y - 1.0*blurH)) * 0.1945945946;
+
+	//sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y)) * 0.2270270270;
+
+	//sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y + 1.0*blurH)) * 0.1945945946;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y + 2.0*blurH)) * 0.1216216216;
+	//sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y + 3.0*blurH)) * 0.0540540541;
+	////sum += texture2D(u_texture, vec2(vTexCoord.x, vTexCoord.y + 4.0*blurH)) * 0.0162162162;
+
+	//vII
+	    vec2 dirAmount2 = vec2(0.0, blurH);
+                        //Sigma 3.0; Size 9
+                                        sum += texture2D(u_texture, vTexCoord + (-4.0*dirAmount2)) * 0.063327;
+                                        sum += texture2D(u_texture, vTexCoord + (-3.0*dirAmount2)) * 	0.093095;
+                                        sum += texture2D(u_texture, vTexCoord + (-2.0*dirAmount2)) * 0.122589;
+                                        sum += texture2D(u_texture, vTexCoord + (-1.0*dirAmount2)) * 	0.144599;
+========== decompiled/resources/res/raw/blur_kernel_frag.frag ==========
+
+precision mediump float;
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+uniform sampler2D u_texture;
+//uniform sampler2D uTexRandom;
+
+//light shader
+    uniform sampler2D u_texture2;
+    //uniform float maskadd;
+    //uniform float maskmul;
+    //uniform float mask_l_add;
+    //uniform float mask_l_mul;
+    //
+    //uniform float tex2_y_add;
+    //uniform float tex2_y_mul;
+//
+
+uniform float resolutionW;
+uniform float resolutionH;
+uniform float radius;//the amount to blur, in pixels
+uniform vec4 Color2;
+
+
+//const int uSampleKernelSize = 17;
+//uniform vec3 uSampleKernel[17];
+//float a[5] = float[5](3.4, 4.2, 5.0, 5.2, 1.1);
+//uniform vec3 uSampleKernel[5];
+ //= {
+  //          vec3(0.0, 0.0, 0.2270270270),
+  //          vec3(1.0, 1.0, 0.1945945946),
+   //         vec3(2.0, 2.0, 0.1216216216),
+   //         vec3(3.0, 3.0, 0.0540540541),
+========== decompiled/resources/res/raw/customization_general_en.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<!-- <h2>Segments renders</h2> -->
+
+<!---->
+    <!-- <p> -->
+<!-- <pre> -->
+<!-- </pre> -->
+    <!-- </p> -->
+<h4>General Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt id="visible">Visible</dt>
+<dd>
+<p>If not set, the element will be hidden, useful to temporary hide elements.</p>
+</dd>
+<dt id="blendMode">BlendMode</dt>
+<dd>
+<p>Blending mode for displaying this element.<br><br><value>Alpha</value> - alpha blending<br><value>Screen</value> - multiplies the inverse, result is always lighter<br><value>Add</value> - linear dodge (add)<br><value>PreMulAlpha</value> - premultiplied alpha blending<br><value>AddAlpha</value> - linear dodge (add) by alpha strength</p>
+</dd>
+<dt id="position">Position</dt>
+<dd>
+<p>Specifies X,Y position of the element. The position is also affected by <value>MeasurePos</value>, <value>AnchorX/Y</value> and <value>AlignmentPosition</value>.<br><br>X: <value>0.0</value>, Y: <value>0.0</value> corresponds to upper left corner.<br>X: <value>0.5</value>, Y: <value>0.5</value> corresponds to the middle of the screen.<br>X: <value>1.0</value>, Y: <value>1.0</value> corresponds to lower right corner.</p>
+</dd>
+<dt id="anchorX">Anchor X</dt>
+<dd>
+<p>Alternative to <value>Position</value> property. Allows setting element to common positions before adding <value>Position</value> value.<br>It's helpful where more complex positioning is required, e.g if creating progress bars.<br><br><value>unset</value> - use default value<br><value>start</value> - left<br><value>center</value> - center<br><value>end</value> - right</p>
+</dd>
+<dt id="anchorY">Anchor Y</dt>
+<dd>
+<p>Alternative to <value>Position</value> property. Allows setting element to common positions before adding <value>Position</value> value.<br>It's helpful where more complex positioning is required, e.g if creating progress bars.<br><br><value>unset</value> - use default value<br><value>start</value> - top<br><value>center</value> - center<br><value>end</value> - bottom</p>
+</dd>
+<dt id="MeasurePos">MeasurePos</dt>
+<dd>
+<p>Variable component of the <value>Position</value> property.</p>
+</dd>
+<dt id="alignmentPosition">AlignmentPosition</dt>
+<dd>
+<p>Specify which point on this element is positioned by <value>Position</value> or relevant position properties.<br><br>For example, to position element in the center of the screen, you would set this property to X: <value>0.5</value>, Y: <value>0.5</value> and <value>Position</value> to also X: <value>0.5</value>, Y: <value>0.5</value>, so this element center is aligned to screen center.</p>
+========== decompiled/resources/res/raw/element_composition.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Composition</h2>
+
+<!---->
+    <p>
+<pre>Composition groups elements into a single image.
+
+Compositions (except final) are not directly visible but are used as input to effects. There is always one special type of composition called "Final Composition" that is visible and presents a final image to the screen.</pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt id="introBlendMode">Intro Blend Mode</dt>
+<dd>
+<p>Blending mode for Intro/Outro screen.</p>
+</dd>
+<dt id="introFadeDuration">Intro Fade Duration</dt>
+<dd>
+<p>Duration of screen fade at the beginning of a song.</p>
+</dd>
+<dt id="outroFadeDuration">Outro Fade Duration</dt>
+<dd>
+<p>Duration of screen fade at the end of a song.</p>
+</dd>
+<dt id="introFadeColor">Intro Fade Color</dt>
+<dd>
+<p>Intro/Outro screen fade color.</p>
+</dd>
+</dl>
+<!---->
+</div>
+
+
+<style media="screen" type="text/css">
+
+.container {
+width:100%;
+}
+========== decompiled/resources/res/raw/visualizer_4.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 64,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/sound_wave_lottie.json ==========
+{
+  "v": "5.6.5",
+  "fr": 24,
+  "ip": 0,
+  "op": 28,
+  "w": 50,
+  "h": 50,
+  "nm": "sound",
+  "ddd": 0,
+  "assets": [],
+  "layers": [
+    {
+      "ddd": 0,
+      "ind": 1,
+      "ty": 4,
+      "nm": "sound",
+      "sr": 1,
+      "ks": {
+        "o": { "a": 0, "k": 100, "ix": 11 },
+        "r": { "a": 0, "k": 0, "ix": 10 },
+        "p": { "a": 0, "k": [25, 25, 0], "ix": 2 },
+        "a": { "a": 0, "k": [25, 19, 0], "ix": 1 },
+        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+      },
+      "ao": 0,
+      "shapes": [
+        {
+          "ty": "gr",
+          "it": [
+            {
+              "ind": 0,
+              "ty": "sh",
+              "ix": 1,
+              "ks": {
+                "a": 1,
+                "k": [
+                  {
+                    "i": { "x": 0.833, "y": 0.833 },
+                    "o": { "x": 0.167, "y": 0.167 },
+                    "t": 0,
+========== decompiled/resources/res/raw/element_app_logo_en.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>App Logo</h2>
+
+<!---->
+    <p>
+<pre>Displays Logo at lower left corner.
+
+The logo appears at the beginning and at the end of the track. It can be hidden in Pro version having Premium purchase.</pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt id="visible">Visible</dt>
+<dd>
+<p>If not set, the logo will be hidden.</p>
+</dd>
+<dt id="color">Color</dt>
+<dd>
+<p>Color tint of the logo.</p>
+</dd>
+
+<hr>
+
+<dt id="typeFace">TypeFace</dt>
+<dd>
+<p>Specify font to use.</p>
+</dd>
+</dl>
+<!---->
+</div>
+
+
+<style media="screen" type="text/css">
+
+.container {
+width:100%;
+}
+.container div {
+========== decompiled/resources/res/raw/visualizer_11.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 240,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/firebase_common_keep.xml ==========
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@string/google_app_id,@string/gcm_defaultSenderId,@string/google_api_key,@string/firebase_database_url,@string/ga_trackingId,@string/google_storage_bucket,@string/project_id" />
+========== decompiled/resources/res/raw/fxaa0_frag.frag ==========
+//http://stackoverflow.com/questions/12105330/how-does-this-simple-fxaa-work
+precision mediump float;
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+//varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+uniform sampler2D u_texture;
+uniform float resolutionW;
+uniform float resolutionH;
+
+void main() {
+
+        vec2 frameBufSize = vec2(resolutionW, resolutionH);
+
+        float FXAA_SPAN_MAX = 8.0;
+        float FXAA_REDUCE_MUL = 1.0/8.0;
+        float FXAA_REDUCE_MIN = 1.0/128.0;
+
+        vec3 rgbNW=texture2D(u_texture,vTexCoord+(vec2(-1.0,-1.0)/frameBufSize)).xyz;
+        vec3 rgbNE=texture2D(u_texture,vTexCoord+(vec2(1.0,-1.0)/frameBufSize)).xyz;
+        vec3 rgbSW=texture2D(u_texture,vTexCoord+(vec2(-1.0,1.0)/frameBufSize)).xyz;
+        vec3 rgbSE=texture2D(u_texture,vTexCoord+(vec2(1.0,1.0)/frameBufSize)).xyz;
+        vec3 rgbM=texture2D(u_texture,vTexCoord).xyz;
+
+        vec3 luma=vec3(0.299, 0.587, 0.114);
+        float lumaNW = dot(rgbNW, luma);
+        float lumaNE = dot(rgbNE, luma);
+        float lumaSW = dot(rgbSW, luma);
+        float lumaSE = dot(rgbSE, luma);
+        float lumaM  = dot(rgbM,  luma);
+
+        float lumaMin = min(lumaM, min(min(lumaNW, lumaNE), min(lumaSW, lumaSE)));
+        float lumaMax = max(lumaM, max(max(lumaNW, lumaNE), max(lumaSW, lumaSE)));
+
+        vec2 dir;
+========== decompiled/resources/res/raw/element_motion_blur_effect.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Motion Blur Effect</h2>
+
+<!---->
+    <p>
+<pre>Blurs target composition/image content according to movement.
+
+Blurs input according to Position changes and Scale changes of this element. It's also possible to use different motion input by setting "MotionSource". </pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt>General element properties</dt>
+<dd>
+<p>See <a href="local://customization_general">General Properties</a>.</p>
+</dd>
+
+<hr>
+
+<dt id="blendModeContent">Blend Mode Content</dt>
+<dd>
+<p>Blend mode for displaying original content (before blurring). Used when <value>ShowUnblurredContent</value> or <value>ShowUnblurredContentUnder</value> is set.</p>
+</dd>
+<dt id="color">Color</dt>
+<dd>
+<p>Tint of the blur.</p>
+</dd>
+<dt id="TargetImage">Target Image</dt>
+<dd>
+<p>Specify Image or Composition used as input.</p>
+</dd>
+<dt id="showUnblurredContent">Show Unblurred Content</dt>
+<dd>
+<p>Show original content (before blurring) over the blur.</p>
+</dd>
+<dt id="showUnblurredContentUnder">Show Unblurred Content Under</dt>
+<dd>
+<p>Show original content (before blurring) under the blur.</p>
+========== decompiled/resources/res/raw/fxaa_vert.vert ==========
+
+//"in" attributes
+attribute vec3 Position;
+attribute vec2 TexCoord;
+attribute vec4 Color;
+
+//"out" varyings to our fragment shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+
+const vec2 madd = vec2(0.5,0.5);
+
+void main() {
+	vColor = Color;
+    vTexCoord = Position.xy*madd+madd;
+    gl_Position = vec4(Position,1.0);
+    //gl_Position = u_projView * vec4(Position, 0.0, 1.0);
+
+}========== decompiled/resources/res/raw/eula_english.html ==========
+<html>
+<h2>End-User License Agreement ("Agreement")</h2>
+
+<p>Last updated: February 26, 2022</p>
+
+<p>Please read this End-User License Agreement ("Agreement") carefully before clicking the "I Agree" button, downloading or using Avee Player ("Application").</p>
+
+<p>By clicking the "I Agree" button, downloading or using the Application, you are agreeing to be bound by the terms and conditions of this Agreement.</p>
+
+<p>This Agreement is a legal agreement between you (either an individual or a single entity) and Avee Player and it governs your use of the Application made available to you by Avee Player.</p>
+
+<p>If you do not agree to the terms of this Agreement, do not click on the "I Agree" button and do not download or use the Application.</p>
+
+<p>The Application is licensed, not sold, to you by Avee Player for use strictly in accordance with the terms of this Agreement.</p>
+
+<h2>License</h2>
+
+<p>Avee Player grants you a revocable, non-exclusive, non-transferable, limited license to download, install and use the Application strictly in accordance with the terms of this Agreement.</p>
+
+<h2>Restrictions</h2>
+
+<p>You agree not to, and you will not permit others to:</p>
+
+<ul>
+    
+    <li>
+        <p>license, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose or otherwise commercially exploit the Application or make the Application available to any third party.</p>
+    </li>
+    <li>
+        <p>modify, make derivative works of, disassemble, decrypt, reverse compile or reverse engineer any part of the Application.</p>
+    </li>
+    <li>
+        <p>remove, alter or obscure any proprietary notice (including any notice of copyright or trademark) of Avee Player or its affiliates, partners, suppliers or the licensors of the Application.</p>
+    </li>
+</ul>
+
+<h2>Intellectual Property</h2>
+
+<p>The Application, including without limitation all copyrights, patents, trademarks, trade secrets and other intellectual property rights are, and shall remain, the sole and exclusive property of Avee Player.</p>
+
+========== decompiled/resources/res/raw/licenses.html ==========
+<html><head><style> body { font-family: sans-serif; } pre { background-color: #eeeeee; padding: 1em; white-space: pre-wrap; } </style></head><body>
+
+<!--<h3>Third party libraries:</h3>-->
+<div class="container">
+    <div class="header">
+        <ul>
+            <li>QuadFlask - ColorPicker</li>
+        </ul>
+    </div>
+    <div class="content">
+<pre>Copyright 2014-2017 QuadFlask
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</pre>
+    </div>
+</div>
+<!---->
+<div class="container">
+    <div class="header">
+        <ul>
+            <li>ShawnLin013 - Number Picker</li>
+        </ul>
+    </div>
+    <div class="content">
+<pre>Copyright (C) 2016 ShawnLin013(Shawn Lin)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+========== decompiled/resources/res/raw/fxaa_frag.frag ==========
+//http://stackoverflow.com/questions/12105330/how-does-this-simple-fxaa-work
+precision mediump float;
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+//varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+uniform sampler2D u_texture;
+uniform float resolutionW;
+uniform float resolutionH;
+//uniform float radius;
+//uniform vec2 dir;
+
+void main() {
+
+  //      vec2 frameBufSize = vec2(resolutionW, resolutionH);
+
+ //       float FXAA_SPAN_MAX = 8.0;
+ //       float FXAA_REDUCE_MUL = 1.0/8.0;
+ //       float FXAA_REDUCE_MIN = 1.0/128.0;
+
+ //       vec3 rgbNW=texture2D(u_texture,vTexCoord+(vec2(-1.0,-1.0)/frameBufSize)).xyz;
+  //      vec3 rgbNE=texture2D(u_texture,vTexCoord+(vec2(1.0,-1.0)/frameBufSize)).xyz;
+ //       vec3 rgbSW=texture2D(u_texture,vTexCoord+(vec2(-1.0,1.0)/frameBufSize)).xyz;
+ //       //vec3 rgbSE=texture2D(u_texture,vTexCoord+(vec2(1.0,1.0)/frameBufSize)).xyz;
+ //       vec3 rgbM=texture2D(u_texture,vTexCoord).xyz;
+
+ //       vec3 luma=vec3(0.299, 0.587, 0.114);
+ //       float lumaNW = dot(rgbNW, luma);
+ //       float lumaNE = dot(rgbNE, luma);
+ //       float lumaSW = dot(rgbSW, luma);
+ //       //float lumaSE = dot(rgbSE, luma);
+ //       float lumaM  = dot(rgbM.xyz,  luma);
+
+ //       //float lumaMin = min(lumaM, min(min(lumaNW, lumaNE), min(lumaSW, lumaSE)));
+ //       //float lumaMax = max(lumaM, max(max(lumaNW, lumaNE), max(lumaSW, lumaSE)));
+========== decompiled/resources/res/raw/visualizer_16.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 230,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/element_text.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Text</h2>
+
+<!---->
+    <p>
+<pre>Displays static text and various variables.
+
+It can be used to show track artist, title, time and other values.</pre>
+</p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt id="text">Text</dt>
+<dd>
+<p>Text to display.<br><br>Text enclosed in "{}" will be recognized as a variable that will be replaced by it's according value.<br>List of varible names:<br><br>
+    {TimeCurrent}<br>
+    {TimeRemaining}<br>
+    {TimeLength}<br>
+    {Artist}<br>
+    {ArtistOrTitle}<br>
+    {Title}<br>
+    {Album}<br>
+    {Fps}<br>
+    {FrameTime}<br>
+    {ArtistAndTitle}</p>
+</dd>
+<dt id="color">Color</dt>
+<dd>
+<p>Color of the text.</p>
+</dd>
+<dt id="fontSize">FontSize</dt>
+<dd>
+<p>Font size of the text.</p>
+</dd>
+<dt id="typeFace">TypeFace</dt>
+<dd>
+<p>Specify font to use.</p>
+</dd>
+========== decompiled/resources/res/raw/visualizer_3.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 64,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 20,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/element_segment_bars.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Segments / Bars</h2>
+
+<!---->
+    <p>
+<pre>Displays series of segments/lines/bars that react to audio.
+
+Represents values of Audio Provider output. The count of segments is also controlled by Audio Provider. 
+</pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt>General element properties</dt>
+<dd>
+<p>See <a href="local://customization_general">General Properties</a>.</p>
+</dd>
+
+<hr>
+
+<dt id="flipInput">Flip Input</dt>
+<dd>
+<p>Flips values between start and end.</p>
+</dd>
+<dt id="heightScale">Height Scale</dt>
+<dd>
+<p>Adjusts height values. Final height is usually defined by <value>HeightScale</value> + <value>BarHeightMultiplier</value> (located at <value>Segment1/2</value>).</p>
+</dd>
+<dt id="minHeightScale">Min Height Scale</dt>
+<dd>
+<p>Minimal heigh value allowed.</p>
+</dd>
+<dt id="ShapePath">Shape Path</dt>
+<dd>
+<p>Defines shape of the bars/line.<br><br><value>HorizontalLine</value> - straight line<br><value>Circle</value> - circle or arc<br><value>SiddedPolygon</value> - triangle, rectangle, pentagon,..<br><value>Letter</value> - Letter (A-Z) and numbers. The character shown is the first letter of artist or song name currently opened.</p>
+</dd>
+<dt id="colorBlendOffset">Color Blend Offset</dt>
+<dd>
+========== decompiled/resources/res/raw/visualizer_2.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 160,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/splash_cat.webm ==========
+Eﬂ£üBÜÅB˜ÅBÚÅBÛÅBÇÑwebmBáÅBÖÅSÄg    ·ÀMõtªMªãS´ÑI©fS¨ÅnMªãS´ÑTÆkS¨ÅÀMªåS´ÑC∂uS¨Ç
+$MªçS´ÑSªkS¨É·§Ï¨                                            I©fÿ*◊±ÉB@DâÑEPP Daà	i¬ƒYX MÄèlibwebm-0.3.0.0WA™fnord WebM for Premiere, built Apr  4 2022TÆkISÆ∏◊Ås≈áP4ﬂ›ÍÉÅÜÖV_VP9‡ü∞Ç ∫Ç #É„ÑBp  U∞åU≤ÅU≥ÅU¥ÅÆI◊Ås≈áOfüçºÔÉÅÜàA_VORBISc¢HÌDvorbis    @      @      ôvorbis4   Xiph.Org libVorbis I 20200704 (Reducing Environment)    vorbisBCV   R!%SJcïRR)cP[Gc‘9F!dSàI•{O*ïXJ»RX)ESLSIïRñ)EcSH!S÷1e°sKÜI	%lMÆtKËôcñ1FcŒZJùc÷1EcRRI°s:f%d:F≈Ëb|0:ï¢B(æ«ﬁRÈ-Öä[äΩ◊SÎ-ÑKi¡asÌµ’‹Jj≈cå1∆≈‚S(Ç–êU    @BCV 
+  ¬PEQÄ–êU @ Ä Eq«qGí$ÀBCV @    (é·(í#IídYñeYñ¶yñ®π™/˚Æ.ÎÆÌÍ∫ÑÜ¨ Ä  F°uL*ÉC CÑc–3£CL∆cN4§2à3≈ê2à[,.®°!+Ä(  ¿ƒb9Á§dR"ÁòîNJù£‘Q (ïKå•[â1ÇŒQÍ(eîBå•≈åRâ±ƒT  @Ä @ÄÖPh»ä  
+ Ä0)ÖîBå)Êsà1ÂÉ1∆ dŒ)ËìNJÂúìŒIâcŒ1ïsNJÁ§r–I…§  ‡  `!≤" à 0Hí¶Yö&äñ¶â¢gä™Íâ¢™Zûgöûi™™gö™j™™Îö™Í ñÁô¶gö™Íô¶™ä¶Í∫¶™∫Æß™∂l∫™.õÆj€ÆÏ˙∂kªæÓ©™lõ™+Î¶Í ∫Í ∂Ó∫∂ÌKûß™¢™∫Æg™Æ´∫Æn´Æk€öj Æ©∫≤m∫Æ-ª≤lÎÆ,Î∫f™Æl∫™-õÆ,ÎÆÏ⁄∂*À∫/∫Æn´≤¨˚™,˚ælÎ∫Ó⁄∫ãÆkÎ™,Îæ*Àæ1€∂À∫.ì'™™ß™ÆÎô™Î™Æk€™Î⁄∫¶öÆl∫Æ-õ™+€™,Î∂+À∂Æô™,õÆ+€¶Î ≤*ÀæÔ ≤nãÆÎÎ¶,Î∫*À¬ÓÍ∫1Ã∂≠˚¢ÎÍ∫*À∫Ø ≤Æª∫Ó˚≤nª¶™∫n ≤Øõ≤¨˚∂ÆÀ¨€∫1∫ÆÔ´≤-¸™,øÆ˚¬2Î>ct]_WmYVŸˆ}›˜ïc÷uaYm[˘][gºænªn¸ ≠À≤⁄∂±Ã∫≠,ØØ√.Ï|[¯ïö™⁄∂È∫∫n ≤ØÀ∫.¥u›WF◊ı}’∂}_ïeﬂ∑Ö_i√∞åÆ´˚™,Î¬kÀ /Î∫∞Ï¬/,´m+ø´Î 0€∫∞‹æ∞,øÓÀ™€æÔÍ∫“µueπ}ü±+∑Ò  p  0°≤" à @r)°b
+B°§B*cR2Ê§dŒI)•îJI≠bLJÊúîÃ1)°îñJ)©ÑRZ*•ƒJi-•÷bJ©≈PJk•§÷JI≠•îbL≠≈1&%sNJÊúîíRk%ï÷2Á(eJÍ §îJ*≠§‘bÊú§:+Ñ‘J*1ïîb©ƒVJj≠§c+1’‘Zé!•KJ±ïîZm1’÷Z´5bLJÊúîÃ9*%•÷J*≠eŒIÍ ¥‘9(©§‘b*)≈ 9IÑî2»®îîZ+©ƒRâ≠¥c)©≈‘bÆ)≈CI-ñîZ,©ƒ÷båµµTS'•≈íRå%ï[¨π∂÷j•ƒVJã±§î[k1◊cé°§K+±ïîZlµÂÿZÀ5µTcJ≠÷cç1Âîk≠=ß÷bM1’⁄Z¨π’ñ[ÃµÁNJk•îKJ1∂÷bç1ÊJi≠§[))∆÷Z≠≠≈\C)±ï“Z,©ƒÿb¨µ≈Vcj≠∆[≠•µZk≠Ω∆V[.≠’‹b¨=µîk¨µÊXSm  8  òP
+Y	 D  ∆0∆ÑF)«úì“(ÂúsR*Á ÑêRÊÑR úÉPJKôsJI)îíRj≠ÖRRj≠µ  
+  l–îX†–êï @* Ä¡q4MU’u}_±,QTU◊ïm„W,MUUvm[¯5QTU◊µm€~MUUveŸ∂Ö¢™∫≤m€≤n√®™Æk€≤mÎ®Æ´€∫≠€∫/T]Yñm[∑u◊∂u›ˆu]¯≥mÎ∂nÎæ#Gﬂ¯!‰„˚tB  Op  *∞auÑì¢±¿BCV   Ä1JÖ3H1¶cL1∆ò  Ä Ä  @°!+Ä(  ¿9ÁúsŒ9ÁúsŒ9ÁúsŒ9Áúsé1∆cå1∆cå1∆cå1∆cå1∆cå1∆cL ¿NÑ¿NÑÖPh»J    @!))•îRJSŒAI)•îR™ÉåJJ)•îR§uîRJ)•î"•†§íRJ)•îII)•îRJ)•å:J)•îRJ)•îRJ)•îRJ)•îRJ)•îRJ)•îRJ)•îRJ)•îRJ)•îRJ)•îRJ)•îRJ)•îRJ)•îRJ)•TJ)•îRJ)•îRJ)• `Ú‡  ï`„+IgÖ£¡ÖÜ¨ r  ÖÉBi≠§TRJ%UŒA(%îîJJ)ïîR™òÉJ*©•íRJ)µ“A(°îPJ)%îRJ(%ÑJ	°îTB+©ÑRJ°ÑB)°ÑTJ)%îŒA(!ÖBI•î‘BHtTR)!ïRJ)%•î:°îíRK-ïRZJ©tR)©ï‘Rj©µíR	°§VJI%•“ZI%µJI%•îRK)ÖTRI%ÑíR*%µñZJ©µ÷RH©ïîRJ©•‘RJ%•êJJ©îíRj%ïîRj!ïîJI)§‘J)•§TBI©•RZJ-µîJI©¥TRI•îîJI)•RJK)•JJ©•îZI)ÖíRJ)ïíRK%µTJ
+%•îRI©¥îRK)ïíR @  FTZàùf\yé(dòÄ  @ @Ä	 0@P0
+AÄ0    ¿    G—ú¡BÇ¬CÉ√           Ä·âµÑE˙  üÅC∂u    ı{ÁÅ £ÖÇ  Ä £kÅ  ÄÇIÉB 11ˆ8$2ÄâÙ3æ√€˛'˛C¸_≈˛wÖ¸üÚx/Ö¯Ωøﬁ3ÓÉ˛3‚~?Ö˘>'‚ˆˇKø¯ﬂãÒ˙/E·>‰˚c2¸?≈¯æØi˝Ôö/‘e{~£ÏwèNˆ=;ÿÙÔQ•:w®›Gu◊Ø]“<ñ›qk•˙ÓñöU≤ﬁÔºwE⁄*Ç\´ÔΩ˙ﬁõ¢Ñ9nSÒx?NAÀ‹ÃG…Ω7£˘˛≥√˙\QrŸ[◊˚Ë=VåÙóK+∫w⁄oMb‚ªÆQ¿9ú(8«ÏÙΩõ”¯Ωãˇ7 [‚    hÌøá–ºÍ—XåtªNÕÏ¿:qºcvKfe—Xé≠l¶rwÎ„§∏≥î	ü–vVcqÙÄ°\é¥œŸ$òpÖ˚+G[¶ÚÖvÉn∏.cÙÕg∞Cs¨)¸•“∂N€u7 æ«ÉéÙ
+:Gï§fé;»08∆¬Á‹ü±¡Z¸ó"∆ıIpÅèÙe†¥ºÉ≠	‡¸(qÈõôñFsœd?Jz1ãBÓ3ƒ'Íe[÷u<´™L‚ﬁ1+‚Q©H;‰44E:ú®Isƒ"zâl%Ç©È∆¨…8Õ¯Øcœﬁ÷P b/¶Œ˙È{©Ë›p$^Jh“1Ò[]Ào∞©Ô≥
+eY“u|2ds?(˚6k]JÉG≠∆ôlC∫„ªç"6¿Ù…nBñùCOª?9h0c8u)ÚÉOjS WKXTÛµË›\s*VÕ6tª a?^uÇ’òÇ]’ë√hSt£TU√ˇ(∞”Ê8æ$O¶bös›ËÄ˘€Ò⁄1Ω∂%Ó»–6∆ı¬Ö∆9ª¶4ô7Q˚õùˇ:ûC◊)ÉÜ˝ºx#‡∑inH
+bæßz>¶ùH˛±±í´çWMKˆËvıá ÇãÑéîÇÑùñ•Áeî‹Ú~G¶äz∑.wÔrægAìuK[˜îÖ;2¸µ›Í‘∂p,	U–+ŸUg›w:e°xX~°ªV›G%&bBº‹E¿.ÜﬁOÏx_üpú¿ÖãÿŒ‰àöÉP≈#Ÿ}T±Å_˛•˙˚“›A[8œ⁄p·^ÛÂ ◊üêS˙Qù•Xhz—Ú°Ùÿ<l¥JÙ‘√lV;÷õıA!v2_ÁUaufnºñ≠ øÚlñ∑K96QC¶ã#¸’NR?C6µÚ“uˇú≤æOœü{ΩáB†ı{‘ó–©ó◊ò⁄1¥0Ï5dƒîµò»ı˜|œ^ã˝Ó˜∂sÆÙsˆ$q0õ©ÍÆY5Q“q{'FÑwˇÛˇEãêÖÈÕÇ≥–∞ùRé∏§:Ìœh]ÄnÊÿÊ'Éù√5◊å4=M˛üß‚Å†º¥Ù¥j«ûÂøπÚE‡º2DÃ»∫ËS◊
+öyóßóó¬äÌ˘í∆·°Ï·˝v†2äû=∑Ù÷°UŸ˘≥ÓﬂÔ´-˘‘ô∑≤	Fú@u:(ZcõJ3û:/Ç`jbm}{^D∂8@V0˚Ÿ7?ì®çÇR–5˙;\ú\“6@()%T95¬¶,õ„´..≤ MüaCÄQá†oY≤µ∏)æ	èÃMïÖM⁄iB%>ïÉFŸ*˚ƒ˘SÇœ˜∫Ωƒº¡›ä2MŒÔ1 √?]RÉB[ß±Äªu›Â1xæY NHN(Í%=†˜[˙XÇ@1•4uYÚ…r“Ê6˝lØYs/Â¨Œ’1Â%¬i!):≈2åIXÁÚ∑¸ïe˛æ¨éê÷∫<hÂÿ®`LûÛº§o;i.:ô}ﬁ@‘˚Ú≠ës[h…x≤}4ã£JOD]„∆ü=ı âFüüMπcø…[˘?‹ˆ?@„Î[©ˆ«<†URπÄz@OÁGØ™±ˆUi`ù«ûºÀÌ∂ }pÖb1ºX»Väzô¡¿ıX¿FìL]¨ºRº6Æ`—Æ%Irƒèzåy(Ì2–àƒÓOlì w{˛)åüˇå›˝ıbÁ∏<(ΩŒ-›hR,±3Çpƒ≈ÿHËs⁄X8{ÕWå9´∂ÓÅG‚,µòXüyæäät≤3ÃB¸o∑$á‚ÿA~)¸ô⁄aãÓTR/∞Í¨û!·ú©≥•±@√œÆ∫l+?Ü°˝°≤bπô€∏~Í_ŒfP∞∫˙ÌΩy—WãÔÚ~™ú‹àéØìk∞Ω¶—Æ>∆ÛH˚⁄<K◊<¥ä≈¸ì@Î∞hô˝∂Î4ÍΩ¶∏V§—¯¡ä *ˇ.ßx∏íhÈP>/®%àô≤Ævvè∞äüπ-`°:¿S≠`ºπNLœâÚÈ©∞<`$ùä´!Ê∑V'àÀUDsWÉÑ°\Jr(Z\¬¥W°Ù»˝7ˇD⁄˘W6!¯1Øˇ¬üIh2Ô%ºı¸ùÌÁÀ_Ì?*∏¶ø9…˜vÂX†j	ˇuwJF Pz%~©ﬁ‘ÏÉ™+Ññù>õ√ı/ÙJxÅ-p≈◊?V-{§ÌÈÄU˙pmmˇV+˙˙Aı√.1®ÎR‚Ω–‘ôfL3≈√ÓB≈Fà5√HæUJñ©ô::#®„ÍÚ»ÏÊåé<ˇò≠c≥°92b˛HC%Ù«bÄÓè–iiS≤*=· 1u£(È†ò±Ø9]ÎùBÒ#Ägp
+$9A	‘±^≥ˇÂπ:5,‘5¨Àé’É
+gZ’-3FDÙ∫:[5–ÿcÅ[¯`zÖÒ_Û-F›C√Ö™KÃ–Ñ˙ÈõöBÏ,	ı’óè’gàöõCœ≥EÍ“y1xlU^≠’ÒDc|ú_◊JÆ"[TæáîÃ∑∏aO“∞úïêÙb|W_· ‰à‚Ögñ9_wÔ•“—y°U≈“‘˚Û nH%∏Ñ´›ÉBMˆ ¥Ñô≠µ˛‹µÌ…˙î˛„CÓi¸	˚ÍÎr@G=±Ã'Ôtzr|Ï°ÆŸS|û}ã	v[Q†ì∏f•éîÍ€pÒ}Z¢≠˛¥“>I&˜õ;ÁËGDÁ7Œ>˜ΩÏ¥nVõí¿•ãBHƒPp:Ø OS÷ﬂúÆ©TÚª–~b—Èt˘)O\ÜM|”íºßá¢ú¬ªúŸÎˇ#E¬Æº√∆W≠Ï€¥À£<aÓ–uó¯»AÉº!m|≥úÂQÉ#iõÂéÂ¬üÒ¥˛Ô Y;!R–¬Ïâuõ+æk«…æ(“ëzºHg@w_»7⁄ZâpRÜñ¥muùöÏ:yjˇ3tUã¬õ¨)ÚõQ∆3D;Lÿ,HÌÎªT7ª)¥gß≤ÕÎÕ˘P⁄˘w,ªÊWvoÈ≈°#e≈U`%€Èvƒ~\´”e†ñ√;T
+ÉÏˆYá˙ƒØfâVøÈZY_fﬁ\‹uòÌölCB =î∑%ä|êOf9≠úˇ˝ïÍﬁÿ›X¥T7&}àÑP¥m}¨“i∂¡ÊÎ`ÅÅºûXå¿`<âAf^Õó8
+6!{}ÎC;^AπîvuQOÃ≈‰kéa”/	HÚ#ÛhshTê»¸ê-\uœãb‡©Å¶ÓâüÏùêâFÕóÎÊìyB… J?∏ò÷L"-€ŒpH´∑ûÙ∫∂;∂"+ﬁòB¥Dı¥LÁ{Õ,bcKz¬nfaıòyˇ¸2‰1©,˚õå·^ß5â©á´ê{ø°πXh9Q &c…ùÀÿf§†eßÛù=å!ù∫q¶Ÿ`≠0Ê√∆xs<‡ªxÜL{‹7‹}R.≠$£6Z≠˝˜ñ‡Æ'{eÜjëén±Î‘™ı¨§√Ó0∆.TÔq°∞ò‘øx¢ËX†€ ökù"®4g<gÑ‹8?È%}£!ïw)‹£Àd¿%©◊o∑`œ˜ƒ‚é`¬*=—o…Ë?ÜˇË	√'#o∑f˙ ®0Æ”√Éë’™X◊<yΩ-äü,Í‡QmL¡xrOZﬁU≤= G]ëF´Õ,√ûü·Ùç‡Òá◊•L~≠4“è‚xÑ»*öæ¬›ßr˙ô’C!`ô∑åsYÉSÎ∑Ëx.…=•U3Ê"≤(Æ∞=òƒ#≥€P{Jná_b∞≥±ƒÈ hE‰	;CƒB—L—
+2lfQiøR˝û\ΩXi onÁDtâ¡«’5≥-ªà≤ÀÊ…”ËÑU#„È†2˝[o[xw1$sê«*Ûµ«Õq“$
+6£I«n^(-Ïõîæƒ∫Jû¯ü>g˛f6»„•úV∆ˆ™ÊWó?©ºìî1å¶+ˆ\Iö∑#Õˇ÷Ê√%¯e?+\˙ãáå”Veùï{◊)€LÑÒÛt[MœÉYXÔÀÖ√$	Óﬂ¿‘Œámpº††¢ìÑtÔÏ+ùﬁZ∫fèÆ5íh¯b∑RÕÊs⁄∆k]^˙97(ºõêtÉYÀ°á˜ˇi]ß§ùM•ÕÉÓú‘†J ˝∞oó˚ªøå`√œ"Œ-øôµ˝õ‹=¢Ö ˝eßË¥Ö¥æ(Wˇ?¸¿ d†Ö¥˜v4ˇC¿˚ÂˇSÍ‹åñŒ¡óÏ<N⁄Js\ÈA”±Ù;Òî*y˝£ú~ÀSV'nËµ˘„i\∫´uë3Oﬂ∂a£¥¨æ∏ayMÄ¢ıÃn?(£Èáw˙◊;±G∑≤— ™∏síø Ê’Ëø±)X8üïÌ"±–π‘:Tnºt	û`]À¬|ëE»ø#+ÛFÉ£jØ8‰ÙÁµ¥ıü›*$≠´öı˜r»%zäRÇJ=WlÉ’À∫JY-v#f&òCW— <QÚñj"¡x˚§”=ñ V–ÔæCÚáä∏“ç?ÑÜˆîáJív6«ÌPmr—‡#un÷C“sM¢_¸ào	**H?‚4XKÂn¬_>êíÏP†u[Ö=Á]h 
+æ®3p®îFôÒÛ
+F∏~[íD,ÎB;(;
+Òü†8¥‚}›Ø‘”g3-i<fÜF›ƒ”%Uƒj]¯!7ÿ2Üêˇp‰ëj≈ñm´,ÿ0iÈ#paá®MT"Nﬁës5£ñ·Ù)3J=<ΩÀ∏óE*ﬁd›—	˘v§kÄö…Ûu“	)øZ‹ø5¬1â∑,*¿AÖ¬µ30=÷‰}jØˆ~ ´QÙXí|ã[gëÀNæÙ6æ˜±*w-D5›ÌvﬁÜ1Ñ‘3-1ø0€‡JüÅà´|„V‹è®FI&*k¶ªöó	m˝ì§ˇ¨Æ
+c◊Us¶Ô(;˙˘÷©F)÷4ÜÆ+àMt6”ïå
+ÃJÁÉ‘ﬂ Û∆‘ãE7bö—ü≠ô5oØÂÏQÛﬂ`Ï\â∫r_,Y¸cÉ=ªê‡&Peïæná´õä—∞/xπâ∏)◊"™V0êñ5{¡$%“lRÛΩ¬Œ¶^Xõi[o»_Çè4cõz¯˛9 ®ÍﬂæO{µzæ†ÿ‹qÌÿÉ}æ‹—cobÕs@Qÿ[ê‡∫Ë”CH˙^ÌbÅm•mî´«ﬂzcmémV`Ã¶X¡CDÒ&a–pŸG¯≈Æ±dÖ‚‡c$ïlÉ[m
+ÎSà‚MU•/“Ñ°õ”‰ô%≠Dí@ˇoAˆ5È¥çﬁ≤‘[ZC¡&u{†Ï7cßíuä\Ìnp|v∆ºƒÒ<7≠í⁄[(Z*‚…sõ„
+∂S‹q§Õ˙(gí0∂áuæ∂.û¸Y•õ»R∆Ω	:◊vj4[]›ïêW}*qßQ$_rÂQÄKÃ¨ëÿ€˝Ùî’ÁP‡GRÎ1~¨vªñ`zB£†,’bSLÙ¶Û{˘Q√ÊÎ3˝ΩEªq5∫s]Æ˜u\6÷⁄ü÷,¬Ô?7$∆JÔÈµ>Zµ‡ÇfpQ˝çq~µ›öTÊhmvUR˙•wö¿OyÜ*∑Pﬂπˇy∑–≈¸byäÊÂÙey7bﬂÚhªüaAOäòËçµˆ¿¡¸F+‹˙ªM8åaÑ¸ ¶¢}†Ø`RPÒOy∂C„‹–
+∫öAY©åﬂÖ—1Çcì¿í"Û<Ü≈Â◊Œ∏1	ÕS«Y|ùD%¥Á˛U±Q±2–Æ>8‰Åì8á«Ü…⁄„ÇåÏw
+ìä ~Ÿë–S|f≠=ª^$,‘¨=3xÚñœ•™É2f°“; Œ[&ª|8àPhÃ§ïÄ”ÛÄ‚{ùœ}!+pVñÉ/ôâ£U‘`¥Ö‰Uú‚r’õÅ˙⁄∫«*öÉ…›<õ$u”x“Ó%<pB”åb…¨¢ûdVnïÙe≠lò‚e†4ÌO‘%@x|rBiV]¯TÒiπFó¶Ó˘Í_ECC÷)A|¨Ìßå òì¿=õ8fKøPÓ¶QT◊ˆó˘Ÿ◊)Ü FaÍ`˝k¡=í◊»¨ü~A+øú‘¡— CÈ«ñﬂ:)C|qló0áÂŸ&3WÍ1¬6ÏûØ5Ú(CY†›¬|`≈≥y‹	ŸÜ·≠z˜Z`6ÆHÀ‡"PÀôÕ±.Uœ\N¨“ß:W÷]Hï¨‚Ká#KïábSzQô¬	OUinU—ÖÊ1È≈¯MKjo™xZÓãDw~kGâ[∑∏˛g„∂<A∆¡À˘¥∏œ¢÷´KX¢q-[«ëÇìœ §rëûœ¬(usj§Ø¯—gû%$„;˛`W˝;µÌ ´?î‘ÃÈö<Ù9Sj˘±}V∂S√ÑQx§êãºHnˆ∏8¡3√»è'%6Åúã-7D÷˙1í<(ƒæπ†ÂêJŸ¶RsÚ∫CêaÂ˝Èû3È^Ó˜O˝Wêf«–Ñi¥\IÛPÔM#∂àÖB=NπÒ-∑8⁄k≠!ì]æPk~j˛ü"•«Ä)77ã≠«ûÛ+iîˇ4¸sµ”îß™¨ÅÎ•…P…ÔÇl˛V˚¶'-§MW(2Öﬂ8k”J¬©Yµ∂ˆ∑O¶øbñÈ":·¢ò›;–·Gd#;û?oô;fµnfﬂŸ¥uS€aQñ_Üd1kıoªÖ÷‹˚ò¢√DF≠}†ô¢:6e‚ë≠ÎÔT[U0¢}±®ﬁj˜CËeÑu)ˇ+wøBÃ‚ghr#®O~w¥Á<ﬂLyÕã/T|R	hlX*æ ßef∑àú
+†9KΩi€]g’5Ù∂!¬‚ÃÛÒ<ıÃÏS=”]€¥ìpíty>óá7‡:´∂dÒ+‰`&ÍUóYÙ@°M∞&h‚nW2¡èÔeSt∂˛µ®éÉ¡ÑûC+7ã¸¯ÊÑaŒ«Y2âV£˛nlÑi…4P{EÇ÷!KBÉ¬;•
+‡‰È<OäÇ¡‡∑Wî~?†¨0Ìê4ÁNÁ§Ç>WÀtAΩ‡-< Yìò@ﬂ*ŒzíD
+µèñ:E?£¥ÊËJÓ≈2€˙œ„4û«ãœ5M„Pö]8FcÁë˛Wê£“8?^UõtG¢H§V˚@E˝Ù#≥lÚZ–®ÕQíùA$"eSe`q«§Ûf>´Ø˚à#ú;’ıú∆ä¬D±ï@oønL9b˚ ö;€åœÖ<ê—¥º;ıin_8ä”@ƒBõ_îÇ%ç2∆ÜC3èlèÔΩ/ ¬É{˜≈†1x-W|¥@∞f›∂ÑÉùºåÔ•àè89ˆ®|AgÚ?-Kﬂì2¥6I~Zv˚ëj¯;“øO˝¶Ú∑£«wù_K◊Õ F˚í•˘ûRs„˜˜ò1¸&UÓüJ¡"%£√D7&´6Êw$˜æÙá≤å¬€uÃF»õ˙n«e≤èÿK,Û∫2¨(¢«æÜ=yõ}˜¬áóa¿ µ^àµÊ◊û`?å7sø|L"éˆ8Q¡È´¨”Œ…ü¢øˇïf"«¯∏√°yë¨˚y}/ê∫?±}¢Ï'Ñ`ıøÖŸ…àé›ƒîdf|M9+ïw5˚àr‡çZ(”ï≥"Ñì(ﬁ:2l˝πóà‘C√ad^ÜÛÜ9+Â–”‹cùü◊@åÊπüFDqvÆÀûr¿mŸ~Û˘Á(à{
+BŸ˙È*˘ﬁH‚ª~Ì_úó°¸lPëËê√Ñç.˙¥ï¥µ$@´⁄Û‘µ`0MÊié´¥'o‹ı£Èﬁ‘ï%kà¬¶€pÕ(=!<{ªRl¸d?»c4ﬂÖú≤è°œ´Ne‡
+‡=bu—PpR•‡W€‚Ú\êÈ⁄ìõh-GåxfÅ#KâÛ J5)–MNﬁO3W"§ﬁúíâü0_LÃ◊‘ÄÌY8dê∆Û˜π¡QPò!"`<!∑È)-úJÄ#ÉÛΩ*Ÿ=7†AÜà‡ö^ «7Pe◊Îú‡É%T°Ωn¥j–Iú‘8cç }è¢¨Ïqñ@	Qç◊çﬂZº¶.Të/ı}ëŒÌvËâÛ+‚¿ÈîLﬁ∑pC/s˜\à1>W*7†d<Éèº%(jJ≈Uæ¥ÌDíJcn8È™ñ»Lù4Õ	§«e?Â"?Ω’4T∫¸YEnúKÚˇ!ÑÛ”	Ò¶;ßÇ;Ão‡ÎÄ™LÍrañÛ|ÒﬂïûéÌ("ˆ\W GΩﬂ:j=˘Ò˛ôg”>;íïD$k°ÙcÀËëÛ-°Â<≤µÀ™ÓÉ2õzà≈CfN€¥	q Æ†g›ëJ1∏¬8HHthVŒ &6∞`>HEUtÛ^Óƒ!·~ÑŒïÔÇPÒ≈ìΩ"≈™v¬êcìj¿∫vÎäÏè5SôX†,{mΩD5æ)◊(vÑß+aSZ˜¬¢_—R‚å+8ﬂØ=G¡Ù)Ç4ZùôÏbµﬂ,QΩ˘–i˚∏∏u$H
+w=À»
+é—ÄïÔL%µAHèÙò=4«Ì∞7„øà≈©≥ŸßﬁY¸≤='Û¨8ïxd29(*≤«ã„º=Rmp=¥°£ÁÁ°'¯[BÁÌa√Ç˘H3@Ø◊¥›nÄ#()ò]/T†JµL≠ÎÈ&⁄gÙÿ∫ö™‡ÁtÂ‡l`Âf !`Æg_.∆™/à›(ù+~4RºnqlU}Ó~:E¨ÃêØl@ıƒˇ´∞§.Ë…§|M>- ◊c‘w%gÎn+íN√†Ç"ä¬®„°,ÓmBÎﬁãÓµñ3≠À˛¸[∑/ù„}∞˙ü”Üü⁄4{˝€|8ËEë∫|ßı¢Bj∫(C«AÆ◊|Ùd£∑ò∆_3ì†ìnÔH»§?A!vÈ@›gKÀ∫πËá…)úÅì≥“4◊x%âq¥∆Ÿ	ëË©
+πw9è2ˆ≈+•sVÍ≠®1äñì∞µ®ZÛºuõì'>+j˙v"ùX= \ê\ˇ^«ç˜}YCVæ9‡¨ŒS*,ÂÉ⁄Â(Rˆ”ß√†h/±ΩóâfÊœ˝Ò”b'W@·ﬂ€X∆»íΩë˝^„ΩfƒH≥‰*Õ¥;‹\ñÛ»=ﬂ¨Ú∏¬ã>ãox±äYπ4Û¬ûLµ«˚jÎ˚ıcˇÖ∫ú1&Î};ﬂ€ìŸŸ3ÙBÃ·yeSÓg'Ï∏Òp;ô›œ-€ÙdÎî8Ç'TNì‚áò=ULT=˝ü%·3a˘Bm3iπ›(\%ùN™}\V45û™ƒ≠éΩ‡Œ¶¶ü–•kbK3u)Ü˛/	Z∫)ÇŒr5H∆µ3yJóÆfÌ‚5‚√j…|Ï±ÕáuøZBñ∆:Ö€7óúg≈rIAmÁ≥ÜÓ:‰g	Âã~&n˛è%ªÑ2»·πÒ:”YpDzÙ®æ©›c4PŒ-tlMx⁄B¸‡Ú∆∏ç$ât∫%ÑˆëAﬂ$ﬁ›ë=L$∞ù—⁄™ÕSŒ›sp&è¸{xtJüHÑ•ã8n‰æìJ\M™ìy1ŒÂ´Á°∆Ωﬁx„Ô◊¥I<Rﬁ1C≈E¨È¥Å5»rÔ¸Fw¥Å9ecÍ.y¯®0¯r Úã2Û%}ß∂ˇ]¶y4EàÎ|È∏›≠M”æm(
+`wÅõn∑≠˜®{¥≥)ƒt~OuËÖ†OêÉÚÿÚn¿ÏY“=Ã	ﬁx†@µ˙‰˚Z$˚∂§2Waôçr hÌøá–ºÍ—‚Jç8c√;∆ñı*Aı_b∆øq^à,‹⁄.^&µ¨¥f5Å-«;∫ˇÃZæ4ËèëD4 …˚oªïôÛÆ¯[êÉ⁄ò®p,ˆÒÌQA_¯Ï∑î6<*àù0ÏÿÿıE∞âå4ˆ'jË¬NvÆN≥•1◊CC°º—Âóç	˝ˇÈàöGk˛WÊNéM¥r™èF„o
+{ÿaò:—›YÛL2Ü*(e—H≤ÁãŒ#™¡Sµ·#(´øˇ„ÈÆˇ!
+Q`kAˇƒ-&äcGÏ`c˚EsG¸)
+§©•Ü≠1îÆl?£ˇåLÿrvKÃ√#ÿC∑Ïìˆ!–ê˙VÊgX3r˚Ò§¢ô]m‹oæÜ!ˇ˜R¬πòÑ$»Ne	Úı…+≤(¸ÆxÊ⁄≤:)ö`e¢RJ!:á«Ä¶Nâdz∞=8Ñ“ÖÌ7Èí¢±Y≈ø`£ç©iÎNh$¥rY|∏%ì¿hNÑ÷/Ä≤Sp£’Pôv¿V3dÁm8¢V^	ñI˙Pa«™ï-˜ ´JÄ'ò|A£˘µƒ0ÈE∂QÖ·?ŸÍ[ äb°⁄/·€xIÌÊ¢bJµg§pÆØ=Jàj#√Yd_Õ—Èpe>5ÈkL$∆á7ëækLKÌ[œ<
+========== decompiled/resources/res/raw/buffer_rgb_split_frag.frag ==========
+
+precision mediump float;
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+//varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+uniform sampler2D u_texture;
+
+uniform sampler2D u_texture2;
+
+uniform vec2 dirAmount;
+
+uniform vec3 splitColor0;
+uniform vec3 splitColor1;
+uniform vec3 splitColor2;
+
+void main() {
+
+    //vec2 vTexCoordOffset = vec2(0.003, 0.003);
+
+	vec4 color0 = texture2D(u_texture,vTexCoord+dirAmount);
+	vec4 color1 = texture2D(u_texture,vTexCoord);
+	vec4 color2 = texture2D(u_texture,vTexCoord-dirAmount);
+	//vec4 color2 = texture2D(u_texture2,vTexCoord);
+
+//color1.r = color0.r;
+//color1.g = 0.0;
+//color1.b = color2.b;
+
+vec4 finalColor;// = vec4(1.0, 1.0, 1.0, 1.0);
+
+finalColor.r = (color0.r * splitColor0.r) + (color1.r * splitColor1.r) + (color2.r * splitColor2.r);
+finalColor.g = (color0.g * splitColor0.g) + (color1.g * splitColor1.g) + (color2.g * splitColor2.g);
+finalColor.b = (color0.b * splitColor0.b) + (color1.b * splitColor1.b) + (color2.b * splitColor2.b);
+
+========== decompiled/resources/res/raw/visualizer_5.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 64,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 7.5,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/customization_general_lv.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<!-- <h2>Segments renders</h2> -->
+
+<!---->
+    <!-- <p> -->
+<!-- <pre> -->
+<!-- </pre> -->
+    <!-- </p> -->
+<h4>General Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt id="visible">Visible</dt>
+<dd>
+<p>If not set, the element will be hidden, useful to temporary hide elements.</p>
+</dd>
+<dt id="blendMode">BlendMode</dt>
+<dd>
+<p>Blending mode for displaying this element.<br><br><value>Alpha</value> - alpha blending<br><value>Screen</value> - multiplies the inverse, result is always lighter<br><value>Add</value> - linear dodge (add)<br><value>PreMulAlpha</value> - premultiplied alpha blending<br><value>AddAlpha</value> - linear dodge (add) by alpha strength</p>
+</dd>
+<dt id="position">Position</dt>
+<dd>
+<p>Specifies X,Y position of the element. The position is also affected by <value>MeasurePos</value>, <value>AnchorX/Y</value> and <value>AlignmentPosition</value>.<br><br>X: <value>0.0</value>, Y: <value>0.0</value> corresponds to upper left corner.<br>X: <value>0.5</value>, Y: <value>0.5</value> corresponds to the middle of the screen.<br>X: <value>1.0</value>, Y: <value>1.0</value> corresponds to lower right corner.</p>
+</dd>
+<dt id="anchorX">Anchor X</dt>
+<dd>
+<p>Alternative to <value>Position</value> property. Allows setting element to common positions before adding <value>Position</value> value.<br>It's helpful where more complex positioning is required, e.g if creating progress bars.<br><br><value>unset</value> - use default value<br><value>start</value> - left<br><value>center</value> - center<br><value>end</value> - right</p>
+</dd>
+<dt id="anchorY">Anchor Y</dt>
+<dd>
+<p>Alternative to <value>Position</value> property. Allows setting element to common positions before adding <value>Position</value> value.<br>It's helpful where more complex positioning is required, e.g if creating progress bars.<br><br><value>unset</value> - use default value<br><value>start</value> - top<br><value>center</value> - center<br><value>end</value> - bottom</p>
+</dd>
+<dt id="MeasurePos">MeasurePos</dt>
+<dd>
+<p>Variable component of the <value>Position</value> property.</p>
+</dd>
+<dt id="alignmentPosition">AlignmentPosition</dt>
+<dd>
+<p>Specify which point on this element is positioned by <value>Position</value> or relevant position properties.<br><br>For example, to position element in the center of the screen, you would set this property to X: <value>0.5</value>, Y: <value>0.5</value> and <value>Position</value> to also X: <value>0.5</value>, Y: <value>0.5</value>, so this element center is aligned to screen center.</p>
+========== decompiled/resources/res/raw/visualizer_12.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 89,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 200,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/visualizer_9.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 100,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 103,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/visualizer_17.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 64,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/element_audio_provider.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Audio Provider</h2>
+
+<!---->
+    <p>
+<pre>Processes and provides audio data for other elements.
+
+Segments/Bars elements values depend on output from this element. All "Beat" variables are also provided by this element. 
+</pre>
+</p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt id="sampleProvider">Sample Provider</dt>
+<dd>
+<p>Specify the subtype of the audio provider.</p>
+<!--2-->
+<div class="pborder">
+<h6>Spectrum</h6>
+<dl>
+<dt id="sampleOutCount">Sample Out Count</dt>
+<dd>
+<p>Spectrum values output count.</p>
+</dd>
+<dt id="mirrorSamples">Mirror Samples</dt>
+<dd>
+<p>If set, the second half of values are mirrored.</p>
+</dd>
+<dt id="repeatSamples">Repeat Samples</dt>
+<dd>
+<p>Specify times values are repeated across <value>SampleOutCount</value></p>
+</dd>
+<dt id="starAndEndGap">Star And End Gap</dt>
+<dd>
+<p>Inserts zero values at the start and the end of the output.</p>
+</dd>
+<dt id="smooth">Smooth</dt>
+<dd>
+========== decompiled/resources/res/raw/element_image.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Image</h2>
+<!---->
+    <p>
+<pre>Displays album art, image from file or URL.
+
+If no custom path is set it, album art will be displayed, if no album art exists generated art will be displayed (i.e. artist and title name with color background). Animated GIFs are supported and GIFs transparency by using the color key.</pre>
+</p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt>General element properties</dt>
+<dd>
+<p>See <a href="local://customization_general">General Properties</a>.</p>
+</dd>
+
+<hr>
+
+<dt id="customImage">Custom Image</dt>
+<dd>
+<p>Image to be displayed.</p>
+</dd>
+<dt id="measureAnimationSpeed">Measure Animation Speed</dt>
+<dd>
+<p>Speed of animation, used for GIF images.</p>
+</dd>
+<dt id="keepAspectRatioAndCropToFit">Keep Aspect Ratio And Crop To Fit</dt>
+<dd>
+<p>If set, don't stretch the image, crop to fill the desired dimension. This property overrides <value>KeepAspectRatio</value>.</p>
+</dd>
+<dt id="keepAspectRatio">Keep Aspect Ratio</dt>
+<dd>
+<p>If set, don't stretch the image, fit the desired dimensions. </p>
+</dd>
+<dt id="blurredBorder">Blurred Border</dt>
+<dd>
+<p>If image cannot be fitted into desired dimensions, fill empty areas with a blurred image.</p>
+</dd>
+========== decompiled/resources/res/raw/licenses_fonts.html ==========
+<html><head><style> body { font-family: sans-serif; } pre { background-color: #eeeeee; padding: 1em; white-space: pre-wrap; } </style></head><body>
+
+<!--<h3>Third party libraries:</h3>-->
+
+<div class="container">
+    <div class="header">
+        <ul>
+            <li>Great Vibes</li>
+        </ul>
+    </div>
+    <div class="content">
+<pre>Copyright (c) 2012, TypeSETit, LLC (typesetit@att.net),
+with Reserved Font Name &quot;Great Vibes&quot;
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework in which fonts may be shared and improved in partnership with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as long as they are not sold by themselves. The fonts, including any derivative works, can be bundled, embedded, redistributed and/or sold with any software provided that any reserved names are not used by derivative works. The fonts and derivatives, however, cannot be released under any other type of license. The requirement for fonts to remain under this license does not apply to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright Holder(s) under this license and clearly marked as such. This may include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting, or substituting -- in part or in whole -- any of the components of the Original Version, by changing formats or by porting the Font Software to a new environment.
+
+"Author" refers to any designer, engineer, programmer, technical writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the following conditions:
+
+========== decompiled/resources/res/raw/buffer_rgb_split_vert.vert ==========
+//combined projection and view matrix
+uniform mat4 u_projView;
+
+//"in" attributes
+attribute vec3 Position;
+attribute vec2 TexCoord;
+attribute vec4 Color;
+
+//"out" varyings to our fragment shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+ 
+void main() {
+	vColor = Color;
+	vTexCoord = TexCoord;
+	gl_Position = u_projView * vec4(Position, 1.0);
+	//gl_Position = vec4(Position, 0.0, 1.0);
+
+	    // vTexCoord = Position.xy*madd+madd;
+        // gl_Position = vec4(Position,1.0);
+}========== decompiled/resources/res/raw/visualizer_8.json ==========
+{
+  "compositions": [
+    {
+      "elements": [
+        {
+          "v": "AudioProvider",
+          "objType": "AudioProvider",
+          "ver": "10",
+          "_name": "Audio Provider",
+          "sampleProvider": {
+            "v": "Spectrum2",
+            "t": "_child Waveform Spectrum Spectrum2",
+            "o": 0,
+            "tag": "0_general"
+          },
+          "audioDurationMs": {
+            "v": 60,
+            "t": "i 20 300",
+            "o": 1,
+            "tag": "1_AudioCapture"
+          },
+          "highQualityAudioCapture": {
+            "v": 0,
+            "t": "b",
+            "o": 2,
+            "tag": "1_AudioCapture"
+          },
+          "sampleOutCount": {
+            "v": 126,
+            "t": "i 0 512",
+            "o": 3,
+            "tag": "2_spectrum"
+          },
+          "lowerHz": {
+            "v": 0.10000000149011612,
+            "t": "f 0.0 300.0",
+            "o": 4,
+            "tag": "2_spectrumHz"
+          },
+          "higherHz": {
+========== decompiled/resources/res/raw/buffer_fx_light_frag.frag ==========
+
+precision mediump float;
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+
+//"in" attributes from our vertex shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+
+//declare uniforms
+uniform sampler2D u_texture;
+
+uniform sampler2D u_texture2;
+uniform float maskadd;
+uniform float maskmul;
+uniform float mask_l_add;
+uniform float mask_l_mul;
+//uniform   mat4        mat_tex1;//transform
+
+uniform float tex2_y_add;
+uniform float tex2_y_mul;
+
+uniform vec4 Color2;//Colorize
+
+uniform float saturation;
+
+const vec3 W = vec3(0.2125, 0.7154, 0.0721);
+
+void main() {
+    //vec2 uv1 = (mat_tex1 * vec4(vTexCoord, 0.0, 1.0)).xy;
+    //vec2 uv1 = (mat_tex1 * vec3(vTexCoord, 1.0)).xy;
+
+	//vec4 color1 = texture2D(u_texture,uv1);
+	vec4 color1 = texture2D(u_texture,vTexCoord);
+	//vec4 color2 = texture2D(u_texture2,vTexCoord);
+	vec4 color2 = texture2D(u_texture2,vec2(vTexCoord.x, tex2_y_add+(vTexCoord.y*tex2_y_mul)));
+
+    vec3 intensity = vec3(dot(color1.rgb, W));
+    color1.rgb =  mix(intensity, color1.rgb, saturation);
+========== decompiled/resources/res/raw/element_rgb_split_effect.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Rgb Split Effect</h2>
+
+<!---->
+    <p>
+<pre>Offsets RGB channels of target composition/image.
+
+Helps to create chromatic aberration effect. It's possible to split in any other colors than Red, Green, Blue.
+
+</pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt>General element properties</dt>
+<dd>
+<p>See <a href="local://customization_general">General Properties</a>.</p>
+</dd>
+
+<hr>
+
+<dt id="blendModeContent">Blend Mode Content</dt>
+<dd>
+<p>Blend mode for displaying original content (before blurring). Used when <value>ShowUnblurredContent</value> or <value>ShowUnblurredContentUnder</value> is set.</p>
+</dd>
+<dt id="TargetImage">Target Image</dt>
+<dd>
+<p>Specify Image or Composition used as input.</p>
+</dd>
+<dt id="color">Color</dt>
+<dd>
+<p>Tint of the effect.</p>
+</dd>
+<dt id="showUnblurredContent">Show Unblurred Content</dt>
+<dd>
+<p>Show original content (before blurring) over the blur.</p>
+</dd>
+<dt id="showUnblurredContentUnder">Show Unblurred Content Under</dt>
+========== decompiled/resources/res/raw/blur_vert.vert ==========
+
+//"in" attributes
+attribute vec3 Position;
+attribute vec2 TexCoord;
+attribute vec4 Color;
+
+
+//"out" varyings to our fragment shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+
+const vec2 madd = vec2(0.5,0.5);
+
+void main() {
+    vColor = vec4(1.0, 1.0,1.0, 1.0);
+    vTexCoord = Position.xy*madd+madd;
+    //vTexCoord = TexCoord;
+    gl_Position = vec4(Position,1.0);
+}========== decompiled/resources/res/raw/element_blur_effect.html ==========
+<html><head><link rel="stylesheet" href="style.css"><style></style></head><body>
+<div class="col">
+<h2>Blur Effect</h2>
+
+<!---->
+    <p>
+<pre>Displays blurred version of input composition/image.
+
+Usually "Show Unblurred Content" is set to overlay original unblurred input content on top of blurred one.</pre>
+    </p>
+<h4>Properties</h4>
+<hr>
+<!---->
+<dl>
+<dt>General element properties</dt>
+<dd>
+<p>See <a href="local://customization_general">General Properties</a>.</p>
+</dd>
+
+<hr>
+
+<dt id="blendModeContent">Blend Mode Content</dt>
+<dd>
+<p>Blend mode for displaying original content (before blurring). Used when <value>ShowUnblurredContent</value> or <value>ShowUnblurredContentUnder</value> is set.</p>
+</dd>
+<dt id="color">Color</dt>
+<dd>
+<p>Tint of the blur.</p>
+</dd>
+<dt id="sourceCompositionIndex">Source Composition Index</dt>
+<dd>
+<p>Index of Composition for use as input.</p>
+</dd>
+<dt id="MaskImage">Mask Image</dt>
+<dd>
+<p>Image used to mask out areas.</p>
+</dd>
+<dt id="showUnblurredContent">Show Unblurred Content</dt>
+<dd>
+<p>Show original content (before blurring) over the blur.</p>
+========== decompiled/resources/res/raw/buffer_motion_blur_vert.vert ==========
+//combined projection and view matrix
+uniform mat4 u_projView;
+
+//"in" attributes
+attribute vec3 Position;
+attribute vec2 TexCoord;
+attribute vec4 Color;
+
+//"out" varyings to our fragment shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+ 
+void main() {
+	vColor = Color;
+	vTexCoord = TexCoord;
+	gl_Position = u_projView * vec4(Position, 1.0);
+	//gl_Position = vec4(Position, 0.0, 1.0);
+
+	    // vTexCoord = Position.xy*madd+madd;
+        // gl_Position = vec4(Position,1.0);
+}========== decompiled/resources/res/raw/buffer_fx_ligh_vert.vert ==========
+//combined projection and view matrix
+uniform mat4 u_projView;
+
+//"in" attributes
+attribute vec3 Position;
+attribute vec2 TexCoord;
+attribute vec4 Color;
+
+//"out" varyings to our fragment shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+ 
+void main() {
+	vColor = Color;
+	vTexCoord = TexCoord;
+	gl_Position = u_projView * vec4(Position, 1.0);
+
+	//vTexCoord.x = gl_Position.x;
+	//vTexCoord.y = gl_Position.y;
+	//gl_Position = vec4(Position, 0.0, 1.0);
+
+	    // vTexCoord = Position.xy*madd+madd;
+        // gl_Position = vec4(Position,1.0);
+}========== decompiled/resources/res/raw/buffer_vert.vert ==========
+//combined projection and view matrix
+uniform mat4 u_projView;
+
+//"in" attributes
+attribute vec3 Position;
+attribute vec2 TexCoord;
+attribute vec4 Color;
+
+//"out" varyings to our fragment shader
+varying vec4 vColor;
+varying vec2 vTexCoord;
+ 
+void main() {
+	vColor = Color;
+	vTexCoord = TexCoord;
+	gl_Position = u_projView * vec4(Position, 1.0);
+	//gl_Position = vec4(Position, 0.0, 1.0);
+}
