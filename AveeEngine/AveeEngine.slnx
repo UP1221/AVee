@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AveeEngine.App/AveeEngine.App.csproj" />
+  <Project Path="AveeEngine.Audio/AveeEngine.Audio.csproj" />
+  <Project Path="AveeEngine.Core/AveeEngine.Core.csproj" />
+  <Project Path="AveeEngine.Render/AveeEngine.Render.csproj" />
+</Solution>

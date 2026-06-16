@@ -1,0 +1,122 @@
+using AveeEngine.Core.Presets;
+
+Console.WriteLine("AveeEngine");
+
+if (args.Length > 0)
+{
+    var preset = PresetLoader.Load(args[0]);
+    Console.WriteLine("Loaded preset");
+}cd /workspaces/AVee
+
+cat > AveeEngine/AveeEngine.Core/Elements/VisualizerElement.cs << 'EOF'
+namespace AveeEngine.Core.Elements;
+
+public abstract class VisualizerElement
+{
+    public string ObjType { get; set; } = "";
+    public List<VisualizerElement> Children { get; } = new();
+
+    public virtual void Update(float dt) { }
+
+    public virtual void Render()
+    {
+        foreach (var child in Children)
+            child.Render();
+    }
+}
+EOF@UP1221 ➜ /workspaces/AVee (main) $ cd /workspaces/AVee
+@UP1221 ➜ /workspaces/AVee (main) $ 
+@UP1221 ➜ /workspaces/AVee (main) $ cat > AveeEngine/AveeEngine.Core/Elements/VisualizerElement.cs << 'EOF'
+> namespace AveeEngine.Core.Elements;
+> 
+> public abstract class VisualizerElement
+> {
+>     public string ObjType { get; set; } = "";
+>     public List<VisualizerElement> Children { get; } = new();
+> 
+>     public virtual void Update(float dt) { }
+> 
+>     public virtual void Render()
+>     {
+>         foreach (var child in Children)
+>             child.Render();
+>     }
+> }
+> EOF
+@UP1221 ➜ /workspaces/AVee (main) $ cat > AveeEngine/AveeEngine.Core/Elements/Bars.cs << 'EOF'
+namespace AveeEngine.Core.Elements;
+
+public class Bars : VisualizerElement
+{
+    public float HeightScale { get; set; } = 1.0f;
+
+    public Bars()
+    {
+        ObjType = "Bars";
+    }
+}
+EOF
+@UP1221 ➜ /workspaces/AVee (main) $ cat > AveeEngine/AveeEngine.Core/Elements/Image.cs << 'EOF'
+namespace AveeEngine.Core.Elements;
+
+public class Image : VisualizerElement
+{
+    public string Texture { get; set; } = "";
+
+    public Image()
+    {
+        ObjType = "Image";
+    }
+}
+EOF
+@UP1221 ➜ /workspaces/AVee (main) $ cat > AveeEngine/AveeEngine.Core/Elements/Particles.cs << 'EOF'
+namespace AveeEngine.Core.Elements;
+
+public class Particles : VisualizerElement
+{
+    public int CountLimit { get; set; }
+
+    public Particles()
+    {
+        ObjType = "Particles";
+    }
+}
+EOF
+@UP1221 ➜ /workspaces/AVee (main) $ mkdir -p AveeEngine/AveeEngine.Render/Renderer
+@UP1221 ➜ /workspaces/AVee (main) $ cat > AveeEngine/AveeEngine.Render/Renderer/IRenderer.cs << 'EOF'
+namespace AveeEngine.Render.Renderer;
+
+public interface IRenderer
+{
+    void BeginFrame();
+    void EndFrame();
+}
+EOF
+@UP1221 ➜ /workspaces/AVee (main) $ cat > AveeEngine/AveeEngine.Core/Presets/PresetLoader.cs << 'EOF'
+using System.Text.Json;
+
+namespace AveeEngine.Core.Presets;
+
+public static class PresetLoader
+{
+    public static JsonDocument Load(string file)
+    {
+        return JsonDocument.Parse(File.ReadAllText(file));
+    }
+}
+EOF
+@UP1221 ➜ /workspaces/AVee (main) $ cd AveeEngine
+
+dotnet build
+Restore complete (2.5s)
+  AveeEngine.Audio net10.0 succeeded (9.8s) → AveeEngine.Audio/bin/Debug/net10.0/AveeEngine.Audio.dll
+  AveeEngine.App net10.0 succeeded (10.5s) → AveeEngine.App/bin/Debug/net10.0/AveeEngine.App.dll
+  AveeEngine.Core net10.0 succeeded (0.9s) → AveeEngine.Core/bin/Debug/net10.0/AveeEngine.Core.dll
+  AveeEngine.Render net10.0 succeeded (0.6s) → AveeEngine.Render/bin/Debug/net10.0/AveeEngine.Render.dll
+
+Build succeeded in 14.2s
+@UP1221 ➜ /workspaces/AVee/AveeEngine (main) $ dotnet run \
+--project AveeEngine.App \
+../research/android_shaders/visualizer_0.json
+Hello, World!
+@UP1221 ➜ /workspaces/AVee/AveeEngine (main) $ ﻿Console.WriteLine("Hello, World!");

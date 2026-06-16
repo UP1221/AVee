@@ -1,0 +1,13 @@
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/bin/Debug/net10.0/AveeEngine.Audio.deps.json
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/bin/Debug/net10.0/AveeEngine.Audio.dll
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/bin/Debug/net10.0/AveeEngine.Audio.pdb
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/AveeEngine.Audio.csproj.AssemblyReference.cache
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/AveeEngine.Audio.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/AveeEngine.Audio.AssemblyInfoInputs.cache
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/AveeEngine.Audio.AssemblyInfo.cs
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/AveeEngine.Audio.csproj.CoreCompileInputs.cache
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/AveeEngine.Audio.sourcelink.json
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/AveeEngine.Audio.dll
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/refint/AveeEngine.Audio.dll
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/AveeEngine.Audio.pdb
+/workspaces/AVee/AveeEngine/AveeEngine.Audio/obj/Debug/net10.0/ref/AveeEngine.Audio.dll

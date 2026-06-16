@@ -1,0 +1,50 @@
+compositions : Array
+  [2 items]
+    elements : Array
+      [4 items]
+        v : String
+        objType : String
+        ver : String
+        _name : String
+        sampleProvider : Object
+          v : String
+          t : String
+          o : Number
+          tag : String
+        inputSize : Object
+          v : Number
+          t : String
+          o : Number
+          tag : String
+        sampleOutCountPower : Object
+          v : Number
+          t : String
+          o : Number
+          tag : String
+    v : String
+    objType : String
+    ver : String
+    _name : String
+    introBlendMode : Object
+      v : String
+      t : String
+      o : Number
+      tag : String
+    introFadeDuration : Object
+      v : Number
+      t : String
+      o : Number
+      tag : String
+    outroFadeDuration : Object
+      v : Number
+      t : String
+      o : Number
+      tag : String
+    introFadeColor : Object
+      v : Number
+      t : String
+      o : Number
+      tag : String
+ver : String
+template : Number
+objType : String

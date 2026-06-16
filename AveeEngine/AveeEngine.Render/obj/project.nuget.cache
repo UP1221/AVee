@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "ID6tyfT6YGg=",
+  "success": true,
+  "projectFilePath": "/workspaces/AVee/AveeEngine/AveeEngine.Render/AveeEngine.Render.csproj",
+  "expectedPackageFiles": [
+    "/home/codespace/.nuget/packages/microsoft.dotnet.platformabstractions/3.1.6/microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
+    "/home/codespace/.nuget/packages/microsoft.extensions.dependencymodel/9.0.9/microsoft.extensions.dependencymodel.9.0.9.nupkg.sha512",
+    "/home/codespace/.nuget/packages/silk.net.core/2.23.0/silk.net.core.2.23.0.nupkg.sha512",
+    "/home/codespace/.nuget/packages/silk.net.maths/2.23.0/silk.net.maths.2.23.0.nupkg.sha512",
+    "/home/codespace/.nuget/packages/silk.net.opengl/2.23.0/silk.net.opengl.2.23.0.nupkg.sha512"
+  ],
+  "logs": []
+}
